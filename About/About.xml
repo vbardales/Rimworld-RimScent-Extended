@@ -16,21 +16,22 @@ TWO MECHANICS, TOGGLEABLE IN THE OPTIONS
 - Olfactory adaptation. A constant smell stops being noticed, and hits again after time away. Without it, a colonist living next to a barn is unhappy forever with no way to get used to it. Floor, duration, and whether pleasant smells fade too, are all adjustable.
 - Temperature. Heat makes odours volatile, cold locks them down. A scent is at 40% below -10C, full strength at 20C, and 160% at 45C and above. Refrigerating a pile of corpses finally does something for your nose.
 
-TWO EXTENSION POINTS FOR OTHER MODS
+THREE EXTENSION POINTS FOR OTHER MODS
 RimScent can attach one ThoughtDef to a thing. That is all. These add:
 - ModExtension_PawnScent — a scent carried by a pawn def, gated on a stat threshold. RimScent reads only a neighbour's hediffs, never their race def, so animals and creatures could not smell at all.
 - ModExtension_ScentHediff — a scent that also applies a HediffDef, so a smell can do something rather than only be liked or disliked.
+- ModExtension_TerrainScent — a scent carried by the ground itself. RimScent reads only the thing grid, and terrain is not a thing: water, mud, sand and ice have no ThingDef at all. Counted per tile, and optionally gated on temperature — a marsh only smells when it is warm.
 
-Both are documented in the README, with examples.
+All three are documented in the README, with examples.
 
 ALSO INCLUDED
-The two thoughts RimScent defines in its core and never translates, in French, and the scan support for corpses and spoiled food — reading rot stage, which no def can express. The thoughts that go with that reading live in the Decay expansion; without it the socle simply stays silent.
+The one thought RimScent defines in its core and never translates, in French, and the scan support for corpses and spoiled food — reading rot stage, which no def can express. The thoughts that go with that reading live in the Decay expansion; without it the socle simply stays silent.
 
 THE EXPANSIONS
 Incense Plus, Perfume Plus, Everyday Life, Decay, Farmyard, Industry and Weather. Each is optional, each declares this mod as a dependency, and each covers one theme.
 
 No save data is added: it can be added to or removed from an ongoing game. Requires RimScent.</description>
-	<modVersion>0.3.0</modVersion>
+	<modVersion>0.4.0</modVersion>
 	<supportedVersions>
 		<li>1.6</li>
 	</supportedVersions>

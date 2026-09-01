@@ -125,6 +125,38 @@ Le facteur s'applique **après** la sortie anticipée sur l'odorat du colon : un
 reste, et le facteur ne descend jamais sous 0,40 — une odeur qui disparaîtrait complètement
 ferait clignoter la pensée au gré des courants d'air.
 
+## `ModExtension_TerrainScent`
+
+RimScent ne lit que le `thingGrid` : des objets posés sur des cases. **Le terrain n'est pas
+un objet** — l'eau, la vase, le sable et la glace n'ont pas de `ThingDef` — donc rien de ce
+qui fait l'odeur d'un lieu n'était accessible. Cette extension se pose sur un `TerrainDef`,
+et `ScentScan` lit la grille de terrain sur les mêmes cases qu'il parcourt déjà : un accès
+indexé, aucun coût de parcours supplémentaire.
+
+```xml
+<li Class="RimScentExtended.ModExtension_TerrainScent">
+  <thought>MonOdeur</thought>
+  <aboveTemperature>18</aboveTemperature>
+</li>
+```
+
+**L'odeur est comptée par case**, et non une fois pour toutes comme la météo. C'est voulu :
+trois cases d'eau au bord d'un ruisseau ne sentent pas comme un marécage à perte de vue, et
+le `stackLimit` de la `ThoughtDef` plafonne le total. Le nombre de cases devient donc une
+mesure de « combien il y en a autour de toi », gratuitement.
+
+`aboveTemperature` est optionnel et vaut `NaN` par défaut, ce qui signifie « aucune
+condition ». Sous le seuil, **la case ne compte pas du tout** — c'est distinct du facteur de
+température global ci-dessus, qui atténue ou amplifie une odeur déjà présente. La vase ne
+sent qu'à la chaleur : ce n'est pas une odeur atténuée par le froid, c'est une odeur qui
+n'existe pas.
+
+Le terrain est lu **avant** les objets de la case : un tapis posé sur de la vase ne la fait
+pas disparaître, les deux odeurs entrent au concours de dominance.
+
+Le premier client est **RimScent Extended: Weather Expansion** — eau douce, océan, vase,
+sources chaudes, lave et sol forestier.
+
 ## `ModExtension_ScentHediff`
 
 Le cadre ne sait appliquer qu'une `ThoughtDef` : une odeur ne peut faire que de l'humeur.

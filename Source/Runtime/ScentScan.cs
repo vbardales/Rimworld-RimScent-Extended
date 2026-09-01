@@ -34,6 +34,7 @@ namespace RimScentExtended
         // et par cellule : un entrepot bien rempli le paierait cher a chaque passage.
         private static HashSet<ThingDef> rottableThings;
         private static ThoughtDef rottenFood;
+        private static Dictionary<TerrainDef, ModExtension_TerrainScent> scentTerrains;
         private static bool cacheBuilt;
 
         private static void EnsureCache()
@@ -53,6 +54,15 @@ namespace RimScentExtended
             scentHediffs = new HashSet<HediffDef>();
             foreach (HediffDef d in DefDatabase<HediffDef>.AllDefs)
                 if (d.GetModExtension<ModExtension_Scent>()?.thought != null) scentHediffs.Add(d);
+            // Le terrain odorant est mis en cache dans un dictionnaire plutot qu'un
+            // ensemble : la boucle de cases fait un acces par case, et on veut l'extension
+            // elle-meme sans repasser par GetModExtension a chaque fois.
+            scentTerrains = new Dictionary<TerrainDef, ModExtension_TerrainScent>();
+            foreach (TerrainDef d in DefDatabase<TerrainDef>.AllDefs)
+            {
+                ModExtension_TerrainScent ext = d.GetModExtension<ModExtension_TerrainScent>();
+                if (ext?.thought != null) scentTerrains[d] = ext;
+            }
             // On teste l'heritage plutot que l'egalite de type : un mod peut sous-classer
             // CompRottable, et ThingDef.HasComp ne compare que la classe exacte.
             rottableThings = new HashSet<ThingDef>();
@@ -95,8 +105,9 @@ namespace RimScentExtended
             // La chaleur rend les odeurs volatiles, le froid les fige. On applique le
             // facteur APRES la sortie anticipee ci-dessus : un pion anosmique le reste, et
             // une chambre froide attenue les odeurs sans jamais supprimer l'odorat.
+            float ambientTemperature = pawn.AmbientTemperature;
             if (RimScentExtendedMod.Settings?.temperatureEnabled ?? true)
-                smellFactor *= TemperatureFactor(pawn.AmbientTemperature);
+                smellFactor *= TemperatureFactor(ambientTemperature);
 
             bool dysosmicPawn = HasDysosmicTrait(pawn) || HasGeneContaining(pawn, "Dysosmic");
             HashSet<string> traitNames = TraitNames(pawn);
@@ -135,6 +146,19 @@ namespace RimScentExtended
                 else if (cellRoom != pawnRoom)
                 {
                     continue;
+                }
+
+                // Le sol de la case. Compte par case, donc proportionnel a la surface
+                // d'eau ou de vase autour du pion, et plafonne par le stackLimit de la
+                // pensee. Lu avant les objets : un tapis pose sur de la vase ne la fait
+                // pas disparaitre, les deux odeurs entrent au concours de dominance.
+                if (scentTerrains.Count > 0)
+                {
+                    TerrainDef terrain = pawn.Map.terrainGrid.TerrainAt(cell);
+                    ModExtension_TerrainScent soil;
+                    if (terrain != null && scentTerrains.TryGetValue(terrain, out soil)
+                        && soil.AppliesAt(ambientTemperature))
+                        Record(soil.thought, dysosmicPawn, counts, dysosmic);
                 }
 
                 List<Thing> things = pawn.Map.thingGrid.ThingsListAtFast(cell);
