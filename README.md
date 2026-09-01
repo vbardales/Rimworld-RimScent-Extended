@@ -57,7 +57,7 @@ Le seuil est ce qui rend la chose jouable : une odeur permanente sur toute créa
 une punition constante. Le premier client est **RimScent Extended: Farmyard Expansion**,
 qui la cale sur `FilthRate >= 4`, la valeur exacte testée par `RimWorld.Alert_AnimalFilth` —
 *un animal sent quand le jeu lui-même le juge assez sale pour alerter le joueur*.
-Conséquence utile : [Housebroken](../Housebroken/README.md), qui multiplie `FilthRate` par
+Conséquence utile : [Housebroken](https://github.com/vbardales/Rimworld-Housebroken), qui multiplie `FilthRate` par
 la propreté de l'animal, éteint l'odeur en même temps que l'alerte — sans qu'aucun des deux
 mods ait à connaître l'autre.
 
