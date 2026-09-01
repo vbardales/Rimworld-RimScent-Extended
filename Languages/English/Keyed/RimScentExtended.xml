@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <RimScentExtended.Settings.Category>RimScent - Français</RimScentExtended.Settings.Category>
+  <RimScentExtended.Settings.Category>RimScent Extended</RimScentExtended.Settings.Category>
 
   <RimScentExtended.Settings.Temperature>Temperature affects scents</RimScentExtended.Settings.Temperature>
   <RimScentExtended.Settings.TemperatureTip>Heat makes odours volatile, cold locks them down. A scent is at 40% below -10C, full strength at 20C, and 160% at 45C and above. Applies to pleasant and foul smells alike, so refrigerating a pile of corpses genuinely helps.</RimScentExtended.Settings.TemperatureTip>
