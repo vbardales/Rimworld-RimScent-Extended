@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: Perfume Crafting -->
+  <PerfumeTech.label>fabrication de parfums</PerfumeTech.label>
+  <!-- EN: Allows colonists to craft all perfumes. -->
+  <PerfumeTech.description>Permet aux colons de fabriquer tous les parfums.</PerfumeTech.description>
+
+</LanguageData>

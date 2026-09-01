@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Variante attenuee de RimScent_CampfireScent. L'amont donne +3 au feu de camp, avec
+       une description qui parle de nostalgie et de foyer : c'est juste pour un feu autour
+       duquel on s'assoit, mais beaucoup trop pour une torche murale, qu'on pose par
+       dizaines le long d'un couloir. A +3 et en cumul, l'eclairage d'une base entiere
+       serait devenu la meilleure source d'humeur du jeu.
+
+       D'ou +1, et un cumul de 2 : une piece eclairee aux torches sent agreablement le
+       bois brule, sans que ce soit une strategie.
+
+       Les six cibles portent toutes un CompRefuelable, donc une torche eteinte ou a court
+       de bois ne sent rien. Cinq brulent du WoodLog, la torche sombre a champignons du
+       RawFungus - d'ou une description volontairement neutre quant au combustible.
+
+       Trois des six viennent de DLC (Royalty, Ideology, Biotech) : sans eux les defs
+       n'existent pas, et le motif a predicats disjoints les ignore sans erreur. -->
+
+  <ThoughtDef>
+    <defName>RimScentExtended_Scent_Torch</defName>
+    <durationDays>0.1</durationDays>
+    <stackLimit>2</stackLimit>
+    <stages>
+      <li>
+        <label>torch smoke</label>
+        <description>The resinous, faintly sharp smoke of a burning torch.</description>
+        <baseMoodEffect>1</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

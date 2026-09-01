@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Alpha Crafts est le mod le plus odorant de la liste : parfums, essences, bougies
+       parfumees, savon, vinaigre et cornichons. Beurre, mayonnaise, farine, yaourt et
+       popcorn sont laisses de cote - ils sentent peu, et surtout ils remplissent les
+       reserves. -->
+
+  <!-- Le parfum, en flacon et porte. Meme pensee que les Scenters de Social Supplements, d'ou sa definition dans le volet Core. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="AC_Perfume") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="AC_Perfume") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_WornScent</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="AC_Perfume") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="AC_Perfume") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScentExtended_Scent_WornScent</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Le hediff du parfum porte, senti sur le voisin. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/HediffDef[(defName="AC_PerfumeHediff") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/HediffDef[(defName="AC_PerfumeHediff") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_WornScent</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/HediffDef[(defName="AC_PerfumeHediff") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/HediffDef[(defName="AC_PerfumeHediff") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScentExtended_Scent_WornScent</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Bougies parfumees. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="AC_ScentedCandle") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="AC_ScentedCandle") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_ScentedCandle</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="AC_ScentedCandle") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="AC_ScentedCandle") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScentExtended_Scent_ScentedCandle</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Savon. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="AC_Soap") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="AC_Soap") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_Soap</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="AC_Soap") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="AC_Soap") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScentExtended_Scent_Soap</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Essences, et l'infuseur qui les produit. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="AC_Essence" or defName="AC_Infuser") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="AC_Essence" or defName="AC_Infuser") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_Essence</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="AC_Essence" or defName="AC_Infuser") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="AC_Essence" or defName="AC_Infuser") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScentExtended_Scent_Essence</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Vinaigre, cornichons et oeufs au vinaigre : meme famille acetique. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="AC_Vinegar" or defName="AC_Pickles" or defName="AC_PickledEggs") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="AC_Vinegar" or defName="AC_Pickles" or defName="AC_PickledEggs") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_Vinegar</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="AC_Vinegar" or defName="AC_Pickles" or defName="AC_PickledEggs") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="AC_Vinegar" or defName="AC_Pickles" or defName="AC_PickledEggs") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScentExtended_Scent_Vinegar</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Le fermenteur artisanal reutilise l'odeur de fermentation du volet Core, celle du fut vanilla. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="AC_VinegarCask") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="AC_VinegarCask") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_Fermenting</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="AC_VinegarCask") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="AC_VinegarCask") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScentExtended_Scent_Fermenting</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

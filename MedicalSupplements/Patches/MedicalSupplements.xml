@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Les armoires a pharmacie, le frigo et les nattes medicales restent inodores :
+       ce sont du mobilier, pas des sources d odeur. -->
+
+  <!-- Sels d'ammoniac : l'objet en reserve et le hediff sur le pion qu'on vient de ranimer. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="MSSmellSalts") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="MSSmellSalts") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_SmellingSalts</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="MSSmellSalts") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="MSSmellSalts") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScentExtended_Scent_SmellingSalts</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Le hediff correspondant, senti sur le voisin. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/HediffDef[(defName="MSSmellSaltsHigh") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/HediffDef[(defName="MSSmellSaltsHigh") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_SmellingSalts</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/HediffDef[(defName="MSSmellSaltsHigh") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/HediffDef[(defName="MSSmellSaltsHigh") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScentExtended_Scent_SmellingSalts</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Melangeur chimique et laboratoire de stimulants : tous deux a courant, donc silencieux hors tension. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="MSDrugMixer" or defName="MSStimLab") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="MSDrugMixer" or defName="MSStimLab") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_Pharmacy</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="MSDrugMixer" or defName="MSStimLab") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="MSDrugMixer" or defName="MSStimLab") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScentExtended_Scent_Pharmacy</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

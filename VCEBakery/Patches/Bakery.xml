@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Les deux fours de boulangerie. Comme les fourneaux, ils portent un comp de
+       courant ou de combustible, donc ils ne sentent qu'allumes. -->
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="VCE_BakeryOven_Fueled" or defName="VCE_BakeryOven_Electric") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="VCE_BakeryOven_Fueled" or defName="VCE_BakeryOven_Electric") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_Baking</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="VCE_BakeryOven_Fueled" or defName="VCE_BakeryOven_Electric") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="VCE_BakeryOven_Fueled" or defName="VCE_BakeryOven_Electric") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScentExtended_Scent_Baking</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

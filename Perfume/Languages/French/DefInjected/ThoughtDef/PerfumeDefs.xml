@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: Bloody -->
+  <Scent_Red_Thought.stages.Bloody.label>odeur de sang</Scent_Red_Thought.stages.Bloody.label>
+  <!-- EN: Reeks of fresh blood -->
+  <Scent_Red_Thought.stages.Bloody.description>Ça empeste le sang frais.</Scent_Red_Thought.stages.Bloody.description>
+
+  <!-- EN: Oceanic -->
+  <Scent_Blue_Thought.stages.Oceanic.label>odeur marine</Scent_Blue_Thought.stages.Oceanic.label>
+  <!-- EN: Fresh smell of ocean breeze -->
+  <Scent_Blue_Thought.stages.Oceanic.description>L'odeur fraîche de la brise marine.</Scent_Blue_Thought.stages.Oceanic.description>
+
+  <!-- EN: Forest -->
+  <Scent_Green_Thought.stages.Forest.label>odeur forestière</Scent_Green_Thought.stages.Forest.label>
+  <!-- EN: The earthy scent of trees and grass -->
+  <Scent_Green_Thought.stages.Forest.description>L'odeur terreuse des arbres et de l'herbe.</Scent_Green_Thought.stages.Forest.description>
+
+  <!-- EN: Berry aroma -->
+  <Scent_Purple_Thought.stages.Berry_aroma.label>arôme de baies</Scent_Purple_Thought.stages.Berry_aroma.label>
+  <!-- EN: Sweet berry delight -->
+  <Scent_Purple_Thought.stages.Berry_aroma.description>Un délice sucré de baies.</Scent_Purple_Thought.stages.Berry_aroma.description>
+
+  <!-- EN: Shroom -->
+  <Scent_Turquoise_Thought.stages.Shroom.label>odeur de champignon</Scent_Turquoise_Thought.stages.Shroom.label>
+  <!-- EN: The sharp scent of Shroom and Deep Caves -->
+  <Scent_Turquoise_Thought.stages.Shroom.description>L'odeur piquante des champignons et des grottes profondes.</Scent_Turquoise_Thought.stages.Shroom.description>
+
+</LanguageData>

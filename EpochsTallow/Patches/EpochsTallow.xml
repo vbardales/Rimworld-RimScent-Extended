@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- 1. Les torches au suif et le suif brut. Les torches ne portent pas de
+          CompRefuelable mais un CompProperties_DestroyAfterDelay : elles se detruisent
+          en s'eteignant, donc une torche qui existe est une torche allumee. Aucun test
+          a ajouter, contrairement aux brule-encens. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="DV_TallowLamp" or defName="DV_TallowWallLamp" or defName="DV_Tallow") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="DV_TallowLamp" or defName="DV_TallowWallLamp" or defName="DV_Tallow") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_Tallow</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="DV_TallowLamp" or defName="DV_TallowWallLamp" or defName="DV_Tallow") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="DV_TallowLamp" or defName="DV_TallowWallLamp" or defName="DV_Tallow") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScentExtended_Scent_Tallow</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

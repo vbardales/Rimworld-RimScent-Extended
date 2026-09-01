@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Isole du reste : la ThoughtDef visee porte un MayRequire sur Anima Expansion,
+       donc elle n'existe pas sans lui, et une cle qui viserait un def absent est une
+       erreur de chargement. -->
+
+  <!-- EN: anima perfume -->
+  <RimScentExtended_Scent_PerfumeAnima.stages.anima_perfume.label>parfum d'anima</RimScentExtended_Scent_PerfumeAnima.stages.anima_perfume.label>
+  <!-- EN: Someone here carries the still, humming scent of an anima tree. -->
+  <RimScentExtended_Scent_PerfumeAnima.stages.anima_perfume.description>Quelqu'un ici porte l'odeur immobile et vibrante d'un arbre anima.</RimScentExtended_Scent_PerfumeAnima.stages.anima_perfume.description>
+
+</LanguageData>

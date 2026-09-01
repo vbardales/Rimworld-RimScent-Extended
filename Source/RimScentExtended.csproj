@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <RootNamespace>RimScentExtended</RootNamespace>
+    <AssemblyName>RimScentExtended</AssemblyName>
+    <LangVersion>latest</LangVersion>
+    <Deterministic>true</Deterministic>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>..\Assemblies\</OutputPath>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+
+    <!-- Emplacement de RimScent. Surchargeable : dotnet build -p:RimScentDir=... -->
+    <RimScentDir Condition="'$(RimScentDir)' == ''">C:\Program Files (x86)\Steam\steamapps\workshop\content\294100\3645569466\1.6\Assemblies</RimScentDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.*-*" />
+    <PackageReference Include="Lib.Harmony" Version="2.*">
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Private=false est indispensable : sans lui MSBuild copierait RimScentReworked.dll
+         dans notre dossier Assemblies, et RimWorld chargerait le meme assembly deux fois. -->
+    <Reference Include="RimScentReworked">
+      <HintPath>$(RimScentDir)\RimScentReworked.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>

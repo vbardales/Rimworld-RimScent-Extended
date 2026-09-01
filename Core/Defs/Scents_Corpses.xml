@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- RimScent parfume Filth_CorpseBile, la flaque - mais pas le cadavre. Dans un mod
+       dont le sujet est l'odorat, c'etait l'omission la plus visible.
+
+       Elle ne se repare pas en XML : les defs de cadavres (Corpse_Human et consorts) sont
+       des defs IMPLICITES, generees a l'execution, apres le passage des PatchOperation.
+       Aucun xpath ne peut les cibler. C'est donc ScentScan qui s'en charge, en lisant
+       RottableUtility.GetRotStage() sur le cadavre - Fresh, Rotting ou Dessicated - et en
+       choisissant la pensee correspondante. Les trois sont retrouvees par defName au
+       moment de construire le cache, comme RimScent le fait deja pour sa capacite et son
+       stat d'odorat.
+
+       Les valeurs sont fortes, et c'est voulu : en mode par defaut RimScent ne retient que
+       l'odeur DOMINANTE, donc une charogne ne s'ajoute pas au reste, elle l'ecrase. Un tas
+       de cadavres en putrefaction doit rendre une piece invivable.
+
+       nullifyingTraits plutot que dysosmicTraits : on ne peut pas poser de
+       ModExtension_Scent sur un def implicite, mais nullifyingTraits est un champ vanilla
+       de ThoughtDef, lu par ThoughtUtility.ThoughtNullified. Un psychopathe ou un cannibale
+       n'est simplement pas incommode. On ne va pas jusqu'a inverser l'odeur en plaisir,
+       contrairement a ce que RimScent fait pour le sang. -->
+
+  <ThoughtDef Name="RimScentExtended_CorpseScentBase" Abstract="True">
+    <durationDays>0.1</durationDays>
+    <stackLimit>3</stackLimit>
+    <!-- Meme trio que les pensees de mort du jeu de base (Thoughts_Memory_Death.xml) :
+         on suit le precedent vanilla plutot que d'inventer sa propre liste. -->
+    <nullifyingTraits>
+      <li>Psychopath</li>
+      <li>Bloodlust</li>
+      <li>Cannibal</li>
+    </nullifyingTraits>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="RimScentExtended_CorpseScentBase">
+    <defName>RimScentExtended_Scent_CorpseFresh</defName>
+    <stages>
+      <li>
+        <label>smell of death</label>
+        <description>Blood, voided bowels and cooling meat. A body is lying somewhere close.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="RimScentExtended_CorpseScentBase">
+    <defName>RimScentExtended_Scent_CorpseRotting</defName>
+    <stages>
+      <li>
+        <label>stench of carrion</label>
+        <description>Sweet, thick and utterly wrong. It gets into the mouth and stays there. Something dead has been left too long.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- Un corps dessseche ne sent presque plus : c'est la putrefaction qui pue, pas la mort. -->
+  <ThoughtDef ParentName="RimScentExtended_CorpseScentBase">
+    <defName>RimScentExtended_Scent_CorpseDessicated</defName>
+    <stackLimit>2</stackLimit>
+    <stages>
+      <li>
+        <label>dry remains</label>
+        <description>Leather, dust and old bone. Barely a smell at all any more.</description>
+        <baseMoodEffect>-1</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

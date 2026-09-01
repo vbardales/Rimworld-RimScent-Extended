@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Social Supplements a tout un dossier Perfumery, du menthol, du vapotage et du
+       piment - et pas une seule ModExtension_Scent. Ses « Scenters » posent un hediff
+       sur le porteur pour ameliorer l'opinion des autres, exactement comme le mod
+       Perfumes, mais personne ne le sent au sens de RimScent.
+
+       Les hediffs sont le bon accroche-odeur ici : RimScent les lit sur les pions
+       voisins, c'est deja par la qu'il modelise SmokeleafHigh en amont. Un colon qui
+       vapote sent la vapeur tant que son hediff dure, et pas une seconde de plus.
+
+       Les fleurs a parfum (polyfleur) ne portent PAS purpose="Beauty" - verifie - donc
+       notre patch fleurs ne les couvrait pas : elles sont traitees nommement ici, avec
+       l'odeur florale de l'amont, deja traduite. -->
+
+  <ThoughtDef Name="RimScentExtended_SSScentBase" Abstract="True">
+    <durationDays>0.1</durationDays>
+    <stackLimit>1</stackLimit>
+  </ThoughtDef>
+
+  <!-- Le nuage sucre d'un vapoteur. Moins agressif que la fumee de smokeleaf, que
+       RimScent met a -2, mais tout aussi collant pour qui ne vapote pas. -->
+  <ThoughtDef ParentName="RimScentExtended_SSScentBase">
+    <defName>RimScentExtended_Scent_Vapour</defName>
+    <stages>
+      <li>
+        <label>vapour cloud</label>
+        <description>A sweet, synthetic cloud hangs where someone exhaled. It coats the back of the throat.</description>
+        <baseMoodEffect>-1</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="RimScentExtended_SSScentBase">
+    <defName>RimScentExtended_Scent_Mint</defName>
+    <stages>
+      <li>
+        <label>mint</label>
+        <description>Sharp, cold mint. It clears the head.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="RimScentExtended_SSScentBase">
+    <defName>RimScentExtended_Scent_Chilli</defName>
+    <stackLimit>2</stackLimit>
+    <stages>
+      <li>
+        <label>chilli in the air</label>
+        <description>Capsaicin hangs in the air. It catches in the throat and makes eyes water.</description>
+        <baseMoodEffect>-1</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

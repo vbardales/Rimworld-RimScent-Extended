@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Chaque parfum est accroche a son HediffDef, pas a l'objet : c'est le colon
+       parfume que l'on sent, pas le flacon dans la reserve.
+
+       Structure de chaque bloc : on ajoute a la liste modExtensions si elle existe,
+       sinon on la cree - et si le def lui-meme est absent, le conditionnel imbrique
+       fait qu'il ne se passe rien, sans erreur de chargement. C'est ce qui permet de
+       traiter le parfum d'anima, dont le def porte un MayRequire, sans garde
+       supplementaire. -->
+
+  <!-- Parfum floral -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/HediffDef[defName="Romy_FlowerPerfume"]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/HediffDef[defName="Romy_FlowerPerfume"]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_PerfumeFlower</thought>
+        </li>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationConditional">
+      <xpath>Defs/HediffDef[defName="Romy_FlowerPerfume"]</xpath>
+      <match Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="Romy_FlowerPerfume"]</xpath>
+        <value>
+          <modExtensions>
+            <li Class="RimScentReworked.ModExtension_Scent">
+              <thought>RimScentExtended_Scent_PerfumeFlower</thought>
+            </li>
+          </modExtensions>
+        </value>
+      </match>
+    </nomatch>
+  </Operation>
+
+  <!-- Parfum vegetal -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/HediffDef[defName="Romy_PlantPerfume"]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/HediffDef[defName="Romy_PlantPerfume"]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_PerfumePlant</thought>
+        </li>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationConditional">
+      <xpath>Defs/HediffDef[defName="Romy_PlantPerfume"]</xpath>
+      <match Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="Romy_PlantPerfume"]</xpath>
+        <value>
+          <modExtensions>
+            <li Class="RimScentReworked.ModExtension_Scent">
+              <thought>RimScentExtended_Scent_PerfumePlant</thought>
+            </li>
+          </modExtensions>
+        </value>
+      </match>
+    </nomatch>
+  </Operation>
+
+  <!-- Parfum de chasse -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/HediffDef[defName="Romy_HuntingPerfume"]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/HediffDef[defName="Romy_HuntingPerfume"]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_PerfumeHunting</thought>
+        </li>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationConditional">
+      <xpath>Defs/HediffDef[defName="Romy_HuntingPerfume"]</xpath>
+      <match Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="Romy_HuntingPerfume"]</xpath>
+        <value>
+          <modExtensions>
+            <li Class="RimScentReworked.ModExtension_Scent">
+              <thought>RimScentExtended_Scent_PerfumeHunting</thought>
+            </li>
+          </modExtensions>
+        </value>
+      </match>
+    </nomatch>
+  </Operation>
+
+  <!-- Parfum ancien -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/HediffDef[defName="Romy_AncientPerfume"]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/HediffDef[defName="Romy_AncientPerfume"]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_PerfumeAncient</thought>
+        </li>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationConditional">
+      <xpath>Defs/HediffDef[defName="Romy_AncientPerfume"]</xpath>
+      <match Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="Romy_AncientPerfume"]</xpath>
+        <value>
+          <modExtensions>
+            <li Class="RimScentReworked.ModExtension_Scent">
+              <thought>RimScentExtended_Scent_PerfumeAncient</thought>
+            </li>
+          </modExtensions>
+        </value>
+      </match>
+    </nomatch>
+  </Operation>
+
+  <!-- Parfum d'anima : present seulement avec Anima Expansion, absent de cette liste
+       de mods. Le conditionnel imbrique le rend inoffensif dans les deux cas. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/HediffDef[defName="Romy_AnimaPerfume"]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/HediffDef[defName="Romy_AnimaPerfume"]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_PerfumeAnima</thought>
+        </li>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationConditional">
+      <xpath>Defs/HediffDef[defName="Romy_AnimaPerfume"]</xpath>
+      <match Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="Romy_AnimaPerfume"]</xpath>
+        <value>
+          <modExtensions>
+            <li Class="RimScentReworked.ModExtension_Scent">
+              <thought>RimScentExtended_Scent_PerfumeAnima</thought>
+            </li>
+          </modExtensions>
+        </value>
+      </match>
+    </nomatch>
+  </Operation>
+
+  <!-- Les petales d'aromafleur, en tas. La fleur sur pied est deja couverte par le
+       patch fleurs (elle porte plant/purpose="Beauty"), les petales recoltees non. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="Romy_AromaflowerPetals"]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="Romy_AromaflowerPetals"]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_AromaflowerPetals</thought>
+        </li>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationConditional">
+      <xpath>Defs/ThingDef[defName="Romy_AromaflowerPetals"]</xpath>
+      <match Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="Romy_AromaflowerPetals"]</xpath>
+        <value>
+          <modExtensions>
+            <li Class="RimScentReworked.ModExtension_Scent">
+              <thought>RimScentExtended_Scent_AromaflowerPetals</thought>
+            </li>
+          </modExtensions>
+        </value>
+      </match>
+    </nomatch>
+  </Operation>
+
+</Patch>

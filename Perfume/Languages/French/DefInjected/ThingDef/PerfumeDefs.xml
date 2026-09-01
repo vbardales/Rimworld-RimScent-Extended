@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: Sanguine Perfume -->
+  <RedPerfume.label>parfum sanguin</RedPerfume.label>
+  <!-- EN: A perfume with foul blood and meat stench temporarily effects mood. -->
+  <RedPerfume.description>Un parfum à l'odeur fétide de sang et de viande, qui altère temporairement l'humeur.</RedPerfume.description>
+  <!-- EN: Spray {0} -->
+  <RedPerfume.ingestible.ingestCommandString>Vaporiser {0}</RedPerfume.ingestible.ingestCommandString>
+  <!-- EN: Spraying {0}. -->
+  <RedPerfume.ingestible.ingestReportString>Vaporisation de {0}.</RedPerfume.ingestible.ingestReportString>
+
+  <!-- EN: Oceanic Breeze perfume -->
+  <BluePerfume.label>parfum brise marine</BluePerfume.label>
+  <!-- EN: A perfume with a calming ocean scent that improves mood. -->
+  <BluePerfume.description>Un parfum à l'odeur apaisante de l'océan, qui améliore l'humeur.</BluePerfume.description>
+  <!-- EN: Spray {0} -->
+  <BluePerfume.ingestible.ingestCommandString>Vaporiser {0}</BluePerfume.ingestible.ingestCommandString>
+  <!-- EN: Spraying {0}. -->
+  <BluePerfume.ingestible.ingestReportString>Vaporisation de {0}.</BluePerfume.ingestible.ingestReportString>
+
+  <!-- EN: Forest Essence Perfume -->
+  <GreenPerfume.label>parfum essence forestière</GreenPerfume.label>
+  <!-- EN: A perfume with a natural forest scent that improves mood. -->
+  <GreenPerfume.description>Un parfum à l'odeur naturelle de forêt, qui améliore l'humeur.</GreenPerfume.description>
+  <!-- EN: Spray {0} -->
+  <GreenPerfume.ingestible.ingestCommandString>Vaporiser {0}</GreenPerfume.ingestible.ingestCommandString>
+  <!-- EN: Spraying {0}. -->
+  <GreenPerfume.ingestible.ingestReportString>Vaporisation de {0}.</GreenPerfume.ingestible.ingestReportString>
+
+  <!-- EN: Berry Bliss Perfume -->
+  <PurplePerfume.label>parfum délice de baies</PurplePerfume.label>
+  <!-- EN: A perfume with a Invigorating berry scent  that slightly improves mood. -->
+  <PurplePerfume.description>Un parfum à l'odeur revigorante de baies, qui améliore légèrement l'humeur.</PurplePerfume.description>
+  <!-- EN: Spray {0} -->
+  <PurplePerfume.ingestible.ingestCommandString>Vaporiser {0}</PurplePerfume.ingestible.ingestCommandString>
+  <!-- EN: Spraying {0}. -->
+  <PurplePerfume.ingestible.ingestReportString>Vaporisation de {0}.</PurplePerfume.ingestible.ingestReportString>
+
+  <!-- EN: Deep Cave Scent Perfume -->
+  <TurquoisePerfume.label>parfum des grottes profondes</TurquoisePerfume.label>
+  <!-- EN: A Perfume with smell of deep caves. -->
+  <TurquoisePerfume.description>Un parfum à l'odeur des grottes profondes.</TurquoisePerfume.description>
+  <!-- EN: Spray {0} -->
+  <TurquoisePerfume.ingestible.ingestCommandString>Vaporiser {0}</TurquoisePerfume.ingestible.ingestCommandString>
+  <!-- EN: Spraying {0}. -->
+  <TurquoisePerfume.ingestible.ingestReportString>Vaporisation de {0}.</TurquoisePerfume.ingestible.ingestReportString>
+
+</LanguageData>

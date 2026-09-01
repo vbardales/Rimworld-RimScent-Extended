@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Seule odeur du core restee sans traduction francaise en amont. -->
+
+  <!-- EN: fresh air -->
+  <RimScent_FreshOxygen.stages.fresh_air.label>air pur</RimScent_FreshOxygen.stages.fresh_air.label>
+  <!-- EN: Pure and breathable oxygen. -->
+  <RimScent_FreshOxygen.stages.fresh_air.description>De l'oxygène pur et respirable.</RimScent_FreshOxygen.stages.fresh_air.description>
+
+</LanguageData>

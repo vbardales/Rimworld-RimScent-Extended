@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: flower perfume -->
+  <RimScentExtended_Scent_PerfumeFlower.stages.flower_perfume.label>parfum floral</RimScentExtended_Scent_PerfumeFlower.stages.flower_perfume.label>
+  <!-- EN: Someone here is wearing flower perfume. It is a nice change from sweat and woodsmoke. -->
+  <RimScentExtended_Scent_PerfumeFlower.stages.flower_perfume.description>Quelqu'un ici porte du parfum floral. Ça change agréablement de la sueur et de la fumée de bois.</RimScentExtended_Scent_PerfumeFlower.stages.flower_perfume.description>
+
+  <!-- EN: plant perfume -->
+  <RimScentExtended_Scent_PerfumePlant.stages.plant_perfume.label>parfum végétal</RimScentExtended_Scent_PerfumePlant.stages.plant_perfume.label>
+  <!-- EN: Someone here smells of crushed fruit and green stems. -->
+  <RimScentExtended_Scent_PerfumePlant.stages.plant_perfume.description>Quelqu'un ici sent le fruit écrasé et la tige verte.</RimScentExtended_Scent_PerfumePlant.stages.plant_perfume.description>
+
+  <!-- EN: hunting perfume -->
+  <RimScentExtended_Scent_PerfumeHunting.stages.hunting_perfume.label>parfum de chasse</RimScentExtended_Scent_PerfumeHunting.stages.hunting_perfume.label>
+  <!-- EN: Someone here smells of hay and animal. It works on game, but it is odd indoors. -->
+  <RimScentExtended_Scent_PerfumeHunting.stages.hunting_perfume.description>Quelqu'un ici sent le foin et la bête. Ça marche sur le gibier, mais à l'intérieur c'est étrange.</RimScentExtended_Scent_PerfumeHunting.stages.hunting_perfume.description>
+
+  <!-- EN: ancient perfume -->
+  <RimScentExtended_Scent_PerfumeAncient.stages.ancient_perfume.label>parfum ancien</RimScentExtended_Scent_PerfumeAncient.stages.ancient_perfume.label>
+  <!-- EN: Someone here is wearing a perfume from before the collapse. Nothing made on this rim smells like that. -->
+  <RimScentExtended_Scent_PerfumeAncient.stages.ancient_perfume.description>Quelqu'un ici porte un parfum d'avant l'effondrement. Rien de ce qui se fabrique sur cette bordure ne sent comme ça.</RimScentExtended_Scent_PerfumeAncient.stages.ancient_perfume.description>
+
+  <!-- EN: aromaflower petals -->
+  <RimScentExtended_Scent_AromaflowerPetals.stages.aromaflower_petals.label>pétales d'aromafleur</RimScentExtended_Scent_AromaflowerPetals.stages.aromaflower_petals.label>
+  <!-- EN: A heap of aromaflower petals. The whole room smells of them. -->
+  <RimScentExtended_Scent_AromaflowerPetals.stages.aromaflower_petals.description>Un tas de pétales d'aromafleur. Toute la pièce en est parfumée.</RimScentExtended_Scent_AromaflowerPetals.stages.aromaflower_petals.description>
+
+</LanguageData>

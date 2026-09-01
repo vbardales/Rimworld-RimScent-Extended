@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Les saletes vanilla et DLC que RimScent laisse inodores. Presque tout se regle en
+       reutilisant ses propres pensees, deja traduites.
+
+       Deux d'entre elles sont ORPHELINES en amont : RimScent_FirefoamScent (« flat
+       chemical foam ») et RimScent_ExplosionScent (« sulfur and ozone ») sont definies mais
+       jamais accrochees a quoi que ce soit. Or Filth_FireFoam et Filth_BlastMark existent
+       et correspondent exactement a leur description. On les branche enfin.
+
+       Beaucoup de ces defs viennent d'Anomaly ou de Biotech : sans le DLC elles n'existent
+       pas, et le motif a predicats disjoints les ignore sans erreur. -->
+
+  <!-- Mousse anti-incendie. Pensee ORPHELINE en amont, dont la description parle justement de mousse extinctrice. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Filth_FireFoam") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Filth_FireFoam") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScent_FirefoamScent</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Filth_FireFoam") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Filth_FireFoam") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScent_FirefoamScent</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Marque d'explosion. Seconde pensee ORPHELINE en amont : soufre et ozone. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Filth_BlastMark") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Filth_BlastMark") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScent_ExplosionScent</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Filth_BlastMark") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Filth_BlastMark") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScent_ExplosionScent</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- La famille du sang : seche, sombre, et les tracees de revenant. Memes reactions que le sang frais en amont, d'ou la reprise de ses listes de traits. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Filth_DriedBlood" or defName="Filth_DarkBlood" or defName="Filth_DarkBloodSmear" or defName="Filth_RevenantBloodPool" or defName="Filth_RevenantSmear") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Filth_DriedBlood" or defName="Filth_DarkBlood" or defName="Filth_DarkBloodSmear" or defName="Filth_RevenantBloodPool" or defName="Filth_RevenantSmear") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScent_BloodScent</thought>
+          <dysosmicTraits>
+            <li>Bloodlust</li>
+            <li>Psychopath</li>
+          </dysosmicTraits>
+        </li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Filth_DriedBlood" or defName="Filth_DarkBlood" or defName="Filth_DarkBloodSmear" or defName="Filth_RevenantBloodPool" or defName="Filth_RevenantSmear") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Filth_DriedBlood" or defName="Filth_DarkBlood" or defName="Filth_DarkBloodSmear" or defName="Filth_RevenantBloodPool" or defName="Filth_RevenantSmear") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScent_BloodScent</thought>
+          <dysosmicTraits>
+            <li>Bloodlust</li>
+            <li>Psychopath</li>
+          </dysosmicTraits>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Bile inflammable des entites : c'est de la bile. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Filth_FlammableBile") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Filth_FlammableBile") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScent_BileScent</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Filth_FlammableBile") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Filth_FlammableBile") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScent_BileScent</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Chair grise remarquable, jumelle de Filth_GrayFlesh deja couverte. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Filth_GrayFleshNoticeable") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Filth_GrayFleshNoticeable") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScent_GrayFleshScent</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Filth_GrayFleshNoticeable") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Filth_GrayFleshNoticeable") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScent_GrayFleshScent</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Chair mutante et debris de metalhorreur, meme famille que Filth_TwistedFlesh. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Filth_Fleshmass" or defName="Filth_MetalhorrorDebris") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Filth_Fleshmass" or defName="Filth_MetalhorrorDebris") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScent_TwistedFleshScent</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Filth_Fleshmass" or defName="Filth_MetalhorrorDebris") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Filth_Fleshmass" or defName="Filth_MetalhorrorDebris") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScent_TwistedFleshScent</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Acide use : la pensee toxique de l'amont parle d'une odeur chimique qui pique les yeux. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Filth_SpentAcid") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Filth_SpentAcid") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScent_ToxicScent</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Filth_SpentAcid") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Filth_SpentAcid") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScent_ToxicScent</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Tache de chimiburant, jumelle de Filth_Fuel deja couverte. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Filth_ChemfuelStain") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Filth_ChemfuelStain") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScent_FuelScent</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Filth_ChemfuelStain") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Filth_ChemfuelStain") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScent_FuelScent</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Cendre volcanique, jumelle de Filth_Ash deja couverte. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Filth_VolcanicAsh") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Filth_VolcanicAsh") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScent_AshScent</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Filth_VolcanicAsh") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Filth_VolcanicAsh") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScent_AshScent</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Gravats, sable et terre remuee : tous de la poussiere, comme Filth_Dirt deja couverte. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Filth_RubbleBuilding" or defName="Filth_RubbleRock" or defName="Filth_Sand" or defName="Filth_LooseGround") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Filth_RubbleBuilding" or defName="Filth_RubbleRock" or defName="Filth_Sand" or defName="Filth_LooseGround") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScent_DirtScent</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Filth_RubbleBuilding" or defName="Filth_RubbleRock" or defName="Filth_Sand" or defName="Filth_LooseGround") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Filth_RubbleBuilding" or defName="Filth_RubbleRock" or defName="Filth_Sand" or defName="Filth_LooseGround") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScent_DirtScent</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Documents eparpilles : notre odeur de vieux papier, partagee avec les volets bibelots. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Filth_ScatteredDocuments") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Filth_ScatteredDocuments") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_OldPaper</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Filth_ScatteredDocuments") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Filth_ScatteredDocuments") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScentExtended_Scent_OldPaper</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Uniforme moisi. Aucun equivalent en amont. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Filth_MoldyUniform") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Filth_MoldyUniform") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_Mould</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Filth_MoldyUniform") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Filth_MoldyUniform") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScentExtended_Scent_Mould</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Limon et limon de nacelle. Aucun equivalent en amont. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Filth_Slime" or defName="Filth_PodSlime") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Filth_Slime" or defName="Filth_PodSlime") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_Slime</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Filth_Slime" or defName="Filth_PodSlime") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Filth_Slime" or defName="Filth_PodSlime") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScentExtended_Scent_Slime</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Debris mecaniques : de la ferraille huileuse tombee d un mecanoide. L odeur de
+       carburant de l amont parle de vapeurs d huile, elle tombe juste. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="Filth_MachineBits" and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="Filth_MachineBits" and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScent_FuelScent</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="Filth_MachineBits" and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="Filth_MachineBits" and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScent_FuelScent</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+</Patch>

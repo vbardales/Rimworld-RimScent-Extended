@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: curing meat -->
+  <RimScentExtended_Scent_Curing.stages.curing_meat.label>viande qui sèche</RimScentExtended_Scent_Curing.stages.curing_meat.label>
+  <!-- EN: Salt, smoke and drying meat. It smells of a larder being stocked for winter. -->
+  <RimScentExtended_Scent_Curing.stages.curing_meat.description>Du sel, de la fumée et de la viande qui sèche. Ça sent le garde-manger qu'on remplit pour l'hiver.</RimScentExtended_Scent_Curing.stages.curing_meat.description>
+
+</LanguageData>

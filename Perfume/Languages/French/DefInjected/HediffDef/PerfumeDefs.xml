@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: Scent: Sanguine -->
+  <Scent_Red.label>senteur : sanguine</Scent_Red.label>
+  <!-- EN: Bloody smell -->
+  <Scent_Red.description>Une odeur de sang.</Scent_Red.description>
+
+  <!-- EN: Scent: Oceanic -->
+  <Scent_Blue.label>senteur : océane</Scent_Blue.label>
+  <!-- EN: Fresh smell of ocean breeze -->
+  <Scent_Blue.description>L'odeur fraîche de la brise marine.</Scent_Blue.description>
+
+  <!-- EN: Scent: Forest -->
+  <Scent_Green.label>senteur : forestière</Scent_Green.label>
+  <!-- EN: Fresh forest breeze -->
+  <Scent_Green.description>La brise fraîche de la forêt.</Scent_Green.description>
+
+  <!-- EN: Scent: Citrus (le def s'appelle « Citrus » mais tout le reste de la serie
+       parle de baies : on suit le contenu, pas l'etiquette) -->
+  <Scent_Purple.label>senteur : baies</Scent_Purple.label>
+  <!-- EN: Elegant berry aroma -->
+  <Scent_Purple.description>Un arôme élégant de baies.</Scent_Purple.description>
+
+  <!-- EN: Scent: Deep Shroom -->
+  <Scent_Turquoise.label>senteur : champignon des profondeurs</Scent_Turquoise.label>
+  <!-- EN: Sharp Shroom smell -->
+  <Scent_Turquoise.description>Une odeur piquante de champignon.</Scent_Turquoise.description>
+
+</LanguageData>

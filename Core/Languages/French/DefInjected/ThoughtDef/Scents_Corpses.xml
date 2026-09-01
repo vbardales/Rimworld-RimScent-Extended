@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: smell of death -->
+  <RimScentExtended_Scent_CorpseFresh.stages.smell_of_death.label>odeur de mort</RimScentExtended_Scent_CorpseFresh.stages.smell_of_death.label>
+  <!-- EN: Blood, voided bowels and cooling meat. A body is lying somewhere close. -->
+  <RimScentExtended_Scent_CorpseFresh.stages.smell_of_death.description>Du sang, des intestins relâchés et de la viande qui refroidit. Un corps est étendu quelque part tout près.</RimScentExtended_Scent_CorpseFresh.stages.smell_of_death.description>
+
+  <!-- EN: stench of carrion -->
+  <RimScentExtended_Scent_CorpseRotting.stages.stench_of_carrion.label>puanteur de charogne</RimScentExtended_Scent_CorpseRotting.stages.stench_of_carrion.label>
+  <!-- EN: Sweet, thick and utterly wrong. It gets into the mouth and stays there. Something dead has been left too long. -->
+  <RimScentExtended_Scent_CorpseRotting.stages.stench_of_carrion.description>Sucrée, épaisse, et profondément anormale. Ça entre dans la bouche et ça y reste. Quelque chose de mort traîne depuis trop longtemps.</RimScentExtended_Scent_CorpseRotting.stages.stench_of_carrion.description>
+
+  <!-- EN: dry remains -->
+  <RimScentExtended_Scent_CorpseDessicated.stages.dry_remains.label>restes desséchés</RimScentExtended_Scent_CorpseDessicated.stages.dry_remains.label>
+  <!-- EN: Leather, dust and old bone. Barely a smell at all any more. -->
+  <RimScentExtended_Scent_CorpseDessicated.stages.dry_remains.description>Du cuir, de la poussière et de l'os ancien. Ce n'est presque plus une odeur.</RimScentExtended_Scent_CorpseDessicated.stages.dry_remains.description>
+
+</LanguageData>

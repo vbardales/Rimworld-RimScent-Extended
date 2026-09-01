@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- RimScent ne parfume aucun batiment de cuisine, pas meme vanilla : son patch de
+       batiments ne couvre que le feu de camp, le feu, et les deux generateurs. Une
+       cuisine en plein service ne sentait donc rien.
+
+       Le declencheur est gratuit : les fourneaux ont tous un CompPowerTrader ou un
+       CompRefuelable, que le scan de RimScent teste deja - et l'interrupteur depuis
+       notre correctif. Un fourneau non alimente, a court de bois ou eteint ne sent
+       donc rien, sans une ligne de plus.
+
+       Cette pensee est definie ici, dans le volet Core, parce que les volets Vanilla
+       Cooking Expanded s'en servent aussi. -->
+
+  <ThoughtDef>
+    <defName>RimScentExtended_Scent_Cooking</defName>
+    <durationDays>0.1</durationDays>
+    <stackLimit>2</stackLimit>
+    <stages>
+      <li>
+        <label>cooking smell</label>
+        <description>Something is cooking nearby. Hot fat, onions and browning meat.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>RimScentExtended_Scent_NutrientPaste</defName>
+    <durationDays>0.1</durationDays>
+    <stackLimit>2</stackLimit>
+    <stages>
+      <li>
+        <label>nutrient paste</label>
+        <description>Warm, bland and vaguely organic. Whatever went in, this is what comes out.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

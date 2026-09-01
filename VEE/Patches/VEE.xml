@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Deux odeurs sont reprises de RimScent plutot que reinventees : l'explosion pour la
+       chute d'epave orbitale, et le petrichor pour la pluie psychique.
+
+       Pour la pluie psychique, on patche la METEO et pas la condition du meme nom. Les
+       deux existent (VEE_PsychicRain en WeatherDef, PsychicRain en GameConditionDef), et
+       RimScent_PetrichorScent a un stackLimit de 4 : patcher les deux ferait compter
+       l'odeur deux fois et doublerait le bonus. C'est la meteo qui tombe reellement -
+       rainRate 1, son Ambient_Rain - donc c'est elle qui sent. -->
+
+  <!-- Secheresse : poussiere et terre craquelee. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/GameConditionDef[defName="VEE_Drought"]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/GameConditionDef[defName="VEE_Drought"]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_Drought</thought>
+        </li>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/GameConditionDef[defName="VEE_Drought"]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScentExtended_Scent_Drought</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </nomatch>
+  </Operation>
+
+  <!-- Canicule mondiale (condition). Meme odeur que les meteos de chaleur ci-dessous ;
+       stackLimit 1 garantit qu'elles ne se cumulent pas si les deux sont actives. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/GameConditionDef[defName="VEE_Scorch"]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/GameConditionDef[defName="VEE_Scorch"]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_Swelter</thought>
+        </li>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/GameConditionDef[defName="VEE_Scorch"]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScentExtended_Scent_Swelter</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </nomatch>
+  </Operation>
+
+  <!-- Les deux meteos de chaleur oppressante. Verifie : ce sont bien des chaleurs, pas
+       des incendies - rainRate 0, snowRate 0, aucune composante de feu. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/WeatherDef[defName="VEE_Swelter" or defName="VEE_Inferno"]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/WeatherDef[defName="VEE_Swelter" or defName="VEE_Inferno"]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_Swelter</thought>
+        </li>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/WeatherDef[defName="VEE_Swelter" or defName="VEE_Inferno"]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScentExtended_Scent_Swelter</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </nomatch>
+  </Operation>
+
+  <!-- Chute d'epave orbitale : cordite et ozone. L'odeur d'explosion de RimScent tombe
+       juste, et elle est deja traduite. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/GameConditionDef[defName="SpaceBattle"]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/GameConditionDef[defName="SpaceBattle"]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScent_ExplosionScent</thought>
+        </li>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/GameConditionDef[defName="SpaceBattle"]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScent_ExplosionScent</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </nomatch>
+  </Operation>
+
+  <!-- Pluie psychique : de la pluie reste de la pluie. RimScent donne le petrichor a
+       Rain, Fog, RainyThunderstorm et FoggyRain - y compris l'orage, qui est dangereux -
+       donc la coherence veut qu'on le donne aussi a celle-ci. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/WeatherDef[defName="VEE_PsychicRain"]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/WeatherDef[defName="VEE_PsychicRain"]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScent_PetrichorScent</thought>
+        </li>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/WeatherDef[defName="VEE_PsychicRain"]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScent_PetrichorScent</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </nomatch>
+  </Operation>
+
+  <!-- Floraison psychique : la flore locale mute en lotus psychiques. Ca sent bon, et
+       ca ne sent rien de connu. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/GameConditionDef[defName="VEE_PsychicBloom"]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/GameConditionDef[defName="VEE_PsychicBloom"]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_PsychicBloom</thought>
+        </li>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/GameConditionDef[defName="VEE_PsychicBloom"]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScentExtended_Scent_PsychicBloom</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </nomatch>
+  </Operation>
+
+</Patch>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Odeurs de bibelots, partagees par les volets Knick Knacks, Colonists' Deco et
+       Tabletop Trove - d'ou leur definition ici, dans Core, comme l'odeur de cuisine.
+
+       TOUTES a stackLimit 1, et c'est le point important. Ces objets ne sont pas des
+       batiments qu'on pose une fois : Knick Knacks fournit un JobDef « decorating » et
+       des JoyGiver qui font meubler chambres et salles a manger tout seuls. Ils
+       proliferent. A stackLimit 4, une piece encombree de bibelots serait devenue la
+       meilleure source d'humeur du jeu, pour trois bouts de bois.
+
+       Un bibelot ne sent donc qu'une fois : la piece sent le desodorisant, pas six fois
+       le desodorisant.
+
+       Ils n'ont aucune alimentation, donc l'odeur est permanente - ce qui est correct
+       pour un flacon ou une plante verte. -->
+
+  <ThoughtDef Name="RimScentExtended_PropScentBase" Abstract="True">
+    <durationDays>0.1</durationDays>
+    <stackLimit>1</stackLimit>
+  </ThoughtDef>
+
+  <!-- Knick Knacks : SEX_Scents. La texture est un petit flacon vaporisateur - c'est un
+       desodorisant d'ambiance, et son identite entiere est l'odeur. -->
+  <ThoughtDef ParentName="RimScentExtended_PropScentBase">
+    <defName>RimScentExtended_Scent_AirFreshener</defName>
+    <stages>
+      <li>
+        <label>air freshener</label>
+        <description>Someone has sprayed the room. Clean linen, more or less convincingly.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- Le vase de Knick Knacks contient du feuillage, pas des fleurs : on ne reutilise donc
+       pas RimScent_FloweryScent, dont le libelle parle de fleur - et dont le stackLimit de
+       4 serait de toute facon trop genereux pour un bibelot qui prolifere. -->
+  <ThoughtDef ParentName="RimScentExtended_PropScentBase">
+    <defName>RimScentExtended_Scent_Houseplant</defName>
+    <stages>
+      <li>
+        <label>houseplant</label>
+        <description>The faint green, earthy smell of a potted plant. It makes a room feel lived in.</description>
+        <baseMoodEffect>1</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- Partagee par les trois mods : livre de chevet, feuilles volantes, manuels, boites de
+       jeu, cartes. Les plateaux de jeu en bois sont ecartes - le carton et le papier
+       sentent, le bois verni non. -->
+  <ThoughtDef ParentName="RimScentExtended_PropScentBase">
+    <defName>RimScentExtended_Scent_OldPaper</defName>
+    <stages>
+      <li>
+        <label>old paper</label>
+        <description>Paper, glue and cardboard. The quiet smell of things that have been read and re-read.</description>
+        <baseMoodEffect>1</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- Les tetes empaillees de Colonists' Deco. -->
+  <ThoughtDef ParentName="RimScentExtended_PropScentBase">
+    <defName>RimScentExtended_Scent_Taxidermy</defName>
+    <stages>
+      <li>
+        <label>tanned hide</label>
+        <description>Tanned skin and dust. Whatever was used to preserve it has not quite faded.</description>
+        <baseMoodEffect>-1</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

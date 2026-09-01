@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: air freshener -->
+  <RimScentExtended_Scent_AirFreshener.stages.air_freshener.label>désodorisant</RimScentExtended_Scent_AirFreshener.stages.air_freshener.label>
+  <!-- EN: Someone has sprayed the room. Clean linen, more or less convincingly. -->
+  <RimScentExtended_Scent_AirFreshener.stages.air_freshener.description>Quelqu'un a vaporisé la pièce. Odeur de linge propre, plus ou moins convaincante.</RimScentExtended_Scent_AirFreshener.stages.air_freshener.description>
+
+  <!-- EN: houseplant -->
+  <RimScentExtended_Scent_Houseplant.stages.houseplant.label>plante verte</RimScentExtended_Scent_Houseplant.stages.houseplant.label>
+  <!-- EN: The faint green, earthy smell of a potted plant. It makes a room feel lived in. -->
+  <RimScentExtended_Scent_Houseplant.stages.houseplant.description>La légère odeur verte et terreuse d'une plante en pot. Ça rend une pièce habitée.</RimScentExtended_Scent_Houseplant.stages.houseplant.description>
+
+  <!-- EN: old paper -->
+  <RimScentExtended_Scent_OldPaper.stages.old_paper.label>vieux papier</RimScentExtended_Scent_OldPaper.stages.old_paper.label>
+  <!-- EN: Paper, glue and cardboard. The quiet smell of things that have been read and re-read. -->
+  <RimScentExtended_Scent_OldPaper.stages.old_paper.description>Du papier, de la colle et du carton. L'odeur tranquille des choses qu'on a lues et relues.</RimScentExtended_Scent_OldPaper.stages.old_paper.description>
+
+  <!-- EN: tanned hide -->
+  <RimScentExtended_Scent_Taxidermy.stages.tanned_hide.label>peau tannée</RimScentExtended_Scent_Taxidermy.stages.tanned_hide.label>
+  <!-- EN: Tanned skin and dust. Whatever was used to preserve it has not quite faded. -->
+  <RimScentExtended_Scent_Taxidermy.stages.tanned_hide.description>De la peau tannée et de la poussière. Ce qui a servi à la conserver ne s'est pas tout à fait dissipé.</RimScentExtended_Scent_Taxidermy.stages.tanned_hide.description>
+
+</LanguageData>

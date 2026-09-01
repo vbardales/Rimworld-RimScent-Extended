@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: sickroom air -->
+  <RimScentExtended_Scent_Sickroom.stages.sickroom_air.label>air de chambre de malade</RimScentExtended_Scent_Sickroom.stages.sickroom_air.label>
+  <!-- EN: Stale, close air with a sour edge to it. Someone has been ill here. -->
+  <RimScentExtended_Scent_Sickroom.stages.sickroom_air.description>Un air confiné et vicié, avec une pointe aigre. Quelqu'un a été malade ici.</RimScentExtended_Scent_Sickroom.stages.sickroom_air.description>
+
+</LanguageData>

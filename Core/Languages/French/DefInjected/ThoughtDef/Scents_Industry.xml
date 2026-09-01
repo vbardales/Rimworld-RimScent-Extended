@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: crematorium smoke -->
+  <RimScentExtended_Scent_Crematorium.stages.crematorium_smoke.label>fumée de crémation</RimScentExtended_Scent_Crematorium.stages.crematorium_smoke.label>
+  <!-- EN: Burnt hair, scorched fat and hot ash. Everyone knows what is being burned in there. -->
+  <RimScentExtended_Scent_Crematorium.stages.crematorium_smoke.description>Des cheveux brûlés, de la graisse calcinée et de la cendre chaude. Tout le monde sait ce qu'on brûle là-dedans.</RimScentExtended_Scent_Crematorium.stages.crematorium_smoke.description>
+
+  <!-- EN: hot metal -->
+  <RimScentExtended_Scent_Smelter.stages.hot_metal.label>métal chaud</RimScentExtended_Scent_Smelter.stages.hot_metal.label>
+  <!-- EN: Scorched metal and slag, with a flat mineral tang behind it. -->
+  <RimScentExtended_Scent_Smelter.stages.hot_metal.description>Du métal brûlant et des scories, avec un arrière-goût minéral et plat.</RimScentExtended_Scent_Smelter.stages.hot_metal.description>
+
+  <!-- EN: fermenting wort -->
+  <RimScentExtended_Scent_Fermenting.stages.fermenting_wort.label>moût en fermentation</RimScentExtended_Scent_Fermenting.stages.fermenting_wort.label>
+  <!-- EN: Yeast, warm malt and a sour-sweet edge. Something is brewing. -->
+  <RimScentExtended_Scent_Fermenting.stages.fermenting_wort.description>De la levure, du malt tiède et une pointe aigre-douce. Quelque chose est en train de brasser.</RimScentExtended_Scent_Fermenting.stages.fermenting_wort.description>
+
+</LanguageData>

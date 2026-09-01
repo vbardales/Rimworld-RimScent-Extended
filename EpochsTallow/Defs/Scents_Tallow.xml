@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Le suif qui brule est une odeur historiquement reputee : grasse, animale, un peu
+       ecoeurante - c'est precisement pourquoi les bougies de cire d'abeille valaient si
+       cher face aux chandelles de suif. D'ou une valeur negative, faible.
+
+       Les torches n'ont pas de CompRefuelable mais un CompProperties_DestroyAfterDelay :
+       elles brulent puis disparaissent. Le gate est donc automatique, l'objet cesse
+       d'exister quand il s'eteint - rien a tester. -->
+
+  <ThoughtDef>
+    <defName>RimScentExtended_Scent_Tallow</defName>
+    <durationDays>0.1</durationDays>
+    <stackLimit>2</stackLimit>
+    <stages>
+      <li>
+        <label>burning tallow</label>
+        <description>Rendered animal fat, burning. Greasy, heavy and faintly like a kitchen that needs cleaning.</description>
+        <baseMoodEffect>-1</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Les six torches et braseros du jeu de base et des DLC. Le feu de camp et
+       Stone_Campfire restent a RimScent_CampfireScent (+3) : ce sont des feux autour
+       desquels on s'assoit, pas de l'eclairage. -->
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Brazier" or defName="TorchWallLamp" or defName="Darktorch" or defName="DarktorchFungus" or defName="DarklightBrazier" or defName="SanguphageMeetingTorch") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Brazier" or defName="TorchWallLamp" or defName="Darktorch" or defName="DarktorchFungus" or defName="DarklightBrazier" or defName="SanguphageMeetingTorch") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_Torch</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="Brazier" or defName="TorchWallLamp" or defName="Darktorch" or defName="DarktorchFungus" or defName="DarklightBrazier" or defName="SanguphageMeetingTorch") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="Brazier" or defName="TorchWallLamp" or defName="Darktorch" or defName="DarktorchFungus" or defName="DarklightBrazier" or defName="SanguphageMeetingTorch") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScentExtended_Scent_Torch</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

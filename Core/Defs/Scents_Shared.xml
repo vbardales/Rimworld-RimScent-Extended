@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Pensees partagees entre plusieurs volets conditionnels, donc definies ici : un
+       volet ne peut pas referencer une ThoughtDef declaree dans un autre volet, puisque
+       celui-ci ne se charge que si SON mod est actif. RimScentExtended_Scent_WornScent vivait
+       dans le volet Social Supplements jusqu'a ce qu'Alpha Crafts en ait besoin aussi. -->
+
+  <ThoughtDef Name="RimScentExtended_SharedScentBase" Abstract="True">
+    <durationDays>0.1</durationDays>
+    <stackLimit>1</stackLimit>
+  </ThoughtDef>
+
+  <!-- Un parfum porte, quel qu'en soit le mod d'origine : les « Scenters » de Social
+       Supplements comme le parfum d'Alpha Crafts. -->
+  <ThoughtDef ParentName="RimScentExtended_SharedScentBase">
+    <defName>RimScentExtended_Scent_WornScent</defName>
+    <stages>
+      <li>
+        <label>worn scent</label>
+        <description>Someone here has put something on. Discreet, deliberate, and it works.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- Medical Supplements -->
+
+  <ThoughtDef ParentName="RimScentExtended_SharedScentBase">
+    <defName>RimScentExtended_Scent_SmellingSalts</defName>
+    <stackLimit>2</stackLimit>
+    <stages>
+      <li>
+        <label>ammonia</label>
+        <description>A cutting reek of ammonia. It goes straight up the nose and hurts.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="RimScentExtended_SharedScentBase">
+    <defName>RimScentExtended_Scent_Pharmacy</defName>
+    <stackLimit>2</stackLimit>
+    <stages>
+      <li>
+        <label>pharmacy smell</label>
+        <description>Surgical alcohol, plastic and something faintly bitter. It smells like being treated.</description>
+        <baseMoodEffect>-1</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- Alpha Crafts -->
+
+  <ThoughtDef ParentName="RimScentExtended_SharedScentBase">
+    <defName>RimScentExtended_Scent_ScentedCandle</defName>
+    <stages>
+      <li>
+        <label>scented candle</label>
+        <description>Wax and something warm and floral. Someone wanted this room to feel cared for.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="RimScentExtended_SharedScentBase">
+    <defName>RimScentExtended_Scent_Soap</defName>
+    <stages>
+      <li>
+        <label>soap</label>
+        <description>Clean, faintly fatty and unmistakable. The smell of things being washed.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- L'essence d'Alpha Crafts prend le nom de son ingredient - AlphaCrafts.CompProperties_LabelByIngredients -
+       donc elle peut sentir la rose comme l'ail. D'ou une description sur la concentration
+       plutot que sur un parfum precis. -->
+  <ThoughtDef ParentName="RimScentExtended_SharedScentBase">
+    <defName>RimScentExtended_Scent_Essence</defName>
+    <stages>
+      <li>
+        <label>concentrated essence</label>
+        <description>Whatever it was distilled from, there is far too much of it in far too little liquid.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="RimScentExtended_SharedScentBase">
+    <defName>RimScentExtended_Scent_Vinegar</defName>
+    <stackLimit>2</stackLimit>
+    <stages>
+      <li>
+        <label>vinegar and brine</label>
+        <description>Sharp acetic bite and salt. It clears the sinuses whether you wanted that or not.</description>
+        <baseMoodEffect>-1</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- Vegetal seche : foin, houblon, herbes medicinales. Une odeur commune parce que
+       c est la meme - de la plante coupee et sechee, verte et un peu poussiereuse. -->
+  <ThoughtDef>
+    <defName>RimScentExtended_Scent_DriedHerbs</defName>
+    <durationDays>0.1</durationDays>
+    <stackLimit>2</stackLimit>
+    <stages>
+      <li>
+        <label>dried herbs</label>
+        <description>Cut plants drying in the air. Green, dusty and quietly agreeable.</description>
+        <baseMoodEffect>1</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

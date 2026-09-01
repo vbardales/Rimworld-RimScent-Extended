@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Odeurs pour le mod Perfumes (Romyashi.Perfumes). Il donne au porteur un bonus
+       d'humeur (Romy_PerfumeMoodBoost) et des bonus de stats, mais personne autour de
+       lui ne sentait quoi que ce soit : aucune ModExtension_Scent dans tout le mod.
+
+       C'est exactement le trou que l'extension parfums de RimScent comble pour ses
+       propres parfums. Les deux sont complementaires : RimScent ne lit les hediffs que
+       des pions VOISINS (otherPawn != pawn), donc le porteur ne se sent pas lui-meme et
+       il n'y a pas de double compte avec le bonus du mod d'origine.
+
+       stackLimit 1 : cinq colons parfumes dans une piece, ce n'est pas cinq fois
+       l'odeur. durationDays 0.1 comme toutes les odeurs d'ambiance de RimScent. -->
+
+  <ThoughtDef Name="RimScentExtended_PerfumeScentBase" Abstract="True">
+    <durationDays>0.1</durationDays>
+    <stackLimit>1</stackLimit>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="RimScentExtended_PerfumeScentBase">
+    <defName>RimScentExtended_Scent_PerfumeFlower</defName>
+    <stages>
+      <li>
+        <label>flower perfume</label>
+        <description>Someone here is wearing flower perfume. It is a nice change from sweat and woodsmoke.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="RimScentExtended_PerfumeScentBase">
+    <defName>RimScentExtended_Scent_PerfumePlant</defName>
+    <stages>
+      <li>
+        <label>plant perfume</label>
+        <description>Someone here smells of crushed fruit and green stems.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- Le parfum de chasse est fait de foin, et sert precisement a ne pas sentir
+       l'humain. Logique qu'il ne soit pas agreable en salle a manger. -->
+  <ThoughtDef ParentName="RimScentExtended_PerfumeScentBase">
+    <defName>RimScentExtended_Scent_PerfumeHunting</defName>
+    <stages>
+      <li>
+        <label>hunting perfume</label>
+        <description>Someone here smells of hay and animal. It works on game, but it is odd indoors.</description>
+        <baseMoodEffect>-1</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="RimScentExtended_PerfumeScentBase">
+    <defName>RimScentExtended_Scent_PerfumeAncient</defName>
+    <stages>
+      <li>
+        <label>ancient perfume</label>
+        <description>Someone here is wearing a perfume from before the collapse. Nothing made on this rim smells like that.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- Ne se charge que si Anima Expansion est present : le def cible porte lui-meme
+       un MayRequire, et le patch est garde en consequence. -->
+  <ThoughtDef ParentName="RimScentExtended_PerfumeScentBase" MayRequire="romyashi.animaexpansion">
+    <defName>RimScentExtended_Scent_PerfumeAnima</defName>
+    <stages>
+      <li>
+        <label>anima perfume</label>
+        <description>Someone here carries the still, humming scent of an anima tree.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- Les petales, dont la description du mod dit qu'elles sentent tres bon, sont un
+       objet et non une plante : le patch fleurs, qui vise plant/purpose="Beauty", ne
+       les couvre pas. La fleur sur pied, elle, l'est deja. -->
+  <ThoughtDef ParentName="RimScentExtended_PerfumeScentBase">
+    <defName>RimScentExtended_Scent_AromaflowerPetals</defName>
+    <stackLimit>4</stackLimit>
+    <stages>
+      <li>
+        <label>aromaflower petals</label>
+        <description>A heap of aromaflower petals. The whole room smells of them.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

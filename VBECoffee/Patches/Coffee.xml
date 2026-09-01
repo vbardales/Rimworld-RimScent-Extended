@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Certaines de ces boissons ne se chargent qu'avec Vanilla Cooking Expanded : le mod
+       les range dans un sous-dossier IfModActive. Le motif a predicats disjoints s'en
+       accommode - un "or" qui ne trouve qu'une partie de ses defs patche simplement ceux
+       qui existent, et le conditionnel evite l'erreur si aucun n'existe. -->
+
+  <!-- La machine a espresso. CompPowerTrader : elle ne sent qu'alimentee. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="VBE_EspressoMachineBuilding"]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="VBE_EspressoMachineBuilding"]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_Coffee</thought>
+        </li>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationConditional">
+      <xpath>Defs/ThingDef[defName="VBE_EspressoMachineBuilding"]</xpath>
+      <match Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="VBE_EspressoMachineBuilding"]</xpath>
+        <value>
+          <modExtensions>
+            <li Class="RimScentReworked.ModExtension_Scent">
+              <thought>RimScentExtended_Scent_Coffee</thought>
+            </li>
+          </modExtensions>
+        </value>
+      </match>
+    </nomatch>
+  </Operation>
+
+  <!-- Les cafes. Yuenyeung est un melange cafe-the : compte comme cafe. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="VBE_CannibalCoffee" or defName="VBE_IrishCoffee" or defName="VBE_LatteCoffee" or defName="VBE_MochaCoffee" or defName="VBE_PumpkinCoffee" or defName="VBE_Yuenyeung" or defName="VBE_DalgonaCoffee" or defName="VBE_LemonCoffee" or defName="VBE_MintCoffee") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="VBE_CannibalCoffee" or defName="VBE_IrishCoffee" or defName="VBE_LatteCoffee" or defName="VBE_MochaCoffee" or defName="VBE_PumpkinCoffee" or defName="VBE_Yuenyeung" or defName="VBE_DalgonaCoffee" or defName="VBE_LemonCoffee" or defName="VBE_MintCoffee") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_Coffee</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="VBE_CannibalCoffee" or defName="VBE_IrishCoffee" or defName="VBE_LatteCoffee" or defName="VBE_MochaCoffee" or defName="VBE_PumpkinCoffee" or defName="VBE_Yuenyeung" or defName="VBE_DalgonaCoffee" or defName="VBE_LemonCoffee" or defName="VBE_MintCoffee") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="VBE_CannibalCoffee" or defName="VBE_IrishCoffee" or defName="VBE_LatteCoffee" or defName="VBE_MochaCoffee" or defName="VBE_PumpkinCoffee" or defName="VBE_Yuenyeung" or defName="VBE_DalgonaCoffee" or defName="VBE_LemonCoffee" or defName="VBE_MintCoffee") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScentExtended_Scent_Coffee</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Les thes. Le kombucha est un the fermente : compte comme the. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="VBE_BlackTea" or defName="VBE_Kombucha" or defName="VBE_EarlGreyTea" or defName="VBE_GreenTea" or defName="VBE_LemonTea" or defName="VBE_MasalaChai" or defName="VBE_MintTea" or defName="VBE_NoonChai") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="VBE_BlackTea" or defName="VBE_Kombucha" or defName="VBE_EarlGreyTea" or defName="VBE_GreenTea" or defName="VBE_LemonTea" or defName="VBE_MasalaChai" or defName="VBE_MintTea" or defName="VBE_NoonChai") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScentExtended_Scent_Tea</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="VBE_BlackTea" or defName="VBE_Kombucha" or defName="VBE_EarlGreyTea" or defName="VBE_GreenTea" or defName="VBE_LemonTea" or defName="VBE_MasalaChai" or defName="VBE_MintTea" or defName="VBE_NoonChai") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="VBE_BlackTea" or defName="VBE_Kombucha" or defName="VBE_EarlGreyTea" or defName="VBE_GreenTea" or defName="VBE_LemonTea" or defName="VBE_MasalaChai" or defName="VBE_MintTea" or defName="VBE_NoonChai") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScentExtended_Scent_Tea</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

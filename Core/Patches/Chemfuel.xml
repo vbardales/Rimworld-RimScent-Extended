@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Aucune nouvelle pensee : RimScent_FuelScent existe deja en amont - « fuel fumes »,
+       -2, « Sharp fumes of chemfuel and oil vapors » - et elle est deja traduite. Elle
+       n'etait branchee que sur Filth_Fuel et les generateurs a chimiburant.
+
+       Les quatre cibles sont gatees sans effort :
+         - BiofuelRefinery et InfiniteChemreactor ont CompPowerTrader + CompFlickable ;
+         - ChemfuelTank et LargeChemfuelTank ont un CompRefuelable, le chimiburant
+           stocke etant leur combustible - une cuve vide ne sent donc rien.
+
+       Les deux cuves viennent d'Odyssey : sans le DLC les defs n'existent pas, et le
+       motif a predicats disjoints les ignore sans erreur. -->
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="BiofuelRefinery" or defName="InfiniteChemreactor" or defName="ChemfuelTank" or defName="LargeChemfuelTank") and modExtensions]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="BiofuelRefinery" or defName="InfiniteChemreactor" or defName="ChemfuelTank" or defName="LargeChemfuelTank") and modExtensions]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>RimScent_FuelScent</thought>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[(defName="BiofuelRefinery" or defName="InfiniteChemreactor" or defName="ChemfuelTank" or defName="LargeChemfuelTank") and not(modExtensions)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[(defName="BiofuelRefinery" or defName="InfiniteChemreactor" or defName="ChemfuelTank" or defName="LargeChemfuelTank") and not(modExtensions)]</xpath>
+      <value>
+        <modExtensions>
+          <li Class="RimScentReworked.ModExtension_Scent">
+            <thought>RimScent_FuelScent</thought>
+          </li>
+        </modExtensions>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

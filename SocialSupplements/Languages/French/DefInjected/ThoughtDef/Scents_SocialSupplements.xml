@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: vapour cloud -->
+  <RimScentExtended_Scent_Vapour.stages.vapour_cloud.label>nuage de vapeur</RimScentExtended_Scent_Vapour.stages.vapour_cloud.label>
+  <!-- EN: A sweet, synthetic cloud hangs where someone exhaled. It coats the back of the throat. -->
+  <RimScentExtended_Scent_Vapour.stages.vapour_cloud.description>Un nuage sucré et synthétique flotte là où quelqu'un a expiré. Ça tapisse le fond de la gorge.</RimScentExtended_Scent_Vapour.stages.vapour_cloud.description>
+
+  <!-- EN: mint -->
+  <RimScentExtended_Scent_Mint.stages.mint.label>menthe</RimScentExtended_Scent_Mint.stages.mint.label>
+  <!-- EN: Sharp, cold mint. It clears the head. -->
+  <RimScentExtended_Scent_Mint.stages.mint.description>De la menthe vive et froide. Ça dégage la tête.</RimScentExtended_Scent_Mint.stages.mint.description>
+
+  <!-- EN: chilli in the air -->
+  <RimScentExtended_Scent_Chilli.stages.chilli_in_the_air.label>piment dans l'air</RimScentExtended_Scent_Chilli.stages.chilli_in_the_air.label>
+  <!-- EN: Capsaicin hangs in the air. It catches in the throat and makes eyes water. -->
+  <RimScentExtended_Scent_Chilli.stages.chilli_in_the_air.description>De la capsaïcine flotte dans l'air. Ça prend à la gorge et fait pleurer les yeux.</RimScentExtended_Scent_Chilli.stages.chilli_in_the_air.description>
+
+</LanguageData>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: mould -->
+  <RimScentExtended_Scent_Mould.stages.mould.label>moisissure</RimScentExtended_Scent_Mould.stages.mould.label>
+  <!-- EN: Damp cloth left too long in the dark. Musty, and it catches in the throat. -->
+  <RimScentExtended_Scent_Mould.stages.mould.description>Du tissu humide laissé trop longtemps dans le noir. Une odeur de renfermé, qui prend à la gorge.</RimScentExtended_Scent_Mould.stages.mould.description>
+
+  <!-- EN: slime -->
+  <RimScentExtended_Scent_Slime.stages.slime.label>limon</RimScentExtended_Scent_Slime.stages.slime.label>
+  <!-- EN: A cold, organic film underfoot. It smells faintly of pond water and something else. -->
+  <RimScentExtended_Scent_Slime.stages.slime.description>Une pellicule froide et organique sous le pied. Ça sent vaguement l'eau stagnante, et autre chose.</RimScentExtended_Scent_Slime.stages.slime.description>
+
+  <!-- EN: spoiled food -->
+  <RimScentExtended_Scent_RottenFood.stages.spoiled_food.label>nourriture avariée</RimScentExtended_Scent_RottenFood.stages.spoiled_food.label>
+  <!-- EN: Something in the stores has turned. Sweet, sour and unmistakably off. -->
+  <RimScentExtended_Scent_RottenFood.stages.spoiled_food.description>Quelque chose a tourné dans les réserves. Sucré, aigre, et sans le moindre doute avarié.</RimScentExtended_Scent_RottenFood.stages.spoiled_food.description>
+
+</LanguageData>

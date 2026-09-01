@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <RimScentExtended.Settings.Category>RimScent - Français</RimScentExtended.Settings.Category>
+
+  <RimScentExtended.Settings.Temperature>La température agit sur les odeurs</RimScentExtended.Settings.Temperature>
+  <RimScentExtended.Settings.TemperatureTip>La chaleur volatilise les odeurs, le froid les fige. Une odeur vaut 40 % en dessous de -10 °C, sa pleine force à 20 °C, et 160 % à partir de 45 °C. S'applique aux bonnes comme aux mauvaises : réfrigérer un tas de cadavres sert donc réellement à quelque chose.</RimScentExtended.Settings.TemperatureTip>
+
+  <RimScentExtended.Settings.Adaptation>Accoutumance olfactive</RimScentExtended.Settings.Adaptation>
+  <RimScentExtended.Settings.AdaptationTip>Une odeur constante finit par ne plus se remarquer, et revient de plein fouet après une absence. Sans cela, un colon qui vit près d'une étable est malheureux pour toujours, sans aucun moyen de s'y faire.</RimScentExtended.Settings.AdaptationTip>
+
+  <RimScentExtended.Settings.Floor>Force restante une fois l'odeur devenue familière : {0}</RimScentExtended.Settings.Floor>
+  <RimScentExtended.Settings.Hours>Heures d'exposition continue pour y arriver : {0}</RimScentExtended.Settings.Hours>
+
+  <RimScentExtended.Settings.Pleasant>S'habituer aussi aux bonnes odeurs</RimScentExtended.Settings.Pleasant>
+  <RimScentExtended.Settings.PleasantTip>Activé : on s'habitue à son propre encens comme on s'habitue au fumier, ce qui est ce qui se passe réellement — et cela récompense le fait de varier les odeurs plutôt que d'en brancher une et de l'oublier. Désactivé : seules les mauvaises odeurs s'estompent, ce qui préserve tout le bonus d'humeur de l'encens et des parfums.</RimScentExtended.Settings.PleasantTip>
+
+</LanguageData>

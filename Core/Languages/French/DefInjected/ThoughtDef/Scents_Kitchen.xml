@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: cooking smell -->
+  <RimScentExtended_Scent_Cooking.stages.cooking_smell.label>odeur de cuisine</RimScentExtended_Scent_Cooking.stages.cooking_smell.label>
+  <!-- EN: Something is cooking nearby. Hot fat, onions and browning meat. -->
+  <RimScentExtended_Scent_Cooking.stages.cooking_smell.description>Quelque chose cuit à côté. De la graisse chaude, de l'oignon et de la viande qui dore.</RimScentExtended_Scent_Cooking.stages.cooking_smell.description>
+
+  <!-- EN: nutrient paste -->
+  <RimScentExtended_Scent_NutrientPaste.stages.nutrient_paste.label>pâte nutritive</RimScentExtended_Scent_NutrientPaste.stages.nutrient_paste.label>
+  <!-- EN: Warm, bland and vaguely organic. Whatever went in, this is what comes out. -->
+  <RimScentExtended_Scent_NutrientPaste.stages.nutrient_paste.description>Tiède, fade et vaguement organique. Quoi qu'on y ait mis, voilà ce qui en sort.</RimScentExtended_Scent_NutrientPaste.stages.nutrient_paste.description>
+
+</LanguageData>

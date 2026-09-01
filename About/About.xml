@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>RimScent Extended</name>
+	<author>nelim</author>
+	<packageId>nelim.rimscent.extended</packageId>
+	<description>RimScent gives part of the game a smell. This mod fixes five bugs in its engine, adds two mechanics it was missing, and extends its reach to the rest of the base game and to fifteen other mods.
+
+ENGINE FIXES (Harmony patch — the original mod is neither forked nor modified)
+- A switched-off incense burner kept perfuming the room forever. The scan tested fuel and power, never the switch.
+- A dangling else removed all room separation for a colonist indoors, who could smell adjacent rooms and the outdoors through walls.
+- Trait-degree fields (dysosmicTraitDegrees, anosmicTraitDegrees) fired for everyone without ever checking the pawn.
+- Per-scent anosmia tripled the smell instead of cancelling it.
+- A possible exception every tick if another mod placed the comp on anything but humans.
+
+TWO MECHANICS, TOGGLEABLE IN THE OPTIONS
+- Olfactory adaptation. A constant smell stops being noticed, and hits again after time away. Without it, a colonist living next to a barn is unhappy forever with no way to get used to it. Floor, duration and whether pleasant smells fade too are all adjustable.
+- Temperature. Heat makes odours volatile, cold locks them down. Refrigerating a pile of corpses finally does something for your nose.
+
+WHAT SMELLS NOW, IN THE BASE GAME
+- Corpses, graded by rot stage. RimScent scented the bile puddle but never the body. A buried corpse does not smell, and a mechanoid carcass never rots.
+- Spoiled food, from any mod, without a single def being patched.
+- Every decorative plant, from the game and from mods, through its "purpose Beauty" marker.
+- Every cooking station, from the game and from mods, through its "isMealSource" marker. An unpowered stove smells of nothing.
+- Crematorium, smelter, fermenting barrel and brewery, nutrient paste dispenser.
+- Torches and braziers, at a gentler value than the campfire.
+- Biofuel refinery, chemfuel tanks and chemfuel itself.
+- 22 more filth types, two of which finally use thoughts that RimScent defined and never attached to anything.
+- Beer, wort, hay, hops, herbal medicine, synthetic drugs.
+
+MOD INTEGRATION — each part loads only if the mod it targets is active
+Perfumes, Vanilla Events Expanded, VBE Coffees and Teas, Vanilla Cooking Expanded and its Bakery module, Social Supplements, Medical Supplements, Alpha Crafts, Communicable Diseases, Epochs Incense and Tallow, Stoneborn Cuisine, Knick Knacks, Colonists' Deco, Tabletop Trove.
+
+Several of those mods defined smells that nothing ever applied. Epochs Incense promises "a pleasant floral aroma" its burners never released; RimScent itself left two thoughts orphaned. They are wired up at last.
+
+Also ships a full French translation of RimScent, its Perfume Expansion, and everything added here. Labels are in English, French is injected on top, so the mod works in any language.
+
+No save data is added: it can be added to or removed from an ongoing game. Requires RimScent.</description>
+	<modVersion>0.2.0</modVersion>
+	<supportedVersions>
+		<li>1.6</li>
+	</supportedVersions>
+	<modDependencies>
+		<li>
+			<packageId>reo.RimScent</packageId>
+			<displayName>RimScent</displayName>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/3645569466</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>brrainz.harmony</li>
+		<li>Ludeon.RimWorld</li>
+		<li>reo.RimScent</li>
+		<li>reo.rimscent.perfumeexpansion</li>
+		<!-- Tous les mods que ce mod patche. Les operations de patch s'appliquent dans
+		     l'ordre de chargement : il faut passer apres eux, sinon nos xpath ciblent
+		     des defs qui n'existent pas encore. Le cas limite est Communicable Diseases,
+		     dont six saletes de germes sont elles-memes creees par un PatchOperationAdd
+		     conditionne a Diseases Overhauled - elles n'existent qu'une fois son patch
+		     a lui passe. -->
+		<li>romyashi.perfumes</li>
+		<li>romyashi.animaexpansion</li>
+		<li>vanillaexpanded.vee</li>
+		<li>vanillaexpanded.vbrewecandt</li>
+		<li>vanillaexpanded.vcooke</li>
+		<li>vanillaexpanded.vcookebakery</li>
+		<li>mlie.socialsupplements</li>
+		<li>onegative.communicablediseases</li>
+		<li>det.epochsincense</li>
+		<li>det.epochstallow</li>
+		<li>det.sbcuisine</li>
+		<li>vaguelysexual.modpackageid.goeshere</li>
+		<li>mlie.colonistsdeco</li>
+		<li>soulfulpumpkin.tabletoptroveunofficial</li>
+		<li>mlie.medicalsupplements</li>
+		<li>sarg.alphacrafts</li>
+	</loadAfter>
+</ModMetaData>

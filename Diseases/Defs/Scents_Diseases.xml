@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Communicable Diseases repand dix saletes de germes sur les sols ou les malades ont
+       tousse. Les germes eux-memes ne sentent rien - mais une piece ou l'on est malade,
+       si : air confine, sueur, fievre. C'est cette odeur-la qu'on donne aux dix, sans
+       distinguer les maladies : le nez ne fait pas le diagnostic. -->
+
+  <ThoughtDef>
+    <defName>RimScentExtended_Scent_Sickroom</defName>
+    <durationDays>0.1</durationDays>
+    <stackLimit>3</stackLimit>
+    <stages>
+      <li>
+        <label>sickroom air</label>
+        <description>Stale, close air with a sour edge to it. Someone has been ill here.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

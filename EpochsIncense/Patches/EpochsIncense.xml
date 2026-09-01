@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Epochs - Incense definit deux ThoughtDef, IncenseThought et StandingIncenseThought,
+       toutes deux « pleasant smell » a +2... et ne les applique jamais. Verifie : elles ne
+       sont citees nulle part ailleurs que dans leur propre fichier, dans aucun mod du
+       Workshop, et le mod ne contient aucune assembly. Les brule-encens sont donc purement
+       decoratifs, alors que leur description promet « a pleasant floral aroma ».
+
+       On les branche sur RimScent en reutilisant les pensees de l'auteur plutot qu'en
+       creant les notres : c'est ce qu'il avait prevu, le libelle et la description existent
+       deja, et aucun double compte n'est possible puisque rien d'autre ne les pose.
+
+       A noter : ces brule-encens n'ont ni CompRefuelable ni CompPowerTrader. Ils sentiront
+       donc en permanence, sans entretien - contrairement a ceux de l'extension encens de
+       RimScent, qui consomment des batonnets. C'est le choix de l'auteur, on ne le corrige
+       pas ici. -->
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="MA_IncenseBurner"]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="MA_IncenseBurner"]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>IncenseThought</thought>
+        </li>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationConditional">
+      <xpath>Defs/ThingDef[defName="MA_IncenseBurner"]</xpath>
+      <match Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="MA_IncenseBurner"]</xpath>
+        <value>
+          <modExtensions>
+            <li Class="RimScentReworked.ModExtension_Scent">
+              <thought>IncenseThought</thought>
+            </li>
+          </modExtensions>
+        </value>
+      </match>
+    </nomatch>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="MA_StandingIncenseBurner"]/modExtensions</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="MA_StandingIncenseBurner"]/modExtensions</xpath>
+      <value>
+        <li Class="RimScentReworked.ModExtension_Scent">
+          <thought>StandingIncenseThought</thought>
+        </li>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationConditional">
+      <xpath>Defs/ThingDef[defName="MA_StandingIncenseBurner"]</xpath>
+      <match Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="MA_StandingIncenseBurner"]</xpath>
+        <value>
+          <modExtensions>
+            <li Class="RimScentReworked.ModExtension_Scent">
+              <thought>StandingIncenseThought</thought>
+            </li>
+          </modExtensions>
+        </value>
+      </match>
+    </nomatch>
+  </Operation>
+
+</Patch>
