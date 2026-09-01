@@ -6,39 +6,14 @@
   <!-- EN: Someone here has put something on. Discreet, deliberate, and it works. -->
   <RimScentExtended_Scent_WornScent.stages.worn_scent.description>Quelqu'un ici s'est mis quelque chose. Discret, volontaire, et ça marche.</RimScentExtended_Scent_WornScent.stages.worn_scent.description>
 
-  <!-- EN: ammonia -->
-  <RimScentExtended_Scent_SmellingSalts.stages.ammonia.label>ammoniac</RimScentExtended_Scent_SmellingSalts.stages.ammonia.label>
-  <!-- EN: A cutting reek of ammonia. It goes straight up the nose and hurts. -->
-  <RimScentExtended_Scent_SmellingSalts.stages.ammonia.description>Une puanteur d'ammoniac qui coupe le souffle. Ça monte droit au nez et ça fait mal.</RimScentExtended_Scent_SmellingSalts.stages.ammonia.description>
 
-  <!-- EN: pharmacy smell -->
-  <RimScentExtended_Scent_Pharmacy.stages.pharmacy_smell.label>odeur de pharmacie</RimScentExtended_Scent_Pharmacy.stages.pharmacy_smell.label>
-  <!-- EN: Surgical alcohol, plastic and something faintly bitter. It smells like being treated. -->
-  <RimScentExtended_Scent_Pharmacy.stages.pharmacy_smell.description>De l'alcool chirurgical, du plastique et une pointe d'amertume. Ça sent le fait d'être soigné.</RimScentExtended_Scent_Pharmacy.stages.pharmacy_smell.description>
 
-  <!-- EN: scented candle -->
-  <RimScentExtended_Scent_ScentedCandle.stages.scented_candle.label>bougie parfumée</RimScentExtended_Scent_ScentedCandle.stages.scented_candle.label>
-  <!-- EN: Wax and something warm and floral. Someone wanted this room to feel cared for. -->
-  <RimScentExtended_Scent_ScentedCandle.stages.scented_candle.description>De la cire et quelque chose de chaud et de fleuri. Quelqu'un a voulu qu'on se sente bien dans cette pièce.</RimScentExtended_Scent_ScentedCandle.stages.scented_candle.description>
 
-  <!-- EN: soap -->
-  <RimScentExtended_Scent_Soap.stages.soap.label>savon</RimScentExtended_Scent_Soap.stages.soap.label>
-  <!-- EN: Clean, faintly fatty and unmistakable. The smell of things being washed. -->
-  <RimScentExtended_Scent_Soap.stages.soap.description>Propre, légèrement gras, reconnaissable entre tous. L'odeur de ce qu'on lave.</RimScentExtended_Scent_Soap.stages.soap.description>
 
-  <!-- EN: concentrated essence -->
-  <RimScentExtended_Scent_Essence.stages.concentrated_essence.label>essence concentrée</RimScentExtended_Scent_Essence.stages.concentrated_essence.label>
-  <!-- EN: Whatever it was distilled from, there is far too much of it in far too little liquid. -->
-  <RimScentExtended_Scent_Essence.stages.concentrated_essence.description>Quoi qu'on ait distillé, il y en a beaucoup trop dans beaucoup trop peu de liquide.</RimScentExtended_Scent_Essence.stages.concentrated_essence.description>
 
-  <!-- EN: vinegar and brine -->
-  <RimScentExtended_Scent_Vinegar.stages.vinegar_and_brine.label>vinaigre et saumure</RimScentExtended_Scent_Vinegar.stages.vinegar_and_brine.label>
-  <!-- EN: Sharp acetic bite and salt. It clears the sinuses whether you wanted that or not. -->
-  <RimScentExtended_Scent_Vinegar.stages.vinegar_and_brine.description>Une morsure acétique et du sel. Ça dégage les sinus, que vous l'ayez voulu ou non.</RimScentExtended_Scent_Vinegar.stages.vinegar_and_brine.description>
 
-  <!-- EN: dried herbs -->
-  <RimScentExtended_Scent_DriedHerbs.stages.dried_herbs.label>herbes séchées</RimScentExtended_Scent_DriedHerbs.stages.dried_herbs.label>
-  <!-- EN: Cut plants drying in the air. Green, dusty and quietly agreeable. -->
-  <RimScentExtended_Scent_DriedHerbs.stages.dried_herbs.description>Des plantes coupées qui sèchent à l'air. Vert, poussiéreux, discrètement agréable.</RimScentExtended_Scent_DriedHerbs.stages.dried_herbs.description>
+  <RimScentExtended_Scent_Fermenting.stages.fermenting_wort.label>moût en fermentation</RimScentExtended_Scent_Fermenting.stages.fermenting_wort.label>
+  <!-- EN: Yeast, warm malt and a sour-sweet edge. Something is brewing. -->
+  <RimScentExtended_Scent_Fermenting.stages.fermenting_wort.description>De la levure, du malt tiède et une pointe aigre-douce. Quelque chose est en train de brasser.</RimScentExtended_Scent_Fermenting.stages.fermenting_wort.description>
 
 </LanguageData>

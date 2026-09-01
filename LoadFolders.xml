@@ -6,22 +6,5 @@
 		     Une traduction DefInjected qui cible un def absent est une erreur de
 		     chargement, d'ou le decoupage par IfModActive plutot qu'un dossier unique. -->
 		<li IfModActive="reo.rimscent">Core</li>
-		<li IfModActive="reo.rimscent.perfumeexpansion">Perfume</li>
-		<li IfModActive="romyashi.perfumes">RomyPerfumes</li>
-		<li IfModActive="romyashi.animaexpansion">RomyPerfumesAnima</li>
-		<li IfModActive="vanillaexpanded.vee">VEE</li>
-		<li IfModActive="vanillaexpanded.vbrewecandt">VBECoffee</li>
-		<li IfModActive="vanillaexpanded.vcookebakery">VCEBakery</li>
-		<li IfModActive="mlie.socialsupplements">SocialSupplements</li>
-		<li IfModActive="onegative.communicablediseases">Diseases</li>
-		<li IfModActive="det.epochsincense">EpochsIncense</li>
-		<li IfModActive="det.epochstallow">EpochsTallow</li>
-		<li IfModActive="det.sbcuisine">StonebornCuisine</li>
-		<li IfModActive="vaguelysexual.modpackageid.goeshere">KnickKnacks</li>
-		<li IfModActive="mlie.colonistsdeco">ColonistsDeco</li>
-		<li IfModActive="soulfulpumpkin.tabletoptroveunofficial">TabletopTrove</li>
-		<li IfModActive="mlie.medicalsupplements">MedicalSupplements</li>
-		<li IfModActive="sarg.alphacrafts">AlphaCrafts</li>
-		<li IfModActive="ceteam.combatextended">CE</li>
 	</v1.6>
 </loadFolders>
