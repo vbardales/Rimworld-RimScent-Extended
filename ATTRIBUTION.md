@@ -1,19 +1,19 @@
 # Attribution
 
-Ce mod ne reprend aucun fichier des mods qu'il traduit : il ne contient que des
-cles de traduction ecrites ici, un def de recherche et des operations de patch.
+This mod reuses no file from the mods it translates: it contains only translation keys
+written here, one research def, and patch operations.
 
-Mods vises, tous sous licence **MIT** (Copyright (c) 2026 ocarina0001) :
+Targeted mods, all under the **MIT** licence (Copyright (c) 2026 ocarina0001):
 
-| Mod | Auteurs | Workshop |
+| Mod | Authors | Workshop |
 |---|---|---|
 | RimScent | reo, ocarina0001 | 3645569466 |
 | RimScent: Incense Expansion | ocarina | 3678830567 |
 | RimScent: Perfume Expansion | reo | 3649714034 |
 
-Depot amont : https://github.com/ocarina0001/rimscent
+Upstream repository: https://github.com/ocarina0001/rimscent
 
-Les textes anglais d'origine sont reproduits en commentaire au-dessus de chaque
-cle, pour que la traduction reste verifiable quand le mod amont evolue.
+The original English text is reproduced as a comment above each key, so the translation
+stays verifiable as the upstream mod evolves.
 
-**Licence :** MIT (`LICENSE`).
+**Licence:** MIT (`LICENSE`).
