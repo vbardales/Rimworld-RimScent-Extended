@@ -2,7 +2,7 @@
 
 The socle of the RimScent Extended family: five fixes to the engine of
 [RimScent](https://steamcommunity.com/sharedfiles/filedetails/?id=3645569466)
-(reo, ocarina0001), two mechanics it was missing, and two extension points it did not have.
+(reo, ocarina0001), two mechanics it was missing, and three extension points it did not have.
 For RimWorld 1.6.
 
 **On its own it adds almost no content.** It is what the seven expansions are built on.
@@ -11,13 +11,13 @@ For RimWorld 1.6.
 
 | Mod | Theme |
 |---|---|
-| [Incense Plus](https://github.com/vbardales/Rimworld-rimscent-extended-incense-plus-expansion) | six incenses with real effects, and the Incense Expansion rebalanced |
+| [Incense Plus](https://github.com/vbardales/Rimworld-RimScent-Extended-Incense-Plus-Expansion) | six incenses with real effects, and the Incense Expansion rebalanced |
 | [Perfume Plus](https://github.com/vbardales/Rimworld-RimScent-Extended-Perfume-Plus-Expansion) | worn perfumes, vaping, mint |
 | [Everyday Life](https://github.com/vbardales/Rimworld-RimScent-Extended-Everyday-Life-Expansion) | cooking, coffee, bread, flowers, knick-knacks |
 | [Decay](https://github.com/vbardales/Rimworld-RimScent-Extended-Decay-Expansion) | graded corpses, spoiled food, sickroom |
 | [Farmyard](https://github.com/vbardales/Rimworld-RimScent-Extended-Farmyard-Expansion) | droppings, livestock, hives, insectiary |
-| Industry | crematorium, smelter, tallow, torches, chemfuel, filth |
-| [Weather](https://github.com/vbardales/Rimworld-RimScent-Extended-Weather-Expansion) | drought, heat wave, psychic bloom |
+| [Industry](https://github.com/vbardales/Rimworld-RimScent-Extended-Industry-Expansion) | crematorium, smelter, tallow, torches, chemfuel, filth |
+| [Weather](https://github.com/vbardales/Rimworld-RimScent-Extended-Weather-Expansion) | water, ocean, marsh, forest, weather and game conditions |
 
 The design reasoning behind each one is in [NOTES.md](NOTES.md): it was worked out before they
 were split apart, and many decisions answer each other across themes.
