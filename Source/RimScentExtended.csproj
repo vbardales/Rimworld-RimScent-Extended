@@ -10,7 +10,7 @@
     <Optimize>true</Optimize>
     <DebugType>none</DebugType>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <OutputPath>..\Assemblies\</OutputPath>
+    <OutputPath>..\Mod\Assemblies\</OutputPath>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
 
