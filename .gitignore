@@ -1,6 +1,8 @@
 .build/
 Source/obj/
 Source/bin/
+Tests/**/obj/
+Tests/**/bin/
 .vs/
 .idea/
 *.user
