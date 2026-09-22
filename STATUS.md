@@ -27,12 +27,13 @@ updated: 2026-09-22, evidence-based audit
 ## Audit — 2026-09-22
 
 **Retained stage: `dansMonoRepo`.** The audited copy is a folder in the shared
-`rimworld` monorepo: it was not yet detached when the audit began. A standalone repository and
-its public GitHub remote now exist, but the first transition is not established until this
-initial commit is pushed and the English documentation gate is complete. `STATUS.md`, package
-identity, public visibility, MIT attribution, `CHANGELOG.md`, `.gitignore`, and `.gitattributes`
-are present. `BUGS.md` and `NOTES.md` are French-language technical documentation, whereas
-publication documentation must be English.
+`rimworld` monorepo: it was not yet detached when the audit began. The standalone repository is
+now public at `https://github.com/vbardales/Rimworld-RimScent-Extended`, with `main` pushed at
+`bc7ccff571736e99cf7ca0d4eba9e3720a4bb706`. The first transition remains unestablished because
+the English documentation gate is incomplete. `STATUS.md`, package identity, public visibility,
+MIT attribution, `CHANGELOG.md`, `.gitignore`, and `.gitattributes` are present. `BUGS.md` and
+`NOTES.md` are French-language technical documentation, whereas publication documentation must
+be English.
 
 The audit was made against the files currently on disk. `git status -- RimScentExtended`
 was clean before and after the checks; the enclosing monorepo has unrelated local work.
@@ -83,5 +84,5 @@ demonstrated.
 
 ## Strictly necessary next transition
 
-Push the initial standalone-repository commit and provide English `BUGS.md`/`NOTES.md`; then
-re-audit `dansMonoRepo → horsMonoRepo`. Runtime work remains unverified rather than defective.
+Provide English `BUGS.md`/`NOTES.md`, then re-audit `dansMonoRepo → horsMonoRepo`. Runtime work
+remains unverified rather than defective.
