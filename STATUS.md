@@ -17,7 +17,7 @@ tested_on:
 workshop:
 remaining:
   - unverified: no RimWorld session was launched; runtime behavior, persistence, EN/FR layout, logs, and integrations remain unverified.
-  - unverified: five Pickle/Gherkin features are written and compiled but none has run; engine-regression and settings-persistence features are @wip pending a fixture-generation ticket and settings sandbox, while save compatibility remains unwritten.
+  - unverified: seven Pickle/Gherkin features are written and compiled but none has run; engine, save, settings-persistence, and language features are @wip pending their fixture-generation ticket or missing observer/sandbox steps.
 updated: 2026-09-22, evidence-based audit
 ---
 
@@ -81,7 +81,7 @@ demonstrated.
 
 ## Strictly necessary next transition
 
-Obtain a fixture-generation ticket, implement the fixture-backed and settings-sandbox steps, and
-write the save-compatibility Gherkin coverage. Then execute the applicable offline suite again
-against the delivered DLL. The resulting evidence must match that DLL before `preTest → done` can
-pass. Runtime work remains unverified rather than defective.
+Obtain a fixture-generation ticket and implement the fixture-backed, settings-sandbox, and
+language-observer steps. Then execute the applicable offline suite again against the delivered
+DLL. The resulting evidence must match that DLL before `preTest → done` can pass. Runtime work
+remains unverified rather than defective.

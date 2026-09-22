@@ -23,7 +23,8 @@ Harmony behavior, logging, or a Pickle result. Those checks remain unverified in
 also passed with 0 warnings and 0 errors. It produces the test-companion-only
 `RimScentExtended.PickleSteps.dll`; no game process was started and no Pickle report exists.
 
-The companion currently contains five Gherkin features. Loading and MainButtons are selectable
+The companion currently contains seven Gherkin features. Loading and MainButtons are selectable
 in the minimal pass; the RIMMSQOL shortcut feature is selectable only with
 `wsl-deps.avec-rimmsqol.map`. Engine-regression and settings-persistence specifications are
-tagged `@wip`: they name the required fixture or settings sandbox and were not selected or run.
+tagged `@wip`: they name the required fixture, settings sandbox, or language observer and were
+not selected or run.

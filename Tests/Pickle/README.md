@@ -30,7 +30,8 @@ compatibility require dedicated fixtures or the optional RIMMSQOL pass. They are
 [`TEST_SCENARIOS.md`](../../TEST_SCENARIOS.md), not claimed by this minimal suite. No Pickle pass
 has been run yet.
 
-`04-engine-regressions.feature` and `05-settings-persistence.feature` are intentionally tagged
+`04-engine-regressions.feature`, `05-settings-persistence.feature`,
+`06-save-compatibility.feature`, and `07-language-regression.feature` are intentionally tagged
 `@wip`. They are written acceptance specifications, but cannot be selected until a ticket creates
-the named engine fixture and the settings sandbox/steps. `@wip` is not a pass and must only be
-included with a narrow filter after those prerequisites are delivered.
+the named engine/save fixture and the missing sandbox or observer steps. `@wip` is not a pass and
+must only be included with a narrow filter after those prerequisites are delivered.
