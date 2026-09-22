@@ -17,7 +17,7 @@ tested_on:
 workshop:
 remaining:
   - unverified: no RimWorld session was launched; runtime behavior, persistence, EN/FR layout, logs, and integrations remain unverified.
-  - unverified: the minimal Pickle/Gherkin suite is written and compiled but has not run; fixture-backed scent mechanics, settings persistence, RIMMSQOL lifecycle, and save scenarios still need their own Gherkin coverage.
+  - unverified: five Pickle/Gherkin features are written and compiled but none has run; engine-regression and settings-persistence features are @wip pending a fixture-generation ticket and settings sandbox, while save compatibility remains unwritten.
 updated: 2026-09-22, evidence-based audit
 ---
 
@@ -81,7 +81,7 @@ demonstrated.
 
 ## Strictly necessary next transition
 
-Complete the fixture-backed Pickle/Gherkin coverage for the remaining functional scenarios, then
-execute the applicable offline suite again against the delivered DLL. The resulting evidence must
-match that DLL before `preTest → done` can pass. Runtime work remains unverified rather than
-defective.
+Obtain a fixture-generation ticket, implement the fixture-backed and settings-sandbox steps, and
+write the save-compatibility Gherkin coverage. Then execute the applicable offline suite again
+against the delivered DLL. The resulting evidence must match that DLL before `preTest → done` can
+pass. Runtime work remains unverified rather than defective.
