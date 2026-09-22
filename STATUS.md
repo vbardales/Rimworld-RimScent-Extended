@@ -17,7 +17,7 @@ tested_on:
 workshop:
 remaining:
   - unverified: no RimWorld session was launched; runtime behavior, persistence, EN/FR layout, logs, and integrations remain unverified.
-  - unverified: seven Pickle/Gherkin features are written and compiled but none has run; engine, save, settings-persistence, and language features are @wip pending their fixture-generation ticket or missing observer/sandbox steps.
+  - unverified: eight Pickle/Gherkin features are written and compiled but none has run; engine, extension-point, save, settings-persistence, and language features are @wip pending their fixture-generation ticket or missing observer/sandbox steps.
 updated: 2026-09-22, evidence-based audit
 ---
 
