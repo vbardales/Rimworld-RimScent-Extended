@@ -17,7 +17,7 @@ tested_on:
 workshop:
 remaining:
   - unverified: no RimWorld session was launched; runtime behavior, persistence, EN/FR layout, logs, and integrations remain unverified.
-  - unverified: no automated-test, XML-test, functional-scenario, or Pickle-suite artefact exists for the preTest-to-done gate.
+  - unverified: functional scenarios are written but no Pickle/Gherkin suite or in-game evidence exists for the preTest-to-done and done-to-tested gates.
 updated: 2026-09-22, evidence-based audit
 ---
 
@@ -81,6 +81,6 @@ demonstrated.
 
 ## Strictly necessary next transition
 
-Write and execute the applicable automated and XML tests, write functional scenarios, and define
-the justified Gherkin/Pickle scope. The resulting evidence must match the delivered DLL before
-`preTest → done` can pass. Runtime work remains unverified rather than defective.
+Write the justified Pickle/Gherkin suite, then execute the applicable offline suite again against
+the delivered DLL. The resulting evidence must match that DLL before `preTest → done` can pass.
+Runtime work remains unverified rather than defective.
