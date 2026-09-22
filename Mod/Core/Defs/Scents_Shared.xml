@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Pensees partagees entre plusieurs volets conditionnels, donc definies ici : un
+       volet ne peut pas referencer une ThoughtDef declaree dans un autre volet, puisque
+       celui-ci ne se charge que si SON mod est actif. RimScentExtended_Scent_WornScent vivait
+       dans le volet Social Supplements jusqu'a ce qu'Alpha Crafts en ait besoin aussi. -->
+
+  <ThoughtDef Name="RimScentExtended_SharedScentBase" Abstract="True">
+    <durationDays>0.1</durationDays>
+    <stackLimit>1</stackLimit>
+  </ThoughtDef>
+
+  <!-- Un parfum porte, quel qu'en soit le mod d'origine : les « Scenters » de Social
+       Supplements comme le parfum d'Alpha Crafts. -->
+  <ThoughtDef ParentName="RimScentExtended_SharedScentBase">
+    <defName>RimScentExtended_Scent_WornScent</defName>
+    <stages>
+      <li>
+        <label>worn scent</label>
+        <description>Someone here has put something on. Discreet, deliberate, and it works.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+
+  <!-- Partage entre Industry (fut de fermentation, brasserie) et Everyday Life
+       (biere, mout, cuves d'Alpha Crafts), donc declare ici. -->
+  <!-- Un abstinent ne se rejouit pas de l'odeur de l'alcool en preparation, comme pour
+       l'encens de smokeleaf. -->
+  <ThoughtDef>
+    <defName>RimScentExtended_Scent_Fermenting</defName>
+    <durationDays>0.1</durationDays>
+    <stackLimit>2</stackLimit>
+    <nullifyingTraitDegrees>
+      <DrugDesire>-1</DrugDesire>
+    </nullifyingTraitDegrees>
+    <stages>
+      <li>
+        <label>fermenting wort</label>
+        <description>Yeast, warm malt and a sour-sweet edge. Something is brewing.</description>
+        <baseMoodEffect>1</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

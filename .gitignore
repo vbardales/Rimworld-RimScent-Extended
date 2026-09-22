@@ -1,0 +1,7 @@
+.build/
+Source/obj/
+Source/bin/
+.vs/
+.idea/
+*.user
+.claude/

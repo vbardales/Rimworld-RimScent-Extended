@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <RimScentExtended.Settings.Category>RimScent Extended</RimScentExtended.Settings.Category>
+
+  <RimScentExtended.Settings.Temperature>Temperature affects scents</RimScentExtended.Settings.Temperature>
+  <RimScentExtended.Settings.TemperatureTip>Heat makes odours volatile, cold locks them down. A scent is at 40% below -10C, full strength at 20C, and 160% at 45C and above. Applies to pleasant and foul smells alike, so refrigerating a pile of corpses genuinely helps.</RimScentExtended.Settings.TemperatureTip>
+
+  <RimScentExtended.Settings.Adaptation>Olfactory adaptation</RimScentExtended.Settings.Adaptation>
+  <RimScentExtended.Settings.AdaptationTip>A constant smell stops being noticed, and hits again after time away. Without this, a colonist living next to a barn is unhappy forever with no way to get used to it.</RimScentExtended.Settings.AdaptationTip>
+
+  <RimScentExtended.Settings.Floor>Remaining strength once fully used to a smell: {0}</RimScentExtended.Settings.Floor>
+  <RimScentExtended.Settings.Hours>Hours of continuous exposure to get there: {0}</RimScentExtended.Settings.Hours>
+
+  <RimScentExtended.Settings.Pleasant>Also get used to pleasant smells</RimScentExtended.Settings.Pleasant>
+  <RimScentExtended.Settings.PleasantTip>On: you get used to your own incense and perfume just as you get used to manure, which is what actually happens - and it rewards varying scents rather than setting one up and forgetting it. Off: only foul smells fade, which preserves the full mood bonus of incense and perfumes.</RimScentExtended.Settings.PleasantTip>
+
+</LanguageData>

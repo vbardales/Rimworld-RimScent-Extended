@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: worn scent -->
+  <RimScentExtended_Scent_WornScent.stages.worn_scent.label>parfum porté</RimScentExtended_Scent_WornScent.stages.worn_scent.label>
+  <!-- EN: Someone here has put something on. Discreet, deliberate, and it works. -->
+  <RimScentExtended_Scent_WornScent.stages.worn_scent.description>Quelqu'un ici s'est mis quelque chose. Discret, volontaire, et ça marche.</RimScentExtended_Scent_WornScent.stages.worn_scent.description>
+
+
+
+
+
+
+
+  <RimScentExtended_Scent_Fermenting.stages.fermenting_wort.label>moût en fermentation</RimScentExtended_Scent_Fermenting.stages.fermenting_wort.label>
+  <!-- EN: Yeast, warm malt and a sour-sweet edge. Something is brewing. -->
+  <RimScentExtended_Scent_Fermenting.stages.fermenting_wort.description>De la levure, du malt tiède et une pointe aigre-douce. Quelque chose est en train de brasser.</RimScentExtended_Scent_Fermenting.stages.fermenting_wort.description>
+
+</LanguageData>

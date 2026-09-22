@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<loadFolders>
+	<v1.6>
+		<li>/</li>
+		<!-- Racine : About, Assemblies. Le reste est conditionne au mod vise :
+		     Une traduction DefInjected qui cible un def absent est une erreur de
+		     chargement, d'ou le decoupage par IfModActive plutot qu'un dossier unique. -->
+		<li IfModActive="reo.rimscent">Core</li>
+	</v1.6>
+</loadFolders>

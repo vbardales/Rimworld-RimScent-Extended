@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <MainButtonDef>
+    <defName>RimScentExtended_Settings</defName>
+    <label>RimScent Extended</label>
+    <description>Open RimScent Extended settings.</description>
+    <workerClass>RimScentExtended.MainButtonWorker_RimScentExtendedSettings</workerClass>
+    <buttonVisible>false</buttonVisible>
+    <validWithoutMap>true</validWithoutMap>
+    <order>950</order>
+  </MainButtonDef>
+</Defs>
