@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "dPAS6KZHxPs=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\nelim\\Documents\\rimworld\\RimScentExtended\\Tests\\Pickle\\Source\\RimScentExtended.PickleSteps.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nelim\\.nuget\\packages\\krafs.rimworld.ref\\1.6.4871\\krafs.rimworld.ref.1.6.4871.nupkg.sha512",
+    "C:\\Users\\nelim\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.3\\microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512",
+    "C:\\Users\\nelim\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net48\\1.0.3\\microsoft.netframework.referenceassemblies.net48.1.0.3.nupkg.sha512",
+    "C:\\Users\\nelim\\.nuget\\packages\\rimworks.pickle.ref\\4.8.4\\rimworks.pickle.ref.4.8.4.nupkg.sha512"
+  ],
+  "logs": []
+}

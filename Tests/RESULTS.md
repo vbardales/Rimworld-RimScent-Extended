@@ -18,3 +18,7 @@
 These offline checks do not execute RimWorld and do not establish UI interaction, persistence,
 Harmony behavior, logging, or a Pickle result. Those checks remain unverified in
 [`TEST_SCENARIOS.md`](../TEST_SCENARIOS.md).
+
+`dotnet build Tests/Pickle/Source/RimScentExtended.PickleSteps.csproj -c Release --nologo`
+also passed with 0 warnings and 0 errors. It produces the test-companion-only
+`RimScentExtended.PickleSteps.dll`; no game process was started and no Pickle report exists.

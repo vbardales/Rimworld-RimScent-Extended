@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>RimScent Extended - Pickle tests</name>
+  <author>Nelim</author>
+  <packageId>nelim.rimscent.extended.pickletests</packageId>
+  <supportedVersions><li>1.6</li></supportedVersions>
+  <description>Development-only in-game checks for RimScent Extended. Never published.</description>
+  <modDependencies>
+    <li><packageId>nelim.rimscent.extended</packageId><displayName>RimScent Extended</displayName></li>
+    <li><packageId>rimworks.pickle</packageId><displayName>Pickle</displayName><steamWorkshopUrl>steam://url/CommunityFilePage/3791648678</steamWorkshopUrl></li>
+  </modDependencies>
+  <loadAfter><li>nelim.rimscent.extended</li><li>rimworks.pickle</li></loadAfter>
+</ModMetaData>

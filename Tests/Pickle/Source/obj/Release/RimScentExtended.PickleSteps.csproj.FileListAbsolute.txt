@@ -1,0 +1,7 @@
+C:\Users\nelim\Documents\rimworld\RimScentExtended\Tests\Pickle\Mod\Pickle\Assemblies\RimScentExtended.PickleSteps.dll
+C:\Users\nelim\Documents\rimworld\RimScentExtended\Tests\Pickle\Source\obj\Release\RimScentExtended.PickleSteps.csproj.AssemblyReference.cache
+C:\Users\nelim\Documents\rimworld\RimScentExtended\Tests\Pickle\Source\obj\Release\RimScentExtended.PickleSteps.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nelim\Documents\rimworld\RimScentExtended\Tests\Pickle\Source\obj\Release\RimScentExtended.PickleSteps.AssemblyInfoInputs.cache
+C:\Users\nelim\Documents\rimworld\RimScentExtended\Tests\Pickle\Source\obj\Release\RimScentExtended.PickleSteps.AssemblyInfo.cs
+C:\Users\nelim\Documents\rimworld\RimScentExtended\Tests\Pickle\Source\obj\Release\RimScentExtended.PickleSteps.csproj.CoreCompileInputs.cache
+C:\Users\nelim\Documents\rimworld\RimScentExtended\Tests\Pickle\Source\obj\Release\RimScentExtended.PickleSteps.dll
