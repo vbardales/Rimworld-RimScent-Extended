@@ -8,7 +8,7 @@ packageId: nelim.rimscent.extended
 repo: Rimworld-RimScent-Extended
 visibility: public
 detached: yes
-stage: dansMonoRepo
+stage: preTest
 licence: open
 licence_at: upstream repository, MIT, copyright ocarina0001 2026
 dependencies: declared
@@ -18,7 +18,6 @@ workshop:
 remaining:
   - unverified: no RimWorld session was launched; runtime behavior, persistence, EN/FR layout, logs, and integrations remain unverified.
   - unverified: no automated-test, XML-test, functional-scenario, or Pickle-suite artefact exists for the preTest-to-done gate.
-  - pending: BUGS.md and NOTES.md need English versions before the initial documentation gate can pass.
 updated: 2026-09-22, evidence-based audit
 ---
 
@@ -26,14 +25,12 @@ updated: 2026-09-22, evidence-based audit
 
 ## Audit — 2026-09-22
 
-**Retained stage: `dansMonoRepo`.** The audited copy is a folder in the shared
-`rimworld` monorepo: it was not yet detached when the audit began. The standalone repository is
-now public at `https://github.com/vbardales/Rimworld-RimScent-Extended`, with `main` pushed at
-`bc7ccff571736e99cf7ca0d4eba9e3720a4bb706`. The first transition remains unestablished because
-the English documentation gate is incomplete. `STATUS.md`, package identity, public visibility,
-MIT attribution, `CHANGELOG.md`, `.gitignore`, and `.gitattributes` are present. `BUGS.md` and
-`NOTES.md` are French-language technical documentation, whereas publication documentation must
-be English.
+**Retained stage: `preTest`.** The audit began while this was a folder in the shared `rimworld`
+monorepo. It is now an autonomous public repository at
+`https://github.com/vbardales/Rimworld-RimScent-Extended`, with `main` pushed at
+`1d6d1f9704e3c194cf26f75c13c42ba93e15e23e`. `STATUS.md`, package identity, public visibility,
+MIT attribution, `CHANGELOG.md`, `.gitignore`, `.gitattributes`, and English repository
+documentation are present. `BUGS.md` and `NOTES.md` were re-read and are already English.
 
 The audit was made against the files currently on disk. `git status -- RimScentExtended`
 was clean before and after the checks; the enclosing monorepo has unrelated local work.
@@ -84,5 +81,6 @@ demonstrated.
 
 ## Strictly necessary next transition
 
-Provide English `BUGS.md`/`NOTES.md`, then re-audit `dansMonoRepo → horsMonoRepo`. Runtime work
-remains unverified rather than defective.
+Write and execute the applicable automated and XML tests, write functional scenarios, and define
+the justified Gherkin/Pickle scope. The resulting evidence must match the delivered DLL before
+`preTest → done` can pass. Runtime work remains unverified rather than defective.
