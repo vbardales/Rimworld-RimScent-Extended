@@ -7,3 +7,9 @@ Tests/**/bin/
 .idea/
 *.user
 .claude/
+*.dds
+Tests/Evidence/
+Tests/Pickle/Evidence/
+evidence/
+pickle-reports/
+pickle-reports-archive/

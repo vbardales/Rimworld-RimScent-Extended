@@ -17,8 +17,8 @@ tested_on:
 workshop:
 remaining:
   - unverified: no RimWorld session was launched; runtime behavior, persistence, EN/FR layout, logs, and integrations remain unverified.
-  - unverified: eight Pickle/Gherkin features are written and compiled but none has run; engine, extension-point, save, settings-persistence, and language features are @wip pending their fixture-generation ticket or missing observer/sandbox steps.
-updated: 2026-09-22, evidence-based audit
+  - unverified: eight Pickle/Gherkin features are written and compiled but none has run; five features remain @wip pending their fixture-generation ticket or missing observer/sandbox steps. Before `tested`, no scenario may remain @wip, every conditional pass must run in its required dependency and language configuration, and no manual validation may remain.
+updated: 2026-09-26, evidence-based audit and evidence-retention policy
 ---
 
 # RimScent Extended — status
@@ -82,6 +82,9 @@ demonstrated.
 ## Strictly necessary next transition
 
 Obtain a fixture-generation ticket and implement the fixture-backed, settings-sandbox, and
-language-observer steps. Then execute the applicable offline suite again against the delivered
-DLL. The resulting evidence must match that DLL before `preTest → done` can pass. Runtime work
-remains unverified rather than defective.
+language-observer steps, removing every `@wip` only once its real prerequisite exists. Then
+execute the applicable offline suite again against the delivered DLL. The resulting evidence must
+match that DLL before `preTest → done` can pass. For `done → tested`, every conditional scenario
+must run in its required dependency and language configuration, all applicable automated checks
+must be green, and no manual validation may remain; `@review` captures must be opened and
+actually reviewed. Runtime work remains unverified rather than defective.

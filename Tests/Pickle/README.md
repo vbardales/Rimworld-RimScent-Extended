@@ -36,3 +36,21 @@ has been run yet.
 specifications, but cannot be selected until a ticket creates the named engine/save fixture and
 the missing sandbox or observer steps. `@wip` is not a pass and must only be included with a
 narrow filter after those prerequisites are delivered.
+
+## Evidence retention
+
+Pickle output is not versioned. `Tests/Evidence/`, `Tests/Pickle/Evidence/`, generic
+`evidence/`, `pickle-reports/`, and `pickle-reports-archive/` are ignored because reports and
+captures can become very large and a later run otherwise overwrites their meaning.
+
+For each completed pass, retain only the smallest evidence set that still proves its result:
+the terminal `summary.json` (including `exitReason`), the launcher/dispatcher result naming the
+tested commit and actual evidence directory, a relevant `Player.log` excerpt for a failure, and
+only the reviewed capture(s) needed for an `@review` claim. Compress or downscale redundant
+captures before retaining them; do not edit the terminal JSON or log excerpt. Record one concise
+line for the run in `docs/runs/` and point `STATUS.md` only at evidence that still exists.
+
+Before `tested`, no feature may remain `@wip`; every conditional pass must have run in its
+required dependency and language configuration, all applicable automated checks must be green,
+and no manual validation may remain. A green `@review` scenario still requires an actual review
+of its preserved capture.
