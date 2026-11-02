@@ -16,7 +16,6 @@ showcase: complete
 tested_on:
 workshop:
 remaining:
-  - defect: 3.b committed DLL (sha f913332f) differs from a Release rebuild of the sources (sha d8397aaa); rebuild reproducibly and commit the matching DLL.
   - defect: 3.c CHANGELOG.md has no [Unreleased] section and modVersion 0.4.0 differs from the target 1.0.0.
   - open: 4.g dated dependency record; 7.b written reason for no unit tests; 7.d Check-Steps patterns of 08-extension-points.feature.
   - unverified: no RimWorld session was launched; runtime behavior, persistence, EN/FR layout, logs, and integrations remain unverified.
