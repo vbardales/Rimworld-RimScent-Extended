@@ -1,14 +1,14 @@
 ---
 localization: complete
 translation_en: complete
-translation_fr: complete
+translation_fr: unchecked
 settings_audit: complete
 mod: RimScent Extended
 packageId: nelim.rimscent.extended
 repo: Rimworld-RimScent-Extended
 visibility: public
 detached: yes
-stage: preTest
+workflow_stage: code[1.0.0]
 licence: open
 licence_at: upstream repository, MIT, copyright ocarina0001 2026
 dependencies: declared
@@ -16,9 +16,13 @@ showcase: complete
 tested_on:
 workshop:
 remaining:
+  - defect: 3.b committed DLL (sha f913332f) differs from a Release rebuild of the sources (sha d8397aaa); rebuild reproducibly and commit the matching DLL.
+  - defect: 3.c CHANGELOG.md has no [Unreleased] section and modVersion 0.4.0 differs from the target 1.0.0.
+  - open: 4.g dated dependency record; 7.b written reason for no unit tests; 7.d Check-Steps patterns of 08-extension-points.feature.
   - unverified: no RimWorld session was launched; runtime behavior, persistence, EN/FR layout, logs, and integrations remain unverified.
-  - unverified: eight Pickle/Gherkin features are written and compiled but none has run; five features remain @wip pending their fixture-generation ticket or missing observer/sandbox steps. Before `tested`, no scenario may remain @wip, every conditional pass must run in its required dependency and language configuration, and no manual validation may remain.
-updated: 2026-09-26, evidence-based audit and evidence-retention policy
+  - unverified: eight Pickle/Gherkin features are written and compiled but none has run; five remain @wip pending fixture-generation ticket or missing observer/sandbox steps.
+updated: 2026-11-02, replay-audit: workflow_stage set to code[1.0.0]
+protocols_read_sha: ea9bb723555c6edf9624522fb2cc8b6142d4b537
 ---
 
 # RimScent Extended — status
