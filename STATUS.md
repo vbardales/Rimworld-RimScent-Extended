@@ -120,7 +120,7 @@ or inherited and not in its inventory, `Check-DefInjected.ps1` was not usable fo
 checked), so those two paths stay `unverified`. 6.d French read sentence by sentence: no tu, vous
 or nous, impersonal and infinitive forms, no gendered text. 6.e not applicable (no pawn-agreeing
 text). 6.f `FRENCH_REVIEW.md` generated at revision 998f372 by `Make-FrenchReview.ps1`. 6.g French
-review by Virginie not done (`translation_fr: partial`, needed before leaving `writeTests`).
+review by Virginie not done (`translation_fr: partial`, needed before leaving `writeTests`). ChatGPT review of page 1 (2026-11-03): one fix applied with her agreement (`fermenting_wort` description, now "Quelque chose se prépare."); the `PUBLICATION.md` remark is moot until `writeDocs`.
 
 ## Dependency record (4.g): 2026-11-03, revision 169a9f5
 
