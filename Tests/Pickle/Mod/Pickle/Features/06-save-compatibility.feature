@@ -1,6 +1,6 @@
-# Pass 1 and pass 3 run with RimScent Extended. Mod removal cannot happen in-process: the pass
-# without the mod needs a host mod and a feature that do not depend on it (see STATUS.md, 7.d).
-# Then 06b-save-reload plays the handed-over fixture.
+# Pass 1 (this file, RSE present) copies the saved game to the run folder. Pass 2 (RSE removed) is PickleTools' removal-check.feature, see STATUS.md.
+# Between passes copy <run>/rimscent-extended-scanned.rws to Tests/Pickle/Mod/Pickle/Fixtures/ (git-ignored) and to PickleTools' removal-check.rws.
+# Then 06b-save-reload reloads the copied fixture (pass 3, RSE re-added).
 @review @requires:nelim.pickletools.loadaudit @requires:nelim.pickletools.colonistrace @requires:nelim.pickletools.savesteps
 Feature: RimScent Extended is safe across save boundaries
 
@@ -13,4 +13,4 @@ Feature: RimScent Extended is safe across save boundaries
     Then Nelim's Pickle Tools: no error was logged since the error log was marked
     And Nelim's Pickle Tools: the load of the mod "nelim.rimscent.extended" is clean
     When Nelim's Pickle Tools: the game is saved as "rimscent-extended-scanned"
-    And Nelim's Pickle Tools: the saved game "rimscent-extended-scanned" is handed to the mod "nelim.pickletools"
+    And Nelim's Pickle Tools: the saved game "rimscent-extended-scanned" is copied to the run folder

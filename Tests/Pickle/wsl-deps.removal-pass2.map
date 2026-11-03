@@ -1,0 +1,6 @@
+# Pass 2 of the removal check: RimScent Extended is NOT staged; RimScent stays because the saved game was made with it.
+reo.RimScent                     3645569466
+nelim.pickletools.colonistrace   path:PickleTools/ColonistRace/Mod
+nelim.pickletools.loadaudit      path:PickleTools/LoadAudit/Mod
+# The bundle is committed under PickleTools/Mod: this shell replaces it (see StandaloneBase).
+nelim.pickletools   path:PickleTools/Tests/Pickle/StandaloneBase/Mod

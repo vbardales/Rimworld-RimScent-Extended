@@ -1,4 +1,4 @@
-# Plays after 06-save-compatibility has written and handed over the fixture "rimscent-extended-scanned".
+# Pass 3: plays after 06 and the removal pass; needs rimscent-extended-scanned.rws in Tests/Pickle/Mod/Pickle/Fixtures/ (copied from the run folder, git-ignored).
 @review @requires:nelim.pickletools.loadaudit @requires:nelim.pickletools.colonistrace @requires:nelim.pickletools.savesteps
 Feature: RimScent Extended reloads its own save
 
