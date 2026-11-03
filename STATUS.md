@@ -8,7 +8,7 @@ packageId: nelim.rimscent.extended
 repo: Rimworld-RimScent-Extended
 visibility: public
 detached: yes
-workflow_stage: code[1.0.0]
+workflow_stage: declareDependencies[1.0.0]
 licence: open
 licence_at: upstream repository, MIT, copyright ocarina0001 2026
 dependencies: declared
@@ -21,12 +21,14 @@ remaining:
   - done: ticket 45bb, feature 05 scenario 1 green on NPT fix 472f955 (summary.json and junit agree), evidence Tests/Pickle/Inbox/05-fifth; scenario 2 green in 45c2. Feature 05 proved.
   - done: ticket f322 (P1, feature 06) green, 1 of 1 (summary.json and junit agree), evidence Tests/Pickle/Inbox/06-p1; save copied to Fixtures here and to ../PickleTools removal-check.rws (git-ignored).
   - done: ticket 2a29 (P2 removal-check) red, 4 benign "did not load any content" messages of NPT's own code-only mods; fixed by NPT in PickleTools b020d19. Refiled as 20261103-101656-405-c1c5 (Tests/Pickle/Inbox/removal-check-p2).
-  - waiting: ticket 20261103-101656-405-c1c5 (P2 refile, -Mod PickleTools -Filter removal-check, DepMap Tests/Pickle/wsl-deps.removal-pass2.map; TM sets priority 500) and ticket 20261103-100746-763-8d06 (P3, feature 06b, wsl-deps.save-chain.map, EvidenceDir Tests/Pickle/Inbox/06b, priority 500). NPT probe ticket 20261103-084846-808-adee gates the rewrite of 04 and 08 (46 lines). Submit-PickleRun.ps1 lives in ../Rimworld-Ticket-Dispatcher/scripts (forward slashes from bash).
+  - done: ticket 20261103-100746-763-8d06 (P3, feature 06b save reload) green, 1 of 1 (summary.json exitReason "passed", junit agrees), evidence Tests/Pickle/Inbox/06b. Save chain of feature 06 proved on RSE side (f322 + 8d06).
+  - done: ticket 20261103-101656-405-c1c5 (P2 removal-check refile on PickleTools b020d19) green, 1 of 1 (summary.json exitReason "passed"), evidence ../PickleTools/Tests/Pickle/Inbox/removal-check-p2. Whole save chain of feature 06 green (f322, c1c5, 8d06).
+  - waiting: features 04 and 08 (fixture generation, scanner observer) after NPT worldprobe replay; rot placement is a test-side fixture step of feature 08 scenario "corpses and spoiled food use their rot-stage thoughts" (no code change; rot logic already in Source/Runtime/ScentScan.cs). NPT probe ticket 20261103-084846-808-adee gates the rewrite of 04 and 08 (46 lines). Submit-PickleRun.ps1 lives in ../Rimworld-Ticket-Dispatcher/scripts (forward slashes from bash).
   - done: Preview regenerated 2026-11-03 (echo without width/height; icon trimmed to Art/ModIcon-badge.png, margin over 5 %); echo visible, no clipping, no overlap with title. Social preview upload and social_preview_sha256 still due from writeDocs.
   - unverified: no RimWorld session was launched; runtime behavior, persistence, EN/FR layout, logs, and integrations remain unverified.
   - unverified: eight Pickle/Gherkin features are written and compiled but none has run; five remain @wip pending fixture-generation ticket or missing observer/sandbox steps.
-updated: 2026-11-02, replay-audit: workflow_stage set to code[1.0.0]
-protocols_read_sha: 58d71db9123abe259f95a2342927626ec858462b
+updated: 2026-11-03, workflow_stage set to declareDependencies[1.0.0]
+protocols_read_sha: 0e04b06f584c218aae026dacdc633f9a269aadd5
 ---
 
 # RimScent Extended — status
