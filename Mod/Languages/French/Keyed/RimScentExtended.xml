@@ -4,7 +4,7 @@
   <RimScentExtended.Settings.Category>RimScent Extended</RimScentExtended.Settings.Category>
 
   <RimScentExtended.Settings.Temperature>La température agit sur les odeurs</RimScentExtended.Settings.Temperature>
-  <RimScentExtended.Settings.TemperatureTip>La chaleur volatilise les odeurs, le froid les fige. Une odeur atteint 40 % de sa force en dessous de -10 °C, 100 % à 20 °C et 160 % à partir de 45 °C. S'applique aux bonnes comme aux mauvaises : réfrigérer un tas de cadavres sert donc réellement à quelque chose.</RimScentExtended.Settings.TemperatureTip>
+  <RimScentExtended.Settings.TemperatureTip>La chaleur volatilise les odeurs, le froid les fige. Une odeur atteint 40 % de sa force en dessous de -10 °C, 100 % à 20 °C et 160 % à partir de 45 °C. Cela s'applique aux bonnes comme aux mauvaises odeurs : réfrigérer un tas de cadavres sert donc réellement à quelque chose.</RimScentExtended.Settings.TemperatureTip>
 
   <RimScentExtended.Settings.Adaptation>Accoutumance olfactive</RimScentExtended.Settings.Adaptation>
   <RimScentExtended.Settings.AdaptationTip>Une odeur constante finit par ne plus se remarquer, et revient de plein fouet après une absence. Sans cela, un colon qui vit près d'une étable est malheureux pour toujours, sans aucun moyen de s'y faire.</RimScentExtended.Settings.AdaptationTip>
