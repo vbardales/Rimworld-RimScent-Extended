@@ -1,14 +1,14 @@
 ---
 localization: complete
 translation_en: complete
-translation_fr: unchecked
+translation_fr: partial
 settings_audit: partial
 mod: RimScent Extended
 packageId: nelim.rimscent.extended
 repo: Rimworld-RimScent-Extended
 visibility: public
 detached: yes
-workflow_stage: localize[1.0.0]
+workflow_stage: writeTests[1.0.0]
 licence: open
 licence_at: upstream repository, MIT, copyright ocarina0001 2026
 dependencies: declared
@@ -27,7 +27,7 @@ remaining:
   - done: Preview regenerated 2026-11-03 (echo without width/height; icon trimmed to Art/ModIcon-badge.png, margin over 5 %); echo visible, no clipping, no overlap with title. Social preview upload and social_preview_sha256 still due from writeDocs.
   - unverified: no RimWorld session was launched; runtime behavior, persistence, EN/FR layout, logs, and integrations remain unverified.
   - unverified: eight Pickle/Gherkin features are written and compiled but none has run; five remain @wip pending fixture-generation ticket or missing observer/sandbox steps.
-updated: 2026-11-03, workflow_stage set to localize[1.0.0]
+updated: 2026-11-03, workflow_stage set to writeTests[1.0.0]
 protocols_read_sha: b51c6cdc44399e67ca7f768aa1b7ba2d9051baec
 ---
 
@@ -110,6 +110,17 @@ All player-facing C# UI text is routed through the nine owned Keyed keys; remain
 literals are identifiers, serialization keys, reflection names, or Def names. EN/FR Keyed
 coverage, placeholder parity, and loaded French DefInjected paths were checked statically.
 In-game EN/FR display remains explicitly unverified, as required for the later `tested` gate.
+
+Checks 2026-11-03 (stage 6): 6.a/6.b the player texts are the nine Keyed keys, the MainButtonDef
+label and description, and the two own ThoughtDefs (`worn scent`, `fermenting wort`; their
+English Def values are the EN coverage, French in `Mod/Core/Languages/French/DefInjected`, loaded
+only with RimScent) plus the RimScent core thought `RimScent_FreshOxygen`. 6.c
+`Check-Translations.ps1` PASS (9 Keyed calls, 6 source texts); 2 French injection paths are nested
+or inherited and not in its inventory, `Check-DefInjected.ps1` was not usable for this mod (0 keys
+checked), so those two paths stay `unverified`. 6.d French read sentence by sentence: no tu, vous
+or nous, impersonal and infinitive forms, no gendered text. 6.e not applicable (no pawn-agreeing
+text). 6.f `FRENCH_REVIEW.md` generated at revision 998f372 by `Make-FrenchReview.ps1`. 6.g French
+review by Virginie not done (`translation_fr: partial`, needed before leaving `writeTests`).
 
 ## Dependency record (4.g): 2026-11-03, revision 169a9f5
 
