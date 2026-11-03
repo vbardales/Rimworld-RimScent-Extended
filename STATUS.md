@@ -19,11 +19,12 @@ remaining:
   - open: 7.d features 05, 06, 06b, 07 rewritten on generic steps (Check-Steps clean); 04 and 08 (46 lines) wait for NPT probe ticket adee (trait degree, room temperature, fuel, corpse/food rot, static member). Mod-removal pass of 06: pass 2 hosted by PickleTools removal-check.feature (NPT, not yet played; map wsl-deps.removal-pass2.map here), chain: 06 copies the save to the run folder, copy it to the fixtures of both mods, then PickleTools pass, then 06b. No local step.
   - done: ticket 3dce, feature 07 French, 2 of 2 green (summary.json and junit agree), evidence Tests/Pickle/Inbox/07-french; the two @review screenshots are not yet opened, 07 English not played (translation report only for non-English).
   - done: ticket 45bb, feature 05 scenario 1 green on NPT fix 472f955 (summary.json and junit agree), evidence Tests/Pickle/Inbox/05-fifth; scenario 2 green in 45c2. Feature 05 proved.
-  - waiting: ticket 20261103-095759-516-f322 (P1, feature 06, wsl-deps.save-chain.map, EvidenceDir Tests/Pickle/Inbox/06-p1). On green: copy Inbox/06-p1/rimscent-extended-scanned.rws to Tests/Pickle/Mod/Pickle/Fixtures/ here and to ../PickleTools/Tests/Pickle/Mod/Pickle/Fixtures/removal-check.rws (git-ignored), P2 -Mod PickleTools -Filter removal-check -DepMap copy of wsl-deps.removal-pass2.map (failure on missing-mod prompt goes to NPT), P3 feature 06b. NPT probe ticket 20261103-084846-808-adee gates the rewrite of 04 and 08 (46 lines). Submit-PickleRun.ps1 lives in ../Rimworld-Ticket-Dispatcher/scripts (forward slashes from bash).
+  - done: ticket f322 (P1, feature 06) green, 1 of 1 (summary.json and junit agree), evidence Tests/Pickle/Inbox/06-p1; save copied to Fixtures here and to ../PickleTools removal-check.rws (git-ignored).
+  - waiting: ticket 20261103-100740-866-2a29 (P2, -Mod PickleTools -Filter removal-check, DepMap Tests/Pickle/wsl-deps.removal-pass2.map; failure on missing-mod prompt goes to NPT) and ticket 20261103-100746-763-8d06 (P3, feature 06b, wsl-deps.save-chain.map, EvidenceDir Tests/Pickle/Inbox/06b). NPT probe ticket 20261103-084846-808-adee gates the rewrite of 04 and 08 (46 lines). Submit-PickleRun.ps1 lives in ../Rimworld-Ticket-Dispatcher/scripts (forward slashes from bash).
   - unverified: no RimWorld session was launched; runtime behavior, persistence, EN/FR layout, logs, and integrations remain unverified.
   - unverified: eight Pickle/Gherkin features are written and compiled but none has run; five remain @wip pending fixture-generation ticket or missing observer/sandbox steps.
 updated: 2026-11-02, replay-audit: workflow_stage set to code[1.0.0]
-protocols_read_sha: f68a4ef3ce9b670c94077648ee898b0213f1c5d7
+protocols_read_sha: 58d71db9123abe259f95a2342927626ec858462b
 ---
 
 # RimScent Extended — status
