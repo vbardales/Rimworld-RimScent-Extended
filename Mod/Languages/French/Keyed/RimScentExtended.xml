@@ -10,7 +10,7 @@
   <RimScentExtended.Settings.AdaptationTip>Une odeur constante finit par ne plus se remarquer, et revient de plein fouet après une absence. Sans cela, un colon qui vit près d'une étable est malheureux pour toujours, sans aucun moyen de s'y faire.</RimScentExtended.Settings.AdaptationTip>
 
   <RimScentExtended.Settings.Floor>Force restante une fois l'odeur devenue familière : {0}</RimScentExtended.Settings.Floor>
-  <RimScentExtended.Settings.Hours>Heures d'exposition continue pour y arriver : {0}</RimScentExtended.Settings.Hours>
+  <RimScentExtended.Settings.Hours>Heures d'exposition continue nécessaires pour atteindre ce seuil : {0}</RimScentExtended.Settings.Hours>
 
   <RimScentExtended.Settings.Pleasant>S'habituer aussi aux bonnes odeurs</RimScentExtended.Settings.Pleasant>
   <RimScentExtended.Settings.PleasantTip>Activé : on s'habitue à son propre encens comme on s'habitue au fumier, ce qui correspond à la réalité — et cela récompense le fait de varier les odeurs plutôt que d'en installer une et de l'oublier. Désactivé : seules les mauvaises odeurs s'estompent, ce qui préserve tout le bonus d'humeur de l'encens et des parfums.</RimScentExtended.Settings.PleasantTip>
