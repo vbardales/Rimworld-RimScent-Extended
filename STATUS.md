@@ -16,7 +16,7 @@ showcase: complete
 tested_on:
 workshop:
 remaining:
-  - open: 4.g dated dependency record; 7.b written reason for no unit tests; 7.d Check-Steps patterns of 08-extension-points.feature.
+  - open: 7.d Check-Steps reports 76 step lines with no expression (features 04 to 08, all @wip): the fixture, settings-sandbox, scanner-observer and language-observer steps do not exist yet; requested from NPT (via TM) on 2026-11-03, no local step written.
   - unverified: no RimWorld session was launched; runtime behavior, persistence, EN/FR layout, logs, and integrations remain unverified.
   - unverified: eight Pickle/Gherkin features are written and compiled but none has run; five remain @wip pending fixture-generation ticket or missing observer/sandbox steps.
 updated: 2026-11-02, replay-audit: workflow_stage set to code[1.0.0]
@@ -74,6 +74,28 @@ All player-facing C# UI text is routed through the nine owned Keyed keys; remain
 literals are identifiers, serialization keys, reflection names, or Def names. EN/FR Keyed
 coverage, placeholder parity, and loaded French DefInjected paths were checked statically.
 In-game EN/FR display remains explicitly unverified, as required for the later `tested` gate.
+
+## Dependency record (4.g): 2026-11-03, revision 169a9f5
+
+- Hard dependency: `reo.RimScent` (Workshop 3645569466), declared in `About.xml` `modDependencies`
+  with its Workshop URL. The compiled code references `RimScentReworked.dll` and patches its
+  scent tracker, so the dependency is technically required.
+- `loadAfter`: `brrainz.harmony`, `Ludeon.RimWorld`, `reo.RimScent`. Harmony is only ordered, not
+  required: the packaged `Lib.Harmony` 2.4.3 reference is compile-time only (`ExcludeAssets runtime`).
+- `LoadFolders.xml` (v1.6): root always loaded; `Core` (French DefInjected for the RimScent thoughts)
+  loaded only `IfModActive="reo.rimscent"`.
+- No DLC dependency and no `incompatibleWith`. Optional integrations: none in this mod; the seven
+  expansion mods declare this mod as their dependency. RIMMSQOL only reveals the hidden settings
+  shortcut and is not referenced.
+- Not an animal mod: the four animal integrations of `ANIMALS.md` do not apply.
+
+## Unit tests (7.b): 2026-11-03
+
+No `Tests/*.Tests.csproj` exists, on purpose: the C# is a small Harmony patch plus data classes that
+only work against the running RimScent and RimWorld engine, so a unit test would mock the engine it
+is meant to check. The offline proof is `Tests/Check-Mod.ps1` (mod-specific contracts, see
+`TESTING.md`) together with the shared `Check-ModBasics.ps1`, `Check-Translations.ps1` and the
+release build. Behaviour is covered by the Pickle features, not yet run (see `remaining`).
 
 ## Later-stage observations
 
