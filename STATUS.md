@@ -8,7 +8,7 @@ packageId: nelim.rimscent.extended
 repo: Rimworld-RimScent-Extended
 visibility: public
 detached: yes
-workflow_stage: declareDependencies[1.0.0]
+workflow_stage: settings[1.0.0]
 licence: open
 licence_at: upstream repository, MIT, copyright ocarina0001 2026
 dependencies: declared
@@ -27,8 +27,8 @@ remaining:
   - done: Preview regenerated 2026-11-03 (echo without width/height; icon trimmed to Art/ModIcon-badge.png, margin over 5 %); echo visible, no clipping, no overlap with title. Social preview upload and social_preview_sha256 still due from writeDocs.
   - unverified: no RimWorld session was launched; runtime behavior, persistence, EN/FR layout, logs, and integrations remain unverified.
   - unverified: eight Pickle/Gherkin features are written and compiled but none has run; five remain @wip pending fixture-generation ticket or missing observer/sandbox steps.
-updated: 2026-11-03, workflow_stage set to declareDependencies[1.0.0]
-protocols_read_sha: 0e04b06f584c218aae026dacdc633f9a269aadd5
+updated: 2026-11-03, workflow_stage set to settings[1.0.0]
+protocols_read_sha: b51c6cdc44399e67ca7f768aa1b7ba2d9051baec
 ---
 
 # RimScent Extended — status
@@ -96,6 +96,10 @@ In-game EN/FR display remains explicitly unverified, as required for the later `
   expansion mods declare this mod as their dependency. RIMMSQOL only reveals the hidden settings
   shortcut and is not referenced.
 - Not an animal mod: the four animal integrations of `ANIMALS.md` do not apply.
+- 4.b/4.d checked 2026-11-03: RimScent (reo.RimScent) itself lists `brrainz.harmony` in its
+  `modDependencies`, so Harmony is guaranteed transitively and `loadAfter` is enough here.
+  `sort-load-order.py` with reo.rimscent and this mod active: order `reo.rimscent`, then
+  `nelim.rimscent.extended`, exit 0, no cycle.
 
 ## Unit tests (7.b): 2026-11-03
 
