@@ -2,13 +2,13 @@
 localization: complete
 translation_en: complete
 translation_fr: unchecked
-settings_audit: complete
+settings_audit: partial
 mod: RimScent Extended
 packageId: nelim.rimscent.extended
 repo: Rimworld-RimScent-Extended
 visibility: public
 detached: yes
-workflow_stage: settings[1.0.0]
+workflow_stage: localize[1.0.0]
 licence: open
 licence_at: upstream repository, MIT, copyright ocarina0001 2026
 dependencies: declared
@@ -27,7 +27,7 @@ remaining:
   - done: Preview regenerated 2026-11-03 (echo without width/height; icon trimmed to Art/ModIcon-badge.png, margin over 5 %); echo visible, no clipping, no overlap with title. Social preview upload and social_preview_sha256 still due from writeDocs.
   - unverified: no RimWorld session was launched; runtime behavior, persistence, EN/FR layout, logs, and integrations remain unverified.
   - unverified: eight Pickle/Gherkin features are written and compiled but none has run; five remain @wip pending fixture-generation ticket or missing observer/sandbox steps.
-updated: 2026-11-03, workflow_stage set to settings[1.0.0]
+updated: 2026-11-03, workflow_stage set to localize[1.0.0]
 protocols_read_sha: b51c6cdc44399e67ca7f768aa1b7ba2d9051baec
 ---
 
@@ -66,7 +66,7 @@ No RimWorld instance was started.
   `LoadFolders.xml` conditions `Core` on that same package. Harmony is only `loadAfter`, matching
   the packaged Harmony reference.
 
-## Settings audit — complete for the preOptions-to-options static gate
+## Settings audit — static gate
 
 `SettingsCategory()` and `DoSettingsWindowContents()` provide the primary Mod options page.
 `MainButtons_RimScentExtended.xml` now supplies the optional
@@ -75,6 +75,34 @@ greyed out by default and remains available to compatible customization mods. It
 `Dialog_ModSettings(RimScentExtendedMod.Instance)`, the same settings UI as the primary route.
 The shortcut and its French label/description compiled and parsed successfully. No game run was
 used to infer any runtime result; those interaction checks remain part of the later `tested` gate.
+
+### Usage review (5.e) and offline tests (5.f): 2026-11-03
+
+Scope: all five settings live in `RimScentExtendedSettings` (a `ModSettings`), so they are global
+to the game install, never per save. Application time: `temperatureEnabled` is read on each scan
+(`ScentScan.cs`), so it applies immediately; the adaptation settings are read by
+`ScentAdaptation` on each use, and `WriteSettings` clears the exposure counters on closing the
+options, so the new values apply at once from a clean exposure. The floor and hours sliders are
+shown only while adaptation is on (dependent controls hidden, not greyed). Each control has a
+translated label, and both checkboxes with a tooltip; floor is shown as a percentage and hours
+with one decimal. No reset-to-defaults button is offered (five options, defaults in the code).
+
+| Area | Expected | Observed |
+| --- | --- | --- |
+| First use | Missing values give defaults (adaptation on, floor 0.5, 2.5 h, pleasant on, temperature on) | Source: `Scribe_Values.Look` defaults match the field defaults. In game: unverified |
+| Primary access | Options page "Mod options → RimScent Extended" | `SettingsCategory()` and `DoSettingsWindowContents()` present. In game: unverified |
+| Actual effect | Each option changes scan result at once | Source: read in `ScentScan.cs` and `ScentAdaptation.cs`. In game: unverified |
+| Persistence | Values survive restart | `ExposeData` saves all five keys. In game: unverified |
+| Input validation | Sliders bounded; floor clamped to 0.05 to 1, hours to 0.5 to 12 | Source: `Slider` bounds and `Mathf.Clamp` in `ScentAdaptation`; `AdaptationTicks` at least 1. Passed by inspection |
+| Defaults and upgrades | Missing key keeps default | `Scribe_Values.Look` default argument. Passed by inspection |
+| Optional dependencies | None | Not applicable: only the hard dependency on RimScent |
+| Shortcut default | No visible or greyed MainButton | `Tests/Check-Mod.ps1` passed: `buttonVisible=false`, worker class matches |
+| Shortcut integration | RIMMSQOL reveals it and opens the same dialog | Worker opens `Dialog_ModSettings(RimScentExtendedMod.Instance)`. In game: unverified |
+| Runtime robustness | No exception when opening, editing, saving | In game: unverified |
+
+Offline runs 2026-11-03: `Tests/Check-Mod.ps1` passed; `Check-ModBasics.ps1` PASS (9 XML files, 3
+defs); `Check-Translations.ps1` PASS (9 Keyed calls). `settings_audit` is set to `partial`: the
+in-game rows above move to `playTests`.
 
 ## Translation audit — complete for static readiness
 
