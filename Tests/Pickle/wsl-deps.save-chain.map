@@ -1,0 +1,6 @@
+# Pass for 06: the save chain (06 writes the fixture, 06b reloads it).
+nelim.pickletools.colonistrace path:PickleTools/ColonistRace/Mod
+nelim.pickletools.loadaudit path:PickleTools/LoadAudit/Mod
+nelim.pickletools.savesteps path:PickleTools/SaveSteps/Mod
+# The bundle is committed under PickleTools/Mod: this shell replaces it (see StandaloneBase).
+nelim.pickletools   path:PickleTools/Tests/Pickle/StandaloneBase/Mod

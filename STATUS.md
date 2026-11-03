@@ -16,7 +16,7 @@ showcase: complete
 tested_on:
 workshop:
 remaining:
-  - open: 7.d Check-Steps reports 76 step lines with no expression (features 04 to 08, all @wip): the fixture, settings-sandbox, scanner-observer and language-observer steps do not exist yet; requested from NPT (via TM) on 2026-11-03, no local step written.
+  - open: 7.d features 05, 06, 06b, 07 rewritten on generic steps (Check-Steps clean); 04 and 08 (46 lines) wait for NPT probe ticket adee (trait degree, room temperature, fuel, corpse/food rot, static member). Mod-removal pass of 06 needs a host mod and feature without the RSE dependency: asked NPT/Audit, not written. No local step.
   - unverified: no RimWorld session was launched; runtime behavior, persistence, EN/FR layout, logs, and integrations remain unverified.
   - unverified: eight Pickle/Gherkin features are written and compiled but none has run; five remain @wip pending fixture-generation ticket or missing observer/sandbox steps.
 updated: 2026-11-02, replay-audit: workflow_stage set to code[1.0.0]
