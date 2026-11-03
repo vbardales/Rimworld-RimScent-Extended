@@ -20,8 +20,7 @@
     },
 	"backgroundFile": "Preview-source.png",
 	"echo": {
-		"file": "echo-preview.png",
-		"color": "var(--accent)"
+		"file": "echo-preview.png"
 	},
 	"icon": {
 		"file": "ModIcon-badge.png"
