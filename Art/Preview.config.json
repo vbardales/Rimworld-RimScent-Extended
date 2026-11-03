@@ -1,0 +1,36 @@
+{
+    "panel": {
+        "title": "RimScent Extended",
+        "titleSize": 42,
+        "titleParts": [
+            {
+                "text": "RimScent"
+            },
+            {
+                "text": "Extended",
+                "font": "ui",
+                "scale": 0.56
+            }
+        ],
+        "tagInline": true,
+        "copyLines": [
+            "Every colony tells its story",
+            "through scent."
+        ]
+    },
+	"backgroundFile": "Preview-source.png",
+	"echo": {
+		"file": "echo-preview.png",
+		"color": "var(--accent)"
+	},
+	"icon": {
+		"file": "ModIcon-badge.png"
+	},
+	"palette": {
+		"veil": "#30271F",
+		"inkPrimary": "#F4EEE4",
+		"inkSecondary": "#D8A55E",
+		"accent": "#E8972F",
+		"badgeInk": "#17110D"
+	}
+}
