@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.4.0
+## [Unreleased]
 
 - Adds the RimScent Extended engine layer for RimWorld 1.6.
 - Fixes five upstream scent-scanning defects.
