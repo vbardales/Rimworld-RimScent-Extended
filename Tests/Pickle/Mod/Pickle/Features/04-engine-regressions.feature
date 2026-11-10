@@ -24,15 +24,15 @@ Feature: RimScent Extended scanner regressions
     Then Nelim's Pickle Tools: "Ada" has the thought "RimScent_GeneratorScent"
 
   # Two rooms side by side with a door held open in the shared wall (NPT step, 2026-11-10): line of sight crosses it, so only the room filter keeps the other room's scent out.
-  # Spot (70, 85) is clear on test-colony (the (153, 148) area is crowded).
+  # Rooms 3 wide (the door needs 3) at (144, 149): rock at (78, 84) blocked the spot PiT proposed (ticket 2447); the shared door is at z 152, so Ada (144, 152) sees the campfire (149, 152) through it.
   Scenario: an indoor pawn only scans their own room
-    Given Nelim's Pickle Tools: two rooms of 5 by 5 are built side by side at (70, 85) with a door held open in the shared wall
-    And Nelim's Pickle Tools: I place the decor "Campfire" exactly at (79, 87)
-    And Nelim's Pickle Tools: the building "Campfire" at (79, 87) is fuelled
-    And Nelim's Pickle Tools: I place the decor "WoodFiredGenerator" exactly at (73, 87)
-    And Nelim's Pickle Tools: the building "WoodFiredGenerator" at (73, 87) is fuelled
+    Given Nelim's Pickle Tools: two rooms of 3 by 7 are built side by side at (144, 149) with a door held open in the shared wall
+    And Nelim's Pickle Tools: I place the decor "Campfire" exactly at (149, 152)
+    And Nelim's Pickle Tools: the building "Campfire" at (149, 152) is fuelled
+    And Nelim's Pickle Tools: I place the decor "WoodFiredGenerator" exactly at (145, 150)
+    And Nelim's Pickle Tools: the building "WoodFiredGenerator" at (145, 150) is fuelled
     And a colonist "Ada" exists
-    And Nelim's Pickle Tools: "Ada" stands at (71, 86)
+    And Nelim's Pickle Tools: "Ada" stands at (144, 152)
     And Nelim's Pickle Tools: the other colonists are out of frame
     And Nelim's Pickle Tools: "Ada" waits in place
     When I wait 600 ticks
