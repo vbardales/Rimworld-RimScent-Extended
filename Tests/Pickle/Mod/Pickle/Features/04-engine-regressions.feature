@@ -52,27 +52,23 @@ Feature: RimScent Extended scanner regressions
     And "Bea" thought "RimScent_CampfireScent" mood offset is below 0
     And "Cai" thought "RimScent_CampfireScent" mood offset is above 2
 
-  Scenario: temperature changes the strength of a scent
-    # Two rooms, one campfire and one pawn each. A scent memory is made once per exposure, so each temperature needs its own pawn.
+  # One room per scenario: a scent memory is made once per exposure, and the map around the room is crowded (a wall at (143, 159), rock at (153, 148), ticket c62b).
+  Scenario Outline: temperature changes the strength of a scent
     Given Nelim's Pickle Tools: a closed roofed room is built at (144, 149) of 5 by 5
-    And Nelim's Pickle Tools: a closed roofed room is built at (144, 157) of 5 by 5
     And Nelim's Pickle Tools: I place the decor "Campfire" at (147, 152)
-    And Nelim's Pickle Tools: I place the decor "Campfire" at (147, 160)
     And Nelim's Pickle Tools: the building "Campfire" at (147, 152) is fuelled
-    And Nelim's Pickle Tools: the building "Campfire" at (147, 160) is fuelled
-    And Nelim's Pickle Tools: the room at (144, 150) is held at -10 degrees
-    And Nelim's Pickle Tools: the room at (144, 158) is held at 45 degrees
+    And Nelim's Pickle Tools: the room at (144, 150) is held at <celsius> degrees
     And a colonist "Ada" exists
-    And a colonist "Bea" exists
     And Nelim's Pickle Tools: "Ada" stands at (144, 150)
-    And Nelim's Pickle Tools: "Bea" stands at (144, 158)
     And Nelim's Pickle Tools: "Ada" waits in place
-    And Nelim's Pickle Tools: "Bea" waits in place
     When I wait 600 ticks
     Then Nelim's Pickle Tools: the thermal state and thoughts of "Ada" are logged
-    And Nelim's Pickle Tools: the thermal state and thoughts of "Bea" are logged
-    And "Ada" thought "RimScent_CampfireScent" mood offset is below 3
-    And "Bea" thought "RimScent_CampfireScent" mood offset is above 3
+    And "Ada" thought "RimScent_CampfireScent" mood offset is <comparison> 3
+
+    Examples:
+      | celsius | comparison |
+      | -10     | below      |
+      | 45      | above      |
 
   Scenario: with temperature off the scent keeps its base strength
     Given Nelim's Pickle Tools: I set the option "temperatureEnabled" of the mod "nelim.rimscent.extended" to "False"
