@@ -19,12 +19,13 @@ Feature: RimScent Extended extension points and native scan additions
     When I wait 600 ticks
     Then Nelim's Pickle Tools: "Ada" has the thought "RimScentExtended_Scent_CorpseRotting"
 
-  # Alone in the room: the scanner keeps only the strongest scent (RimScent's dominance contest, uncappedScents off), so a corpse in the same room would hide the food (ticket 4929).
+  # Alone in the room: the scanner keeps only the strongest scent (RimScent's dominance contest, uncappedScents off), so a corpse in the same room would hide the food (ticket 4929). The other colonists are sent away: a free colonist may haul the meal off before the scan (suspected cause of the red run c5f6, unverified).
   Scenario: spoiled food uses its thought
     Given Nelim's Pickle Tools: a closed roofed room is built at (144, 149) of 5 by 5
     And Nelim's Pickle Tools: the thing "MealSimple" is placed at (146, 152) at 1 of its time to rot
     And a colonist "Ada" exists
     And Nelim's Pickle Tools: "Ada" stands at (144, 150)
+    And Nelim's Pickle Tools: the other colonists are out of frame
     And Nelim's Pickle Tools: "Ada" waits in place
     When I wait 600 ticks
     Then Nelim's Pickle Tools: "Ada" has the thought "RimScentExtended_Scent_RottenFood"
