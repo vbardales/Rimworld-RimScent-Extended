@@ -10,16 +10,24 @@ Feature: RimScent Extended extension points and native scan additions
     Given the save "test-colony" is loaded
     And Nelim's Pickle Tools: the settings of the mod "nelim.rimscent.extended" are sandboxed at their defaults
 
-  Scenario: corpses and spoiled food use their rot-stage thoughts
+  Scenario: a rotting corpse uses its rot-stage thought
     Given Nelim's Pickle Tools: a closed roofed room is built at (144, 149) of 5 by 5
     And Nelim's Pickle Tools: a rotting corpse of the kind "Muffalo" is placed at (147, 152)
-    And Nelim's Pickle Tools: the thing "MealSimple" is placed at (146, 152) at 1 of its time to rot
     And a colonist "Ada" exists
     And Nelim's Pickle Tools: "Ada" stands at (144, 150)
     And Nelim's Pickle Tools: "Ada" waits in place
     When I wait 600 ticks
     Then Nelim's Pickle Tools: "Ada" has the thought "RimScentExtended_Scent_CorpseRotting"
-    And Nelim's Pickle Tools: "Ada" has the thought "RimScentExtended_Scent_RottenFood"
+
+  # Alone in the room: the scanner keeps only the strongest scent (RimScent's dominance contest, uncappedScents off), so a corpse in the same room would hide the food (ticket 4929).
+  Scenario: spoiled food uses its thought
+    Given Nelim's Pickle Tools: a closed roofed room is built at (144, 149) of 5 by 5
+    And Nelim's Pickle Tools: the thing "MealSimple" is placed at (146, 152) at 1 of its time to rot
+    And a colonist "Ada" exists
+    And Nelim's Pickle Tools: "Ada" stands at (144, 150)
+    And Nelim's Pickle Tools: "Ada" waits in place
+    When I wait 600 ticks
+    Then Nelim's Pickle Tools: "Ada" has the thought "RimScentExtended_Scent_RottenFood"
 
   Scenario: a fresh corpse smells of fresh death, not of rot
     Given Nelim's Pickle Tools: a closed roofed room is built at (144, 149) of 5 by 5
