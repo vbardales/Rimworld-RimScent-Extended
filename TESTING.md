@@ -24,4 +24,4 @@ for behavior checks and a copy of any existing save; never overwrite the only sa
 After each scenario, inspect Player.log for exceptions, missing translations/Defs, or repeated messages.
 Re-run every affected scenario after a correction.
 
-Offline contracts: `powershell -NoProfile -ExecutionPolicy Bypass -File Tests/Check-Mod.ps1` (distribution copies, About link/URL/dependency, hidden MainButtons shortcut, DLL present). Run it with the shared `Check-ModBasics.ps1` and `Check-Translations.ps1` before each commit.
+Offline contracts: `Tests/Rule-OwnValues.ps1` (packageId, hard dependency and load order of `reo.RimScent`), run with the shared checks by the generated `Tests/Test-Mod.ps1`. Run the shared `Check-ModBasics.ps1`, `Check-Translations.ps1` and `Check-SettingsContract.ps1` before each commit.
