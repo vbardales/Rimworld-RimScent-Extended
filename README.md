@@ -19,7 +19,7 @@ For RimWorld 1.6.
 | [Industry](https://github.com/vbardales/Rimworld-RimScent-Extended-Industry-Expansion) | crematorium, smelter, tallow, torches, chemfuel, filth |
 | [Weather](https://github.com/vbardales/Rimworld-RimScent-Extended-Weather-Expansion) | water, ocean, marsh, forest, weather and game conditions |
 
-The design reasoning behind each one is in [NOTES.md](NOTES.md): it was worked out before they
+The design reasoning behind each one is in [NOTES.md](Docs/NOTES.md): it was worked out before they
 were split apart, and many decisions answer each other across themes.
 
 ## Translation
@@ -195,7 +195,7 @@ Five bugs in RimScent's C# code, confirmed by decompilation, are fixed by a Harm
 unlit incense burner scenting the room anyway, a dangling `else` that removed all indoor
 room-partitioning, trait handles never consulted, anosmia tripling a smell instead of cancelling
 it, and a dereference before a null check. The details, with upstream line references, are in
-`BUGS.md`.
+`Docs/BUGS.md`.
 
 The upstream mod is not forked: it stays installed and keeps receiving its updates.
 `Source/Runtime/ScentScan.cs` replaces `UpdateScent` with a corrected version that follows the
