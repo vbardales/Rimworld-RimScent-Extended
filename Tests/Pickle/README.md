@@ -27,7 +27,7 @@ powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1 -Mod RimS
 
 The scent mechanics, settings persistence/restart, RIMMSQOL reveal/hide lifecycle, and save
 compatibility require dedicated fixtures or the optional RIMMSQOL pass. They are specified in
-[`TEST_SCENARIOS.md`](../../TEST_SCENARIOS.md), not claimed by this minimal suite. No Pickle pass
+[`TEST_SCENARIOS.md`](../../Docs/TEST_SCENARIOS.md), not claimed by this minimal suite. No Pickle pass
 has been run yet.
 
 `04-engine-regressions.feature`, `05-settings-persistence.feature`,
