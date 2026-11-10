@@ -28,7 +28,7 @@ remaining:
   - unverified: no RimWorld session was launched; runtime behavior, persistence, EN/FR layout, logs, and integrations remain unverified.
   - unverified: eight Pickle/Gherkin features are written and compiled but none has run; five remain @wip pending fixture-generation ticket or missing observer/sandbox steps.
 updated: 2026-11-03, workflow_stage set to writeTests[1.0.0]
-protocols_read_sha: b51c6cdc44399e67ca7f768aa1b7ba2d9051baec
+protocols_read_sha: bb358b6156e8f6d95311ae980e29c033035ede21
 ---
 
 # RimScent Extended — status
