@@ -1,6 +1,5 @@
 # The scanner defects fixed in Source/Runtime/ScentScan.cs, played on rooms built by the generic StageDecor steps (no fixture save).
 # Rooms are 5 by 5 inside, south-west inside cell given: the walls must avoid the natural rock around (153, 148), which blocked a 12 by 9 room (ticket 37b3).
-# Scenario "an indoor pawn only scans their own room" stays @wip: it needs an opening between two rooms (asked of NPT).
 #
 #   Submit-PickleRun.ps1 -Mod RimScentExtended -DepMap wsl-deps.scanner.map -Filter 04-engine-regressions
 @requires:nelim.pickletools.colonistrace @requires:nelim.pickletools.stagedecor
@@ -24,11 +23,22 @@ Feature: RimScent Extended scanner regressions
     And I wait 600 ticks
     Then Nelim's Pickle Tools: "Ada" has the thought "RimScent_GeneratorScent"
 
-  @wip
+  # Two rooms side by side with a door held open in the shared wall (NPT step, 2026-11-10): line of sight crosses it, so only the room filter keeps the other room's scent out.
+  # Spot (70, 85) is clear on test-colony (the (153, 148) area is crowded).
   Scenario: an indoor pawn only scans their own room
-    # Needs two rooms joined by an opening (a door or a gap in the shared wall) so that line of sight crosses it: no generic step builds one yet.
-    Given a colonist "Ada" exists
-    Then Nelim's Pickle Tools: "Ada" has no thought "RimScent_CampfireScent"
+    Given Nelim's Pickle Tools: two rooms of 5 by 5 are built side by side at (70, 85) with a door held open in the shared wall
+    And Nelim's Pickle Tools: I place the decor "Campfire" exactly at (79, 87)
+    And Nelim's Pickle Tools: the building "Campfire" at (79, 87) is fuelled
+    And Nelim's Pickle Tools: I place the decor "WoodFiredGenerator" exactly at (73, 87)
+    And Nelim's Pickle Tools: the building "WoodFiredGenerator" at (73, 87) is fuelled
+    And a colonist "Ada" exists
+    And Nelim's Pickle Tools: "Ada" stands at (71, 86)
+    And Nelim's Pickle Tools: the other colonists are out of frame
+    And Nelim's Pickle Tools: "Ada" waits in place
+    When I wait 600 ticks
+    Then Nelim's Pickle Tools: "Ada" has the thought "RimScent_GeneratorScent"
+    And Nelim's Pickle Tools: "Ada" has no thought "RimScent_CampfireScent"
+
 
   Scenario: trait-degree anosmia and dysosmia affect only matching pawns
     Given Nelim's Pickle Tools: a closed roofed room is built at (144, 149) of 5 by 5
