@@ -1,0 +1,7 @@
+# Pass for 08-extension-points: as wsl-deps.scanner.map, plus the Decay expansion, which owns the corpse and rotten food thoughts the scanner reads by defName.
+reo.RimScent                     3645569466
+nelim.pickletools.colonistrace path:PickleTools/ColonistRace/Mod
+nelim.pickletools.stagedecor path:PickleTools/StageDecor/Mod
+nelim.rimscent.extended.decay path:RimScentExtendedDecayExpansion/Mod
+# The bundle is committed under PickleTools/Mod: this shell replaces it, so the tools above are the only copy of their steps (see StandaloneBase).
+nelim.pickletools   path:PickleTools/Tests/Pickle/StandaloneBase/Mod

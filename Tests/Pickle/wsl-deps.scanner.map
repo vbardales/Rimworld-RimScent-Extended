@@ -1,0 +1,7 @@
+# Pass for 04-engine-regressions: the scanner on built rooms, with generic PickleTools steps staged from the repository.
+# RimScent, the hard dependency of the mod under test.
+reo.RimScent                     3645569466
+nelim.pickletools.colonistrace path:PickleTools/ColonistRace/Mod
+nelim.pickletools.stagedecor path:PickleTools/StageDecor/Mod
+# The bundle is committed under PickleTools/Mod: this shell replaces it, so the tools above are the only copy of their steps (see StandaloneBase).
+nelim.pickletools   path:PickleTools/Tests/Pickle/StandaloneBase/Mod
