@@ -1,5 +1,5 @@
 # The scanner defects fixed in Source/Runtime/ScentScan.cs, played on rooms built by the generic StageDecor steps (no fixture save).
-# Rooms are built large (the size counts the walls or not, depending on the step): pawns and sources stay well inside.
+# Rooms are 5 by 5 inside, south-west inside cell given: the walls must avoid the natural rock around (153, 148), which blocked a 12 by 9 room (ticket 37b3).
 # Scenario "an indoor pawn only scans their own room" stays @wip: it needs an opening between two rooms (asked of NPT).
 #
 #   Submit-PickleRun.ps1 -Mod RimScentExtended -DepMap wsl-deps.scanner.map -Filter 04-engine-regressions
@@ -11,16 +11,16 @@ Feature: RimScent Extended scanner regressions
     And Nelim's Pickle Tools: the settings of the mod "nelim.rimscent.extended" are sandboxed at their defaults
 
   Scenario: a switched-off fuelled generator contributes no scent
-    Given Nelim's Pickle Tools: a closed roofed room is built at (144, 149) of 12 by 9
-    And Nelim's Pickle Tools: I place the decor "WoodFiredGenerator" at (150, 153)
-    And Nelim's Pickle Tools: the building "WoodFiredGenerator" at (150, 153) is fuelled
-    And Nelim's Pickle Tools: the building "WoodFiredGenerator" at (150, 153) is switched off
+    Given Nelim's Pickle Tools: a closed roofed room is built at (144, 149) of 5 by 5
+    And Nelim's Pickle Tools: I place the decor "WoodFiredGenerator" at (147, 152)
+    And Nelim's Pickle Tools: the building "WoodFiredGenerator" at (147, 152) is fuelled
+    And Nelim's Pickle Tools: the building "WoodFiredGenerator" at (147, 152) is switched off
     And a colonist "Ada" exists
-    And Nelim's Pickle Tools: "Ada" stands at (146, 151)
+    And Nelim's Pickle Tools: "Ada" stands at (144, 150)
     And Nelim's Pickle Tools: "Ada" waits in place
     When I wait 600 ticks
     Then Nelim's Pickle Tools: "Ada" has no thought "RimScent_GeneratorScent"
-    When Nelim's Pickle Tools: the building "WoodFiredGenerator" at (150, 153) is switched on
+    When Nelim's Pickle Tools: the building "WoodFiredGenerator" at (147, 152) is switched on
     And I wait 600 ticks
     Then Nelim's Pickle Tools: "Ada" has the thought "RimScent_GeneratorScent"
 
@@ -31,9 +31,9 @@ Feature: RimScent Extended scanner regressions
     Then Nelim's Pickle Tools: "Ada" has no thought "RimScent_CampfireScent"
 
   Scenario: trait-degree anosmia and dysosmia affect only matching pawns
-    Given Nelim's Pickle Tools: a closed roofed room is built at (144, 149) of 12 by 9
-    And Nelim's Pickle Tools: I place the decor "Campfire" at (150, 153)
-    And Nelim's Pickle Tools: the building "Campfire" at (150, 153) is fuelled
+    Given Nelim's Pickle Tools: a closed roofed room is built at (144, 149) of 5 by 5
+    And Nelim's Pickle Tools: I place the decor "Campfire" at (147, 152)
+    And Nelim's Pickle Tools: the building "Campfire" at (147, 152) is fuelled
     And a colonist "Ada" exists
     And a colonist "Bea" exists
     And a colonist "Cai" exists
@@ -41,9 +41,9 @@ Feature: RimScent Extended scanner regressions
     And Nelim's Pickle Tools: "Bea" has the trait "RimScent_Dysosmic"
     And Nelim's Pickle Tools: "Cai" has no trait "RimScent_Anosmic"
     And Nelim's Pickle Tools: "Cai" has no trait "RimScent_Dysosmic"
-    And Nelim's Pickle Tools: "Ada" stands at (146, 151)
-    And Nelim's Pickle Tools: "Bea" stands at (146, 152)
-    And Nelim's Pickle Tools: "Cai" stands at (146, 153)
+    And Nelim's Pickle Tools: "Ada" stands at (144, 150)
+    And Nelim's Pickle Tools: "Bea" stands at (144, 151)
+    And Nelim's Pickle Tools: "Cai" stands at (144, 152)
     And Nelim's Pickle Tools: "Ada" waits in place
     And Nelim's Pickle Tools: "Bea" waits in place
     And Nelim's Pickle Tools: "Cai" waits in place
@@ -53,19 +53,19 @@ Feature: RimScent Extended scanner regressions
     And "Cai" thought "RimScent_CampfireScent" mood offset is above 2
 
   Scenario: temperature changes the strength of a scent
-    # Three rooms, one campfire and one pawn each. A scent memory is made once per exposure, so each temperature needs its own pawn.
-    Given Nelim's Pickle Tools: a closed roofed room is built at (144, 149) of 12 by 9
-    And Nelim's Pickle Tools: a closed roofed room is built at (160, 149) of 12 by 9
-    And Nelim's Pickle Tools: I place the decor "Campfire" at (150, 153)
-    And Nelim's Pickle Tools: I place the decor "Campfire" at (166, 153)
-    And Nelim's Pickle Tools: the building "Campfire" at (150, 153) is fuelled
-    And Nelim's Pickle Tools: the building "Campfire" at (166, 153) is fuelled
-    And Nelim's Pickle Tools: the room at (146, 151) is held at -10 degrees
-    And Nelim's Pickle Tools: the room at (162, 151) is held at 45 degrees
+    # Two rooms, one campfire and one pawn each. A scent memory is made once per exposure, so each temperature needs its own pawn.
+    Given Nelim's Pickle Tools: a closed roofed room is built at (144, 149) of 5 by 5
+    And Nelim's Pickle Tools: a closed roofed room is built at (144, 157) of 5 by 5
+    And Nelim's Pickle Tools: I place the decor "Campfire" at (147, 152)
+    And Nelim's Pickle Tools: I place the decor "Campfire" at (147, 160)
+    And Nelim's Pickle Tools: the building "Campfire" at (147, 152) is fuelled
+    And Nelim's Pickle Tools: the building "Campfire" at (147, 160) is fuelled
+    And Nelim's Pickle Tools: the room at (144, 150) is held at -10 degrees
+    And Nelim's Pickle Tools: the room at (144, 158) is held at 45 degrees
     And a colonist "Ada" exists
     And a colonist "Bea" exists
-    And Nelim's Pickle Tools: "Ada" stands at (146, 151)
-    And Nelim's Pickle Tools: "Bea" stands at (162, 151)
+    And Nelim's Pickle Tools: "Ada" stands at (144, 150)
+    And Nelim's Pickle Tools: "Bea" stands at (144, 158)
     And Nelim's Pickle Tools: "Ada" waits in place
     And Nelim's Pickle Tools: "Bea" waits in place
     When I wait 600 ticks
@@ -76,12 +76,12 @@ Feature: RimScent Extended scanner regressions
 
   Scenario: with temperature off the scent keeps its base strength
     Given Nelim's Pickle Tools: I set the option "temperatureEnabled" of the mod "nelim.rimscent.extended" to "False"
-    And Nelim's Pickle Tools: a closed roofed room is built at (144, 149) of 12 by 9
-    And Nelim's Pickle Tools: I place the decor "Campfire" at (150, 153)
-    And Nelim's Pickle Tools: the building "Campfire" at (150, 153) is fuelled
-    And Nelim's Pickle Tools: the room at (146, 151) is held at 45 degrees
+    And Nelim's Pickle Tools: a closed roofed room is built at (144, 149) of 5 by 5
+    And Nelim's Pickle Tools: I place the decor "Campfire" at (147, 152)
+    And Nelim's Pickle Tools: the building "Campfire" at (147, 152) is fuelled
+    And Nelim's Pickle Tools: the room at (144, 150) is held at 45 degrees
     And a colonist "Ada" exists
-    And Nelim's Pickle Tools: "Ada" stands at (146, 151)
+    And Nelim's Pickle Tools: "Ada" stands at (144, 150)
     And Nelim's Pickle Tools: "Ada" waits in place
     When I wait 600 ticks
     Then "Ada" thought "RimScent_CampfireScent" mood offset is above 2.5

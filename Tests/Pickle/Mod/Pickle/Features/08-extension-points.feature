@@ -11,21 +11,21 @@ Feature: RimScent Extended extension points and native scan additions
     And Nelim's Pickle Tools: the settings of the mod "nelim.rimscent.extended" are sandboxed at their defaults
 
   Scenario: corpses and spoiled food use their rot-stage thoughts
-    Given Nelim's Pickle Tools: a closed roofed room is built at (144, 149) of 12 by 9
-    And Nelim's Pickle Tools: a rotting corpse of the kind "Muffalo" is placed at (150, 153)
-    And Nelim's Pickle Tools: the thing "MealSimple" is placed at (152, 153) at 1 of its time to rot
+    Given Nelim's Pickle Tools: a closed roofed room is built at (144, 149) of 5 by 5
+    And Nelim's Pickle Tools: a rotting corpse of the kind "Muffalo" is placed at (147, 152)
+    And Nelim's Pickle Tools: the thing "MealSimple" is placed at (146, 152) at 1 of its time to rot
     And a colonist "Ada" exists
-    And Nelim's Pickle Tools: "Ada" stands at (146, 151)
+    And Nelim's Pickle Tools: "Ada" stands at (144, 150)
     And Nelim's Pickle Tools: "Ada" waits in place
     When I wait 600 ticks
     Then Nelim's Pickle Tools: "Ada" has the thought "RimScentExtended_Scent_CorpseRotting"
     And Nelim's Pickle Tools: "Ada" has the thought "RimScentExtended_Scent_RottenFood"
 
   Scenario: a fresh corpse smells of fresh death, not of rot
-    Given Nelim's Pickle Tools: a closed roofed room is built at (144, 149) of 12 by 9
-    And Nelim's Pickle Tools: a fresh corpse of the kind "Muffalo" is placed at (150, 153)
+    Given Nelim's Pickle Tools: a closed roofed room is built at (144, 149) of 5 by 5
+    And Nelim's Pickle Tools: a fresh corpse of the kind "Muffalo" is placed at (147, 152)
     And a colonist "Ada" exists
-    And Nelim's Pickle Tools: "Ada" stands at (146, 151)
+    And Nelim's Pickle Tools: "Ada" stands at (144, 150)
     And Nelim's Pickle Tools: "Ada" waits in place
     When I wait 600 ticks
     Then Nelim's Pickle Tools: "Ada" has the thought "RimScentExtended_Scent_CorpseFresh"
