@@ -1,0 +1,232 @@
+name: publish to Steam, then tag (approval gated)
+# Generated from Rimworld-Release-Admin/scripts/templates/publish-workflow. The values of this mod are
+# in .github/publish.config.json; regenerate rather than editing the scripts by hand.
+#
+# Everything that runs comes from the pinned commit: the scripts, the configuration, the change
+# note (PUBLICATION.md) and the release notes (CHANGELOG.md), so a later commit to main cannot change
+# what is uploaded after the dry-run. Only this workflow file itself is read from the dispatched
+# branch.
+#
+# update_preview, update_description, update_title and update_tags are off by default. When on, the
+# dry-run prints what would be sent next to what the public page has now (size and SHA-256 of the image;
+# length, SHA-256 and a line diff of the description; the title; the whole tag list, which replaces the
+# page's) and only a publish run with the same options sends it, after the approval of steam-production.
+# Visibility is never sent.
+#
+# If the upload succeeds and the tag-and-release job fails, use "Re-run failed jobs", never
+# "Re-run all jobs": the second one uploads to Steam again. A publish run also refuses to start
+# when tag v<version> already exists, since that tag is created only after a successful upload.
+"on":
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Branch, tag or commit whose Mod/ directory is uploaded. Publish needs a full 40-character SHA.
+        required: true
+        default: main
+      version:
+        description: Version being published, without the v. The tag v<version> is created after a successful upload.
+        required: true
+      mode:
+        description: Dry-run stages and checks only. Publish needs steam-production approval.
+        required: true
+        default: dry-run
+        type: choice
+        options: [dry-run, publish]
+      update_preview:
+        description: Also replace the header image with Mod/About/Preview.png. Off by default.
+        required: true
+        default: false
+        type: boolean
+      update_description:
+        description: Also replace the Workshop description with the source named in publish.config.json. Off by default.
+        required: true
+        default: false
+        type: boolean
+      update_title:
+        description: Also replace the Workshop title with the <name> of Mod/About/About.xml. Off by default.
+        required: true
+        default: false
+        type: boolean
+      update_tags:
+        description: Also replace the whole tag set with Mod plus one tag per supportedVersions entry of About.xml. Off by default.
+        required: true
+        default: false
+        type: boolean
+concurrency:
+  group: steam-publish
+  cancel-in-progress: false
+permissions:
+  contents: read
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.mode == 'publish' && 'steam-production' || 'release-dry-run' }}
+    outputs:
+      sha: ${{ steps.resolve.outputs.sha }}
+      tags: ${{ steps.tags.outcome }}
+    env:
+      REF: ${{ inputs.ref }}
+      VERSION: ${{ inputs.version }}
+      MODE: ${{ inputs.mode }}
+    steps:
+      - name: Validate the inputs
+        run: |
+          [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-(alpha|beta|rc)\.[0-9]+)?$ ]] || { echo "version must look like 1.2.3 or 1.2.3-beta.1 (alpha, beta or rc), got '$VERSION'" >&2; exit 1; }
+          [[ "$REF" =~ ^[A-Za-z0-9._/-]+$ ]] || { echo "ref contains characters that are not allowed: '$REF'" >&2; exit 1; }
+          # The approval gate comes before this job starts, so a branch or tag name could move
+          # while the run waits for approval. Publishing takes the exact commit the dry-run printed.
+          if [[ "$MODE" == publish && ! "$REF" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "publish needs a full 40-character commit SHA as ref (the dry-run summary prints it), got '$REF'" >&2; exit 1
+          fi
+
+      - name: Check out the commit to publish
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ inputs.ref }}
+          path: release
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Pin the commit and check it is publishable
+        id: resolve
+        working-directory: release
+        run: |
+          sha="$(git rev-parse HEAD)"
+          git merge-base --is-ancestor "$sha" origin/main || { echo "$sha is not on main" >&2; exit 1; }
+          if [[ "$REF" =~ ^[0-9a-f]{40}$ && "$sha" != "$REF" ]]; then
+            echo "checked out $sha but ref asked for $REF" >&2; exit 1
+          fi
+          if existing="$(git rev-parse -q --verify "refs/tags/v$VERSION^{commit}")"; then
+            if [[ "$existing" != "$sha" ]]; then
+              echo "tag v$VERSION already exists on $existing, not on $sha" >&2; exit 1
+            fi
+            if [[ "$MODE" == publish ]]; then
+              echo "tag v$VERSION already exists on this commit, so it was already uploaded. Use 'Re-run failed jobs' on the earlier run if only the release is missing." >&2; exit 1
+            fi
+          fi
+          for required in .github/scripts/steam-publish.mjs .github/publish.config.json; do
+            [[ -f "$required" ]] || { echo "$sha has no $required: publish a commit that contains the workflow files" >&2; exit 1; }
+          done
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+          echo "Publishing $sha as version $VERSION"
+          echo "Commit $sha, version $VERSION, mode $MODE, update_preview=${{ inputs.update_preview }}, update_description=${{ inputs.update_description }}, update_title=${{ inputs.update_title }}, update_tags=${{ inputs.update_tags }}. To publish exactly this commit with these options, dispatch with ref=$sha." >> "$GITHUB_STEP_SUMMARY"
+
+      # The scripts come from the pinned commit but this file comes from the dispatched branch: its blob is logged so that
+      # dispatch-publish.sh refuses a publish when the file changed after the dry-run that was shown.
+      - name: Record the version of this workflow file
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WORKFLOW_REF: ${{ github.workflow_ref }}
+          WORKFLOW_SHA: ${{ github.workflow_sha }}
+        run: |
+          file="${WORKFLOW_REF#"$GITHUB_REPOSITORY/"}"; file="${file%%@*}"
+          blob="$(gh api "repos/$GITHUB_REPOSITORY/contents/$file?ref=$WORKFLOW_SHA" --jq .sha)"
+          [[ "$blob" =~ ^[0-9a-f]{40}$ ]] || { echo "could not read the blob of $file at $WORKFLOW_SHA" >&2; exit 1; }
+          echo "Workflow file $file blob $blob"
+
+      - name: Check the release notes exist
+        # Captured before the pipe: the default shell has no pipefail, so a failing changelog-section.sh would leave the
+        # exit status of head and the dry-run green, then fail after the Steam upload.
+        run: |
+          set -euo pipefail
+          notes="$(bash release/.github/scripts/changelog-section.sh release/CHANGELOG.md "$VERSION")"
+          printf '%s\n' "$notes" | head -5
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22.x'
+
+      # A version can only go up: above every existing tag. A tag that already exists on this commit is the re-run of a
+      # dry-run and is judged by the step that resolved the commit.
+      - name: Check the version follows the last tag
+        working-directory: release
+        run: |
+          if git rev-parse -q --verify "refs/tags/v$VERSION" >/dev/null; then
+            echo "tag v$VERSION already exists (on this commit, checked above): the order is not judged again."
+          else
+            node .github/scripts/version-order.mjs "$VERSION"
+          fi
+
+      # Only when publish.config.json names a build project: rebuilds it, reports any difference with the tracked Mod/,
+      # ships the tracked files. A project that does not compile stops the run.
+      - name: Rebuild and compare the tracked Mod/ (optional)
+        working-directory: release
+        run: bash .github/scripts/build-check.sh
+
+      - name: Install the Steam upload library
+        working-directory: release
+        run: npm install --no-save --ignore-scripts --no-audit --no-fund semantic-release-steam@2.2.0 steam-user@5.3.0 steam-session@1.9.4 @steamdown/core@1.0.0
+
+      - name: Steam login
+        if: inputs.mode == 'publish'
+        uses: RimWorks/mod-ci/.github/actions/steam-login@931aff082d97c7746323da89c840e370f7001915 # v1.10, pinned: it receives the Steam session
+        with:
+          steam-username: ${{ secrets.STEAM_USERNAME }}
+          steam-config-vdf-b64: ${{ secrets.STEAM_CONFIG_VDF_B64 }}
+
+      - name: Stage, check and ${{ inputs.mode == 'publish' && 'upload' || 'dry-run' }}
+        working-directory: release
+        env:
+          TAG_DIR: ${{ github.workspace }}/release
+          DRY_RUN: ${{ inputs.mode == 'publish' && 'false' || 'true' }}
+          UPDATE_PREVIEW: ${{ inputs.update_preview }}
+          UPDATE_DESCRIPTION: ${{ inputs.update_description }}
+          UPDATE_TITLE: ${{ inputs.update_title }}
+          UPDATE_TAGS: ${{ inputs.update_tags }}
+          STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+          STEAM_REFRESH_TOKEN: ${{ secrets.STEAM_REFRESH_TOKEN }}
+        run: node .github/scripts/steam-publish.mjs
+
+      # steamcmd ignores the tags key of workshop.vdf, so the tags are set here through the Steam client protocol and read
+      # back. A failure does not stop the tag and the release (the upload is done): tag-and-release ends red instead.
+      - name: Set the Workshop tags
+        id: tags
+        if: inputs.mode == 'publish' && inputs.update_tags
+        continue-on-error: true
+        working-directory: release
+        env:
+          TAG_DIR: ${{ github.workspace }}/release
+          STEAM_REFRESH_TOKEN: ${{ secrets.STEAM_REFRESH_TOKEN }}
+        run: node .github/scripts/steam-set-tags.mjs
+
+  tag-and-release:
+    needs: publish
+    if: inputs.mode == 'publish'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      VERSION: ${{ inputs.version }}
+      SHA: ${{ needs.publish.outputs.sha }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Check out the published commit
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ needs.publish.outputs.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Create the tag and the GitHub release
+        run: |
+          if existing="$(git rev-parse -q --verify "refs/tags/v$VERSION^{commit}")" && [[ "$existing" != "$SHA" ]]; then
+            echo "tag v$VERSION exists on $existing, not on $SHA" >&2; exit 1
+          fi
+          if gh release view "v$VERSION" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "release v$VERSION already exists, nothing to do"; exit 0
+          fi
+          title="$(node -p "JSON.parse(require('fs').readFileSync('.github/publish.config.json','utf8')).releaseTitle.replace('{version}', process.env.VERSION)")"
+          bash .github/scripts/changelog-section.sh CHANGELOG.md "$VERSION" > "$RUNNER_TEMP/notes.md"
+          # A version with a suffix (1.2.3-beta.1) is a pre-release on GitHub; Steam has no such notion and gets it like any other.
+          flags=()
+          [[ "$VERSION" == *-* ]] && flags+=(--prerelease)
+          gh release create "v$VERSION" --repo "$GITHUB_REPOSITORY" --target "$SHA" \
+            --title "$title" --notes-file "$RUNNER_TEMP/notes.md" ${flags[@]+"${flags[@]}"}
+
+      # The upload, the tag and the release are done; only the Workshop tags failed. Set them with
+      # scripts/steam-apply-tags.mjs of Rimworld-Release-Admin, never by re-running the publish job (it would upload again).
+      - name: Report the Workshop tags failure
+        if: needs.publish.outputs.tags == 'failure'
+        run: |
+          echo "::error::the upload, the tag and the release are done, but the Workshop tags were not set and read back from Steam"
+          exit 1

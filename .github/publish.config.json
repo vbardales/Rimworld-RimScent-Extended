@@ -1,0 +1,16 @@
+{
+  "templateStamp": "ed4669c0a5bf",
+  "workshopId": "3811307392",
+  "packageId": "nelim.rimscent.extended",
+  "releaseTitle": "RimScent Extended {version}",
+  "requirePaths": [
+    "Assemblies/RimScentExtended.dll",
+    "Defs"
+  ],
+  "forbidPaths": [],
+  "previewFile": "About/Preview.png",
+  "galleryDir": "Art/Gallery",
+  "build": {
+    "project": "Source/RimScentExtended.csproj"
+  }
+}

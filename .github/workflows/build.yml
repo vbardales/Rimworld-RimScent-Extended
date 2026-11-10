@@ -1,0 +1,34 @@
+name: build
+"on":
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
+        with:
+          dotnet-version: '8.0.x'
+      # Reference assemblies come from NuGet (Krafs.Rimworld.Ref): no RimWorld installation is needed to compile.
+      # The project is build.project of .github/publish.config.json, the files to find afterwards are its requirePaths.
+      - name: Build from scratch and check what the mod ships
+        run: bash .github/scripts/build-check.sh --ci
+  # The mod's offline suite (Tests/Test-Mod.ps1: shared checks, then its Rule-*.ps1). It needs Windows PowerShell and Windows paths.
+  # Check-DefRefs, Check-PatchTargets and Check-ConfigErrors need the game or the Workshop: they SKIP here, loudly. Absent script = job does nothing.
+  mod-tests:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Offline suite
+        if: ${{ hashFiles('Tests/Test-Mod.ps1') != '' }}
+        shell: powershell
+        run: ./Tests/Test-Mod.ps1
