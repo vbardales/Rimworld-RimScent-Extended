@@ -61,6 +61,7 @@ Feature: RimScent Extended extension points and native scan additions
     Then Nelim's Pickle Tools: "Ada" has no thought "RSE_Test_BodyScent_Unmet"
 
   # The diffuser RSE_Test_AromaDiffuser puts RSE_Test_Aroma, which fades after 1500 ticks: still held after 3200 ticks means the scan refreshed it.
+  @timeout:30
   Scenario: a scent hediff is refreshed while exposure continues
     Given Nelim's Pickle Tools: a closed roofed room is built at (144, 149) of 5 by 5
     And Nelim's Pickle Tools: the building "RSE_Test_AromaDiffuser" is spawned at (147, 152)
