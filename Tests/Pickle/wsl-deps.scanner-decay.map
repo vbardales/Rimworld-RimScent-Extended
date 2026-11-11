@@ -2,6 +2,8 @@
 reo.RimScent                     3645569466
 nelim.pickletools.colonistrace path:PickleTools/ColonistRace/Mod
 nelim.pickletools.stagedecor path:PickleTools/StageDecor/Mod
+nelim.pickletools.coatsteps path:PickleTools/CoatSteps/Mod
+nelim.pickletools.screenshotstudio path:PickleTools/ScreenshotStudio/Mod
 nelim.rimscent.extended.decay path:RimScentExtendedDecayExpansion/Mod
 # The bundle is committed under PickleTools/Mod: this shell replaces it, so the tools above are the only copy of their steps (see StandaloneBase).
 nelim.pickletools   path:PickleTools/Tests/Pickle/StandaloneBase/Mod

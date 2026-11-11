@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Test-only: the pawn scent extension on two animal races, one above its threshold and one below. -->
+
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>/Defs/ThingDef[defName="Chinchilla"]</xpath>
+    <value>
+      <li Class="RimScentExtended.ModExtension_PawnScent">
+        <thought>RSE_Test_BodyScent_Met</thought>
+        <aboveStat>MoveSpeed</aboveStat>
+        <aboveValue>0.01</aboveValue>
+      </li>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>/Defs/ThingDef[defName="Squirrel"]</xpath>
+    <value>
+      <li Class="RimScentExtended.ModExtension_PawnScent">
+        <thought>RSE_Test_BodyScent_Unmet</thought>
+        <aboveStat>MoveSpeed</aboveStat>
+        <aboveValue>1000</aboveValue>
+      </li>
+    </value>
+  </Operation>
+
+</Patch>

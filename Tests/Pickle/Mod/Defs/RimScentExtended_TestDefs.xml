@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Test-only defs for feature 08 (extension points). Never shipped: this companion mod is
+       development-only. Each def exercises one extension of RimScent Extended that no shipped
+       mod provides on its own. -->
+
+  <!-- Pawn scent with a stat threshold: two thoughts, one per animal race. -->
+  <ThoughtDef>
+    <defName>RSE_Test_BodyScent_Met</defName>
+    <durationDays>0.1</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>test body scent, threshold met</label>
+        <description>Test only. The animal's stat is above its threshold.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>RSE_Test_BodyScent_Unmet</defName>
+    <durationDays>0.1</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>test body scent, threshold unmet</label>
+        <description>Test only. The animal's stat stays below its threshold.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- Scent hediff: a diffuser that puts the hediff on whoever breathes it. The hediff fades
+       after 1500 ticks, longer than the default scan interval of 500, so it is present only
+       while the scan refreshes it. -->
+  <HediffDef>
+    <defName>RSE_Test_Aroma</defName>
+    <label>test aroma</label>
+    <description>Test only. Put by a test diffuser, refreshed while the exposure continues.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>1500</disappearsAfterTicks>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>RSE_Test_AromaDiffuser</defName>
+    <label>test aroma diffuser</label>
+    <description>Test only. Diffuses RSE_Test_Aroma.</description>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <graphicData>
+      <texPath>Things/Building/Linked/Sandbags_MenuIcon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>14</pathCost>
+    <fillPercent>0.4</fillPercent>
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <WorkToBuild>100</WorkToBuild>
+    </statBases>
+    <size>(1,1)</size>
+    <modExtensions>
+      <li Class="RimScentExtended.ModExtension_ScentHediff">
+        <hediff>RSE_Test_Aroma</hediff>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- Terrain scent: counted per tile, gated by temperature. -->
+  <ThoughtDef>
+    <defName>RSE_Test_SmellyFloor</defName>
+    <durationDays>0.1</durationDays>
+    <stackLimit>3</stackLimit>
+    <stages>
+      <li>
+        <label>test smelly floor</label>
+        <description>Test only. The floor smells, once per tile up to the stack limit, when it is warm.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <TerrainDef>
+    <defName>RSE_Test_SmellyFloor</defName>
+    <label>test smelly floor</label>
+    <description>Test only. Smells above 30 degrees.</description>
+    <texturePath>Terrain/Surfaces/StrawMatting</texturePath>
+    <edgeType>Hard</edgeType>
+    <renderPrecedence>240</renderPrecedence>
+    <layerable>true</layerable>
+    <affordances>
+      <li>Light</li>
+      <li>Medium</li>
+      <li>Heavy</li>
+      <li>Walkable</li>
+    </affordances>
+    <fertility>0</fertility>
+    <canEverTerraform>false</canEverTerraform>
+    <modExtensions>
+      <li Class="RimScentExtended.ModExtension_TerrainScent">
+        <thought>RSE_Test_SmellyFloor</thought>
+        <aboveTemperature>30</aboveTemperature>
+      </li>
+    </modExtensions>
+  </TerrainDef>
+
+  <!-- Spoiled food: a rottable item that stays when it spoils (vanilla food has rotDestroys
+       true and is destroyed on the spot). -->
+  <ThingDef ParentName="OrganicProductBase">
+    <defName>RSE_Test_SpoilingCrate</defName>
+    <label>test spoiling crate</label>
+    <description>Test only. A rottable item that stays in place once spoiled.</description>
+    <thingCategories>
+      <li>Foods</li>
+    </thingCategories>
+    <graphicData>
+      <texPath>Things/Item/Resource/Kibble</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>1</MarketValue>
+      <Mass>0.1</Mass>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>1</daysToRotStart>
+        <rotDestroys>false</rotDestroys>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

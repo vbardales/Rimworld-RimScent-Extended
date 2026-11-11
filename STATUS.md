@@ -25,12 +25,13 @@ remaining:
   - done: ticket 20261103-101656-405-c1c5 (P2 removal-check refile on PickleTools b020d19) green, 1 of 1 (summary.json exitReason "passed"), evidence ../PickleTools/Tests/Pickle/Inbox/removal-check-p2. Whole save chain of feature 06 green (f322, c1c5, 8d06).
   - done: ticket 20261110-202434-134-c973, feature 04 green on 5 of 6 scenarios (summary.json exitReason passed, junit no failure), evidence Tests/Pickle/Evidence/04-scanner; the sixth ("an indoor pawn only scans their own room") stays @wip, step for an opening between two rooms asked of NPT (PiT).
   - done: ticket 20261110-203630-043-bb5a, feature 08 corpse scenarios green, 2 of 2 (summary.json exitReason passed, junit no failure), evidence Tests/Pickle/Evidence/08-corpses. Spoiled food scenario is @wip: suspected vanilla rotDestroys (meal destroyed on spoil), unverified, needs a rottable test-only def in the companion mod; red runs c5f6 and f5e4. Other @wip in 08: pawn scent stat threshold, scent hediff, terrain scent (test-only defs).
-  - waiting: feature 04 "an indoor pawn only scans their own room" on the NPT two-room step, ticket 20261110-203819-188-133e at (144, 149) rooms 3 by 7 (fallback (68, 89) 5 by 5, free rectangle in PickleTools/docs/FIXTURES.md); run 2447 red for rock at (78, 84).
+  - done: ticket 20261110-203819-188-133e, feature 04 "an indoor pawn only scans their own room" green, 1 of 1 (summary.json exitReason passed, junit no failure) on the NPT two-room step at (144, 149) rooms 3 by 7; evidence Tests/Pickle/Evidence/04-indoor. Feature 04 now 6 of 6 (c973 + 133e); run 2447 had been red for rock at (78, 84).
+  - waiting: ticket 20261111-180540-546-5e5e, feature 08 test-only defs (companion mod Defs/Patches: RSE_Test_SpoilingCrate, Chinchilla/Squirrel pawn scent, RSE_Test_AromaDiffuser + RSE_Test_Aroma, RSE_Test_SmellyFloor terrain) on 7 scenarios: spoiled food, pawn scent met/unmet, scent hediff refresh, terrain scent 1 tile / 3 tiles / cold; map wsl-deps.scanner-decay.map now stages coatsteps and screenshotstudio; Check-Steps clean. Tree is uncommitted.
   - done: Preview regenerated 2026-11-03 (echo without width/height; icon trimmed to Art/ModIcon-badge.png, margin over 5 %); echo visible, no clipping, no overlap with title. Social preview upload and social_preview_sha256 still due from writeDocs.
   - unverified: no RimWorld session was launched; runtime behavior, persistence, EN/FR layout, logs, and integrations remain unverified.
   - unverified: eight Pickle/Gherkin features are written and compiled but none has run; five remain @wip pending fixture-generation ticket or missing observer/sandbox steps.
 updated: 2026-11-10, Inbox triaged (4 green runs to Evidence, 4 refused deleted), Check-Mod.ps1 converted to Rule-OwnValues.ps1, TRANSLATION_REVIEW.md
-protocols_read_sha: bb358b6156e8f6d95311ae980e29c033035ede21
+protocols_read_sha: 59fe5e31f72080b4c3b4656148d8069c6f0e6be3
 ---
 
 # RimScent Extended — status
