@@ -27,13 +27,13 @@ remaining:
   - done: ticket 20261110-203630-043-bb5a, feature 08 corpse scenarios green, 2 of 2 (summary.json exitReason passed, junit no failure), evidence Tests/Pickle/Evidence/08-corpses. Spoiled food scenario is @wip: suspected vanilla rotDestroys (meal destroyed on spoil), unverified, needs a rottable test-only def in the companion mod; red runs c5f6 and f5e4. Other @wip in 08: pawn scent stat threshold, scent hediff, terrain scent (test-only defs).
   - done: ticket 20261110-203819-188-133e, feature 04 "an indoor pawn only scans their own room" green, 1 of 1 (summary.json exitReason passed, junit no failure) on the NPT two-room step at (144, 149) rooms 3 by 7; evidence Tests/Pickle/Evidence/04-indoor. Feature 04 now 6 of 6 (c973 + 133e); run 2447 had been red for rock at (78, 84).
   - done: ticket 20261111-180540-546-5e5e, feature 08 test-only defs (companion mod Defs/Patches), 6 of 7 green (summary.json exitReason failed, junit): spoiled food, pawn scent met/unmet, terrain scent 1 tile / 3 tiles / cold; evidence Tests/Pickle/Inbox/08-defs (to triage into Evidence at the next green). Red: "a scent hediff is refreshed while exposure continues", "Step 'When I wait 3200 ticks' timed out after 5s" (step timeout, not an assertion).
-  - waiting: ticket 20261111-183106-627-76c2, replay of that one scenario with `@timeout:30` on the Scenario line (feature 08, map wsl-deps.scanner-decay.map); evidence Tests/Pickle/Inbox/08-hediff. Tree uncommitted (feature 08 tag, test defs).
+  - done: ticket 20261111-183106-627-76c2, replay of "a scent hediff is refreshed while exposure continues" with `@timeout:30` (feature 08, map wsl-deps.scanner-decay.map) green, 1 of 1 (summary.json exitReason passed, junit no failure), evidence Tests/Pickle/Evidence/08-hediff. With 5e5e (Evidence/08-defs, 6 green) feature 08 is 7 of 7 green; no @wip left in any feature. Inbox empty, checked 2026-11-12.
   - done: Preview regenerated 2026-11-03 (echo without width/height; icon trimmed to Art/ModIcon-badge.png, margin over 5 %); echo visible, no clipping, no overlap with title. Social preview upload and social_preview_sha256 still due from writeDocs.
   - open: uncommitted in the tree, not from this session: `Art/Preview.config.json` (`icon.file` ModIcon-badge.png to ModIcon-source.png), `Art/ModIcon-badge.png` deleted, `Art/.render/`, `Build/`, `Mod/About/PublishedFileId.txt`. Owner to say: regenerate the Preview and commit, or revert (AGENTS.md, config change told to Virginie).
   - unverified: no RimWorld session was launched; runtime behavior, persistence, EN/FR layout, logs, and integrations remain unverified.
   - unverified: eight Pickle/Gherkin features are written and compiled but none has run; five remain @wip pending fixture-generation ticket or missing observer/sandbox steps.
-updated: 2026-11-10, Inbox triaged (4 green runs to Evidence, 4 refused deleted), Check-Mod.ps1 converted to Rule-OwnValues.ps1, TRANSLATION_REVIEW.md
-protocols_read_sha: 7692726a64c9f7bef765e2952510d99117e468bc
+updated: 2026-11-12, ticket 76c2 green, Inbox triaged into Evidence (08-defs, 08-hediff), protocols read at 9481d09
+protocols_read_sha: 9481d090854f082b638e84ad647a202fec7de6d2
 ---
 
 # RimScent Extended — status
