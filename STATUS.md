@@ -1,7 +1,7 @@
 ---
 localization: complete
 translation_en: complete
-translation_fr: pending_review
+translation_fr: complete
 settings_audit: partial
 mod: RimScent Extended
 packageId: nelim.rimscent.extended
@@ -9,7 +9,7 @@ repo: Rimworld-RimScent-Extended
 remote: https://github.com/vbardales/Rimworld-RimScent-Extended.git
 visibility: public
 detached: yes
-workflow_stage: localize[1.0.0]
+workflow_stage: writeTests[1.0.0]
 licence: open
 licence_at: upstream repository, MIT, copyright ocarina0001 2026
 upstream_mod_remotes:
@@ -20,7 +20,6 @@ showcase: complete
 tested_on:
 workshop:
 remaining:
-  - open: 6.g replay 2026-11-12: the ChatGPT reviews of 2026-11-03 ran with the wrong page header (AUDIT 6.g, 2026-11-11). Redo: regenerate TRANSLATION_REVIEW.md once (Make-TranslationReview.ps1), commit, /review-translation pages 1..N on that frozen text (also PUBLICATION.md, CHANGELOG.md, README.md), refusals in Docs/review-refusals.md, then Virginie validates; translation_fr stays pending_review until then. Features 01 to 08 stay green and kept.
   - open: 7.d features 05, 06, 06b, 07 rewritten on generic steps (Check-Steps clean); 04 and 08 (46 lines) wait for NPT probe ticket adee (trait degree, room temperature, fuel, corpse/food rot, static member). Mod-removal pass of 06: pass 2 hosted by PickleTools removal-check.feature (NPT, not yet played; map wsl-deps.removal-pass2.map here), chain: 06 copies the save to the run folder, copy it to the fixtures of both mods, then PickleTools pass, then 06b. No local step.
   - done: ticket 3dce, feature 07 French, 2 of 2 green (summary.json and junit agree), evidence Tests/Pickle/Evidence/07-french; the two @review screenshots are not yet opened, 07 English not played (translation report only for non-English).
   - done: ticket 45bb, feature 05 scenario 1 green on NPT fix 472f955 (summary.json and junit agree), evidence Tests/Pickle/Evidence/05-fifth; scenario 2 green in 45c2. Feature 05 proved.
@@ -37,8 +36,8 @@ remaining:
   - open: uncommitted in the tree, not from this session: `Art/Preview.config.json` (`icon.file` ModIcon-badge.png to ModIcon-source.png), `Art/ModIcon-badge.png` deleted, `Art/.render/`, `Build/`, `Mod/About/PublishedFileId.txt`. Owner to say: regenerate the Preview and commit, or revert (AGENTS.md, config change told to Virginie).
   - unverified: no RimWorld session was launched; runtime behavior, persistence, EN/FR layout, logs, and integrations remain unverified.
   - unverified: eight Pickle/Gherkin features are written and compiled but none has run; five remain @wip pending fixture-generation ticket or missing observer/sandbox steps.
-updated: 2026-11-12, replay-audit (stage localize, 6.g review to redo), ticket 76c2 green, Inbox triaged into Evidence (08-defs, 08-hediff), protocols read at 9481d09
-protocols_read_sha: 853b38de0f5a5558aa6e28078d550dbab5b2e759
+updated: 2026-11-12, 6.g redone and validated by Virginie, stage writeTests, ticket 76c2 green, protocols read at 853b38d
+protocols_read_sha: 007e0b122a4c6c53162804fe97034c68a85d8be4
 ---
 
 # RimScent Extended — status
@@ -130,7 +129,7 @@ or inherited and not in its inventory, `Check-DefInjected.ps1` was not usable fo
 checked), so those two paths stay `unverified`. 6.d French read sentence by sentence: no tu, vous
 or nous, impersonal and infinitive forms, no gendered text. 6.e not applicable (no pawn-agreeing
 text). 6.f `TRANSLATION_REVIEW.md` generated at revision 998f372 by `Make-FrenchReview.ps1`. 6.g French
-review by Virginie done 2026-11-03 (`translation_fr: complete`): reviewer Virginie, revision 50a38ee (`TRANSLATION_REVIEW.md` generated at 23961e1), corrections = the ChatGPT fixes below, accepted by her; sixth ChatGPT review found nothing. ChatGPT review of page 1 (2026-11-03): one fix applied with her agreement (`fermenting_wort` description, now "Quelque chose se prépare."); the `PUBLICATION.md` remark is moot until `writeDocs`. Second ChatGPT review of page 1 (2026-11-03): two fixes applied (`PleasantTip`: "ce qui correspond à la réalité", "d'en installer une"); third ChatGPT review: two fixes applied (`Hours`: "nécessaires pour atteindre ce seuil", `worn_scent` description: "a appliqué quelque chose. C'est discret, délibéré et efficace."), `AdaptationTip` rewording left out (original already natural). Fourth review: `TemperatureTip` reworded ("atteint 40 % de sa force ... 100 % à 20 °C"), applied; the empty Original and English columns for `RimScent_FreshOxygen` come from RimScent's own text, French unchanged. Fifth review: `TemperatureTip` "Cela s'applique aux bonnes comme aux mauvaises odeurs" applied. The optional `TemperatureTip` rewording ("L'intensité d'une odeur est de 40 %") left out because it breaks the parallel with "sa pleine force" and "160 %".
+review by Virginie done 2026-11-03 (`translation_fr: complete`): reviewer Virginie, revision 50a38ee (`TRANSLATION_REVIEW.md` generated at 23961e1), corrections = the ChatGPT fixes below, accepted by her; sixth ChatGPT review found nothing. **6.g redone 2026-11-12** (header fix of 2026-11-11): three ChatGPT runs on the frozen `TRANSLATION_REVIEW.md` (page 1 of 1): README "foundation" and "only one of" applied, two refusals logged in `Docs/review-refusals.md` (FreshOxygen source columns, worn_scent style change), `PUBLICATION.md` absent until writeDocs; French validated by Virginie 2026-11-12 (message in session), revision 6ad836a, corrections none. The "Review line (Virginie only)" table of `TRANSLATION_REVIEW.md` is left to her. ChatGPT review of page 1 (2026-11-03): one fix applied with her agreement (`fermenting_wort` description, now "Quelque chose se prépare."); the `PUBLICATION.md` remark is moot until `writeDocs`. Second ChatGPT review of page 1 (2026-11-03): two fixes applied (`PleasantTip`: "ce qui correspond à la réalité", "d'en installer une"); third ChatGPT review: two fixes applied (`Hours`: "nécessaires pour atteindre ce seuil", `worn_scent` description: "a appliqué quelque chose. C'est discret, délibéré et efficace."), `AdaptationTip` rewording left out (original already natural). Fourth review: `TemperatureTip` reworded ("atteint 40 % de sa force ... 100 % à 20 °C"), applied; the empty Original and English columns for `RimScent_FreshOxygen` come from RimScent's own text, French unchanged. Fifth review: `TemperatureTip` "Cela s'applique aux bonnes comme aux mauvaises odeurs" applied. The optional `TemperatureTip` rewording ("L'intensité d'une odeur est de 40 %") left out because it breaks the parallel with "sa pleine force" and "160 %".
 
 ## Dependency record (4.g): 2026-11-03, revision 169a9f5
 
