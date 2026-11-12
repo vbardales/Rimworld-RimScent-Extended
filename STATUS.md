@@ -20,7 +20,7 @@ showcase: complete
 tested_on:
 workshop:
 remaining:
-  - unverified: no ticket proves an in-game look of the EN layout (07 English not played, translation report only for non-English) and the two @review screenshots of 07 French are not yet opened: playTests 8.d.
+  - waiting: ticket 20261112-182225-106-988e, feature 07 French replay (map wsl-deps.settings-language.map, label 9f41d01): the French text changed after the 2026-11-03 run (screenshots show the old "pour y arriver"); evidence Tests/Pickle/Inbox/07-french, then open the @review captures (8.d). 07 English not played (translation report only for non-English). Keep the tree frozen until RUN_DONE.
   - done: ticket 3dce, feature 07 French, 2 of 2 green (summary.json and junit agree), evidence Tests/Pickle/Evidence/07-french; the two @review screenshots are not yet opened, 07 English not played (translation report only for non-English).
   - done: ticket 45bb, feature 05 scenario 1 green on NPT fix 472f955 (summary.json and junit agree), evidence Tests/Pickle/Evidence/05-fifth; scenario 2 green in 45c2. Feature 05 proved.
   - done: ticket f322 (P1, feature 06) green, 1 of 1 (summary.json and junit agree), evidence Tests/Pickle/Evidence/06-p1; save copied to Fixtures here and to ../PickleTools removal-check.rws (git-ignored).
