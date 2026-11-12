@@ -25,7 +25,7 @@ were split apart, and many decisions answer each other across themes.
 ## Translation
 
 The foundation translates only what RimScent leaves in English in its own core:
-`RimScent_FreshOxygen`, the one of its 35 thoughts that is not translated upstream.
+`RimScent_FreshOxygen`, the only one of its 35 thoughts that is not translated upstream.
 
 Translations for the two official expansions — neither has a `Languages` folder — are carried by
 the mods that extend them: the Incense Expansion by **Incense Plus**, the Perfume Expansion by
