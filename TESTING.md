@@ -1,12 +1,14 @@
 # Functional validation scenarios
 
-These scenarios are **not executed in game**. They define the `done -> tested` evidence only;
-they do not turn source inspection or a successful build into an in-game claim. Use RimWorld 1.6,
-Harmony, RimScent, and this mod's delivered DLL. Record the commit, language, mod list, save
-identity, expected and observed results, and the relevant Player.log excerpt for every run.
+These scenarios are played by Pickle, never by hand: the features of
+`Tests/Pickle/Mod/Pickle/Features/` (01 loading, 02 and 03 settings and shortcut, 04 engine
+regressions, 05 settings persistence, 06 and 06b save compatibility and reload, 07 language
+regression, 08 extension points) set the state and capture it, and the session studies the
+captures (`@review`). A green run shows that the path ran, nothing more. The delivered DLL is the
+one Pickle mounts from the working tree. Record the commit, language, mod list, expected and
+observed results, and the relevant Player.log excerpt for every run.
 
-Run the settings scenarios in separate English and French launches. Use a new disposable colony
-for behavior checks and a copy of any existing save; never overwrite the only save copy.
+A scenario that a capture proves poorly is not applicable, with the reason written next to it.
 
 | Scenario | Preconditions and actions | Expected result |
 | --- | --- | --- |

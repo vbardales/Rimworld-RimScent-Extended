@@ -9,7 +9,7 @@ repo: Rimworld-RimScent-Extended
 remote: https://github.com/vbardales/Rimworld-RimScent-Extended.git
 visibility: public
 detached: yes
-workflow_stage: writeTests[1.0.0]
+workflow_stage: playTests[1.0.0]
 licence: open
 licence_at: upstream repository, MIT, copyright ocarina0001 2026
 upstream_mod_remotes:
@@ -20,7 +20,7 @@ showcase: complete
 tested_on:
 workshop:
 remaining:
-  - open: 7.d features 05, 06, 06b, 07 rewritten on generic steps (Check-Steps clean); 04 and 08 (46 lines) wait for NPT probe ticket adee (trait degree, room temperature, fuel, corpse/food rot, static member). Mod-removal pass of 06: pass 2 hosted by PickleTools removal-check.feature (NPT, not yet played; map wsl-deps.removal-pass2.map here), chain: 06 copies the save to the run folder, copy it to the fixtures of both mods, then PickleTools pass, then 06b. No local step.
+  - unverified: no ticket proves an in-game look of the EN layout (07 English not played, translation report only for non-English) and the two @review screenshots of 07 French are not yet opened: playTests 8.d.
   - done: ticket 3dce, feature 07 French, 2 of 2 green (summary.json and junit agree), evidence Tests/Pickle/Evidence/07-french; the two @review screenshots are not yet opened, 07 English not played (translation report only for non-English).
   - done: ticket 45bb, feature 05 scenario 1 green on NPT fix 472f955 (summary.json and junit agree), evidence Tests/Pickle/Evidence/05-fifth; scenario 2 green in 45c2. Feature 05 proved.
   - done: ticket f322 (P1, feature 06) green, 1 of 1 (summary.json and junit agree), evidence Tests/Pickle/Evidence/06-p1; save copied to Fixtures here and to ../PickleTools removal-check.rws (git-ignored).
@@ -32,12 +32,9 @@ remaining:
   - done: ticket 20261110-203819-188-133e, feature 04 "an indoor pawn only scans their own room" green, 1 of 1 (summary.json exitReason passed, junit no failure) on the NPT two-room step at (144, 149) rooms 3 by 7; evidence Tests/Pickle/Evidence/04-indoor. Feature 04 now 6 of 6 (c973 + 133e); run 2447 had been red for rock at (78, 84).
   - done: ticket 20261111-180540-546-5e5e, feature 08 test-only defs (companion mod Defs/Patches), 6 of 7 green (summary.json exitReason failed, junit): spoiled food, pawn scent met/unmet, terrain scent 1 tile / 3 tiles / cold; evidence Tests/Pickle/Inbox/08-defs (to triage into Evidence at the next green). Red: "a scent hediff is refreshed while exposure continues", "Step 'When I wait 3200 ticks' timed out after 5s" (step timeout, not an assertion).
   - done: ticket 20261111-183106-627-76c2, replay of "a scent hediff is refreshed while exposure continues" with `@timeout:30` (feature 08, map wsl-deps.scanner-decay.map) green, 1 of 1 (summary.json exitReason passed, junit no failure), evidence Tests/Pickle/Evidence/08-hediff. With 5e5e (Evidence/08-defs, 6 green) feature 08 is 7 of 7 green; no @wip left in any feature. Inbox empty, checked 2026-11-12.
-  - done: Preview regenerated 2026-11-03 (echo without width/height; icon trimmed to Art/ModIcon-badge.png, margin over 5 %); echo visible, no clipping, no overlap with title. Social preview upload and social_preview_sha256 still due from writeDocs.
-  - open: uncommitted in the tree, not from this session: `Art/Preview.config.json` (`icon.file` ModIcon-badge.png to ModIcon-source.png), `Art/ModIcon-badge.png` deleted, `Art/.render/`, `Build/`, `Mod/About/PublishedFileId.txt`. Owner to say: regenerate the Preview and commit, or revert (AGENTS.md, config change told to Virginie).
-  - unverified: no RimWorld session was launched; runtime behavior, persistence, EN/FR layout, logs, and integrations remain unverified.
-  - unverified: eight Pickle/Gherkin features are written and compiled but none has run; five remain @wip pending fixture-generation ticket or missing observer/sandbox steps.
-updated: 2026-11-12, 6.g redone and validated by Virginie, stage writeTests, ticket 76c2 green, protocols read at 853b38d
-protocols_read_sha: 007e0b122a4c6c53162804fe97034c68a85d8be4
+  - done: Preview regenerated 2026-11-03 (echo without width/height; icon from Art/ModIcon-source.png cropped by badge mode 2026-11-12 (0361c8e)); echo visible, no clipping, no overlap with title. Social preview upload and social_preview_sha256 still due from writeDocs.
+updated: 2026-11-12, 7.x closed (checks rerun green, features 01 to 08 written and green, TESTING.md intro), stage playTests, icon badge mode
+protocols_read_sha: ba6b78893666b82100fbbc3d3769fbd913f735bf
 ---
 
 # RimScent Extended — status
