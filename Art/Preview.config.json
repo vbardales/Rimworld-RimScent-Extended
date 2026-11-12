@@ -8,7 +8,7 @@
     "description": "Every colony tells its story through scent."
   },
   "background": { "file": "Preview-source.png" },
-  "icon": { "file": "ModIcon-badge.png" },
+  "icon": { "file": "ModIcon-source.png" },
   "echo": { "file": "echo-preview.png" },
   "palette": {
     "veil": "#30271F",
