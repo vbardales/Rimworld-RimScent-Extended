@@ -14,3 +14,8 @@ evidence/
 pickle-reports/
 pickle-reports-archive/
 Tests/Pickle/Mod/Pickle/Fixtures/
+desktop.ini
+Tests/Pickle/Inbox/
+Tests/Pickle/Parked/
+Build/
+Art/.render/
