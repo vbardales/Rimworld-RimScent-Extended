@@ -1,21 +1,26 @@
 ---
 localization: complete
 translation_en: complete
-translation_fr: complete
+translation_fr: pending_review
 settings_audit: partial
 mod: RimScent Extended
 packageId: nelim.rimscent.extended
 repo: Rimworld-RimScent-Extended
+remote: https://github.com/vbardales/Rimworld-RimScent-Extended.git
 visibility: public
 detached: yes
-workflow_stage: writeTests[1.0.0]
+workflow_stage: localize[1.0.0]
 licence: open
 licence_at: upstream repository, MIT, copyright ocarina0001 2026
+upstream_mod_remotes:
+  - https://github.com/ocarina0001/rimscent
 dependencies: declared
+workshop_required_items: n/a, not released yet
 showcase: complete
 tested_on:
 workshop:
 remaining:
+  - open: 6.g replay 2026-11-12: the ChatGPT reviews of 2026-11-03 ran with the wrong page header (AUDIT 6.g, 2026-11-11). Redo: regenerate TRANSLATION_REVIEW.md once (Make-TranslationReview.ps1), commit, /review-translation pages 1..N on that frozen text (also PUBLICATION.md, CHANGELOG.md, README.md), refusals in Docs/review-refusals.md, then Virginie validates; translation_fr stays pending_review until then. Features 01 to 08 stay green and kept.
   - open: 7.d features 05, 06, 06b, 07 rewritten on generic steps (Check-Steps clean); 04 and 08 (46 lines) wait for NPT probe ticket adee (trait degree, room temperature, fuel, corpse/food rot, static member). Mod-removal pass of 06: pass 2 hosted by PickleTools removal-check.feature (NPT, not yet played; map wsl-deps.removal-pass2.map here), chain: 06 copies the save to the run folder, copy it to the fixtures of both mods, then PickleTools pass, then 06b. No local step.
   - done: ticket 3dce, feature 07 French, 2 of 2 green (summary.json and junit agree), evidence Tests/Pickle/Evidence/07-french; the two @review screenshots are not yet opened, 07 English not played (translation report only for non-English).
   - done: ticket 45bb, feature 05 scenario 1 green on NPT fix 472f955 (summary.json and junit agree), evidence Tests/Pickle/Evidence/05-fifth; scenario 2 green in 45c2. Feature 05 proved.
@@ -32,8 +37,8 @@ remaining:
   - open: uncommitted in the tree, not from this session: `Art/Preview.config.json` (`icon.file` ModIcon-badge.png to ModIcon-source.png), `Art/ModIcon-badge.png` deleted, `Art/.render/`, `Build/`, `Mod/About/PublishedFileId.txt`. Owner to say: regenerate the Preview and commit, or revert (AGENTS.md, config change told to Virginie).
   - unverified: no RimWorld session was launched; runtime behavior, persistence, EN/FR layout, logs, and integrations remain unverified.
   - unverified: eight Pickle/Gherkin features are written and compiled but none has run; five remain @wip pending fixture-generation ticket or missing observer/sandbox steps.
-updated: 2026-11-12, ticket 76c2 green, Inbox triaged into Evidence (08-defs, 08-hediff), protocols read at 9481d09
-protocols_read_sha: 9481d090854f082b638e84ad647a202fec7de6d2
+updated: 2026-11-12, replay-audit (stage localize, 6.g review to redo), ticket 76c2 green, Inbox triaged into Evidence (08-defs, 08-hediff), protocols read at 9481d09
+protocols_read_sha: 853b38de0f5a5558aa6e28078d550dbab5b2e759
 ---
 
 # RimScent Extended — status
