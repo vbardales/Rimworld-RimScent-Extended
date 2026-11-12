@@ -1,6 +1,6 @@
 # RimScent Extended
 
-The socle of the RimScent Extended family: five fixes to the engine of
+The foundation of the RimScent Extended family: five fixes to the engine of
 [RimScent](https://steamcommunity.com/sharedfiles/filedetails/?id=3645569466)
 (reo, ocarina0001), two mechanics it was missing, and three extension points it did not have.
 For RimWorld 1.6.
@@ -24,7 +24,7 @@ were split apart, and many decisions answer each other across themes.
 
 ## Translation
 
-The socle translates only what RimScent leaves in English in its own core:
+The foundation translates only what RimScent leaves in English in its own core:
 `RimScent_FreshOxygen`, the one of its 35 thoughts that is not translated upstream.
 
 Translations for the two official expansions — neither has a `Languages` folder — are carried by
